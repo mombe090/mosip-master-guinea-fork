@@ -24,6 +24,8 @@ spec:
         app: {{ .Values.services.otp.serviceName }} 
         component: {{ .Values.component }} 
     spec:
+      imagePullSecrets:
+      - name: guinea-docker-cred
       initContainers:  # TODO: Temporarily added as a workaround. Duplicate key issue. 
       - name: wait-for-auth
         image: ellerbrock/alpine-bash-curl-ssl

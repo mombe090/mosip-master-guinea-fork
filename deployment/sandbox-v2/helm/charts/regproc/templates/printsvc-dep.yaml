@@ -21,6 +21,8 @@ spec:
       labels:
         app: {{ .Values.services.printsvc.serviceName }} 
     spec:
+      imagePullSecrets:
+      - name: guinea-docker-cred
       containers:
       - name: {{ .Values.services.printsvc.serviceName }} 
         image: {{ .Values.services.printsvc.dockerImage }}
