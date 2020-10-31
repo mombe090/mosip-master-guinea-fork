@@ -136,9 +136,9 @@ softhsm:
 
 repos:
   commons:
-    src: https://github.com/mosip/commons 
+    src: https://github.com/WuriGuinea/mosip-guinea-ref-impl
     dest: '{{tmp_dir}}/commons'
-    tag: 1.0.9
+    tag: dev
   prereg:
     src: https://github.com/mosip/pre-registration
     dest: '{{tmp_dir}}/pre-registration'
