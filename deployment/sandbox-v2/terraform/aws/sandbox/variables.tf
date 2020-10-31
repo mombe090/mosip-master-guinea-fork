@@ -1,5 +1,5 @@
 variable "sandbox_name" { //Change this to your sandbox name.
-  default = "qa"  // This is informational.  A tag will be added with this name.
+  default = "hosur"  // This is informational.  A tag will be added with this name.
 }
 
 variable "region" {
@@ -45,12 +45,6 @@ variable "kube_names" {
      "mzworker0.sb",
      "mzworker1.sb",
      "mzworker2.sb",
-     "mzworker3.sb",
-     "mzworker4.sb",
-     "mzworker5.sb",
-     "mzworker6.sb",
-     "mzworker7.sb",
-     "mzworker8.sb",
      "dmzmaster.sb",
      "dmzworker0.sb"
    ]
