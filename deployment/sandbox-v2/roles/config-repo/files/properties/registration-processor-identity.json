@@ -1,8 +1,14 @@
 {
 	"identity": {
-		"name": {
-			"value": "fullName",
+		"name":  {
+			"value": "firstName,lastName",
 			"isMandatory" : true
+		},
+		"firstName": {
+			"value": "firstName"
+		},
+		"lastName": {
+			"value": "lastName"
 		},
 		"gender": {
 			"value": "gender",
@@ -43,7 +49,7 @@
 			"value" : "age"
 		},
 		"address": {
-			"value" : "addressLine1,addressLine2,addressLine3,region,province,postalCode"
+			"value" : "additionalAddressDetails,sector,district,subPrefectureOrCommune,prefecture,region"
 		},
 		"phone": {
 			"value" : "phone"
@@ -52,16 +58,16 @@
 			"value" : "email"
 		},
 		"localAdministrativeAuthority": {
-			"value" : "localAdministrativeAuthority"
+			"value" : ""
 		},
 		"idschemaversion": {
 			"value" : "IDSchemaVersion"
 		},
 		"cnienumber": {
-			"value" : "CNIENumber"
+			"value" : ""
 		},
 		"city": {
-			"value" : "city"
+			"value" : "district"
 		},
 		"parentOrGuardianBiometrics": {
 			"value" : "parentOrGuardianBiometrics"
@@ -70,4 +76,4 @@
 			"value" : "UIN"
 		}
 	}
-}  
+}
