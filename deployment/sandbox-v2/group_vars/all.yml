@@ -27,7 +27,7 @@ clusters:
   mz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/mzcluster.config" 
     nodeport_node: mzworker0.sb  # Any node on cluster for nodeport access
-    any_node_ip: '10.20.20.157' # ip address of above node
+    any_node_ip: '10.20.20.100' # ip address of above node
     ingress:
       namespace: ingress-nginx
       nodeports:
@@ -59,7 +59,7 @@ clusters:
   dmz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/dmzcluster.config" 
     nodeport_node: dmzworker0.sb  # Any node on cluster for nodeport access
-    any_node_ip: '10.20.20.207' # ip adddress of above node
+    any_node_ip: '10.20.20.200' # ip adddress of above node
     ingress:
       namespace: ingress-nginx
       nodeports:
