@@ -44,7 +44,7 @@
 
 - hosts: console
   vars:
-    force_init: false
+    force_init: true
   roles:  # Run these roles only if db does not exist or if force_init is set to true
      - {role: repos, when: (db_exists == false or force_init|bool == true), tags: [repos]}  # These repos have sql scripts. 
      - {role: postgres-init, when: (db_exists == false or force_init|bool == true),  tags: [postgres-init]} 
