@@ -45,6 +45,12 @@ variable "kube_names" {
      "mzworker0.sb",
      "mzworker1.sb",
      "mzworker2.sb",
+     "mzworker3.sb",
+     "mzworker4.sb",
+     "mzworker5.sb",
+     "mzworker6.sb",
+     "mzworker7.sb",
+     "mzworker8.sb",
      "dmzmaster.sb",
      "dmzworker0.sb"
    ]
