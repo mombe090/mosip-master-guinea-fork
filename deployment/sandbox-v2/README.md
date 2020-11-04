@@ -99,16 +99,6 @@ If your cluster machines use network interface other than "eth0", update it in `
 ```
 network_interface: "eth0"
 ```
-### Ansible vault
-All secrets (passwords) used in this automation are stored in Ansible vault file `secrets.yml`.  The default password to access the file is 'foo'.  It is recommended that you change this password with following command:
-```
-$ av rekey secrets.yml
-```
-You may view and edit the contents of `secrets.yml`:
-```
-$ av view secrets.yml
-$ av edit secrets.yml
-```
 
 ### MOSIP configuration
 Configure MOSIP as per [MOSIP Configuration Guide](docs/mosip_configuration_guide.md).
