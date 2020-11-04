@@ -94,6 +94,18 @@ ssl:
   certificate: <certificate dir>
   certificate_key: <private key path> 
 ```
+
+* Set **private ip** address of `mzworker0.sb` and `dmzworker0.sb` in `group_vars/all.yml`:
+
+```
+clusters:
+  mz:
+    any_node_ip: '<mzworker0.sb ip>'
+
+clusters:
+  dmz:
+    any_node_ip: '<dmzworker0.sb ip>'
+```
 ### Network interface
 If your cluster machines use network interface other than "eth0", update it in `group_vars/mzcluster.yml` and `group_vars/dmzcluster.yml`:
 ```
