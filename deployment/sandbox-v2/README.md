@@ -94,7 +94,11 @@ ssl:
   certificate: <certificate dir>
   certificate_key: <private key path> 
 ```
-
+* Get the ips of mzworker0.sb and dmzworker0.sb
+```
+ping mzworker0.sb
+ping dmzworker0.sb
+```
 * Set **private ip** address of `mzworker0.sb` and `dmzworker0.sb` in `group_vars/all.yml`:
 
 ```

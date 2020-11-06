@@ -40,7 +40,7 @@ versions:
       datasync:
         'prereg-datasync-service': 'mosipid/pre-registration-datasync-service:1.1.1'
       demographic:
-        'prereg-demographic-service':  'wuriguinea/pre-registration-demographic-service:1.1.1'
+        'prereg-demographic-service':  'wuriguinea/pre-registration-demographic-service:UNIR_1.0.0'
       notification:
         'prereg-notification-service': 'wuriguinea/pre-registration-notification-service:1.1.1'
       captcha:
@@ -61,7 +61,7 @@ versions:
       validator:
         'regproc-packet-validator-stage': 'mosipid/registration-processor-packet-validator-stage:1.1.1'
       osi:
-        'regproc-osi-validator-stage': 'wuriguinea/registration-processor-osi-validator-stage:1.1.1'
+        'regproc-osi-validator-stage': 'wuriguinea/registration-processor-osi-validator-stage:UNIR_1.0.0'
       demo:
         'regproc-demo-dedupe-stage': 'mosipid/registration-processor-demo-dedupe-stage:1.1.1'
       bio:
@@ -87,9 +87,9 @@ versions:
       msg:
         'regproc-message-sender-stage': 'wuriguinea/registration-processor-message-sender-stage:dev'
       print:
-        'regproc-printing-stage': 'wuriguinea/registration-processor-printing-stage:1.1.1'
+        'regproc-printing-stage': 'wuriguinea/registration-processor-printing-stage:dev'
       printsvc:
-        'regproc-print-service': 'wuriguinea/registration-processor-print-service:1.1.1'
+        'regproc-print-service': 'wuriguinea/registration-processor-print-service:dev'
       trans:
         'regproc-registration-transaction-service': 'mosipid/registration-processor-registration-transaction-service:1.1.1'
       request: 
