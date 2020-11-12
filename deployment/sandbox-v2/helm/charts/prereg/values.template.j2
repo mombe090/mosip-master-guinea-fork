@@ -93,4 +93,10 @@ services:
     configName: prereg-ui-config # ConfigMap name
     apiHost: https://{{ sandbox_domain_name }}/
     ingressPath: /pre-registration-ui
-    
+  contactus:
+    serviceName: {{ versions.services.prereg.contactus.keys()[0] }}
+    dockerImage: {{ versions.services.prereg.contactus.values()[0] }}
+    containerPort: 8081
+    servicePort: 80
+    apiHost: https://{{ sandbox_domain_name }}/
+    ingressPath: /pre-registration-contactus

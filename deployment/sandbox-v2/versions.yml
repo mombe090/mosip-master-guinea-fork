@@ -29,6 +29,8 @@ versions:
         'prereg-login-service': 'mosipid/pre-registration-login-service:1.1.1'
       batch:
         'prereg-batchjob-service': 'wuriguinea/pre-registration-batchjob:dev'
+      contactus:
+        'prereg-contactus-service': 'wuriguinea/pre-registration-contactus:dev'
       document:
         'prereg-document-service':  'mosipid/pre-registration-document-service:1.1.1'
       transliteration:
