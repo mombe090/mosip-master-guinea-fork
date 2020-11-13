@@ -30,6 +30,12 @@ spec:
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
             - containerPort: {{ .Values.services.contactus.containerPort }}
+          env:
+            - name: SENDRIG_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: mysendgrid
+                  key: sendgridkey
 
           readinessProbe:
             tcpSocket:
