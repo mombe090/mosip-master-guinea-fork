@@ -34,8 +34,8 @@ spec:
             - name: SENDRIG_API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: mysendgrid
-                  key: sendgridkey
+                  name: sendgrid
+                  key: SENDRIG_API_KEY
 
           readinessProbe:
             tcpSocket:
