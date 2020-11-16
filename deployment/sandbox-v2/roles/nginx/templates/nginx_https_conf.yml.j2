@@ -249,6 +249,12 @@ http {
            proxy_pass {{clusters.mz.ingress.base_url}}/resident/v1/;
         }
 
+	
+        location /pre-registration-contactus/api/ {
+           proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-contactus/api/;
+        }
+
+
         error_page 404 /404.html;
             location = /40x.html {
         }
@@ -256,6 +262,7 @@ http {
         error_page 500 502 503 504 /50x.html;
             location = /50x.html {
         }
+
     }
 
 }
@@ -271,5 +278,9 @@ stream {
         proxy_pass {{clusters.mz.nodeport_node}}:{{activemq.nodeport}};
     }
 }
+
+
+
+
 
 
