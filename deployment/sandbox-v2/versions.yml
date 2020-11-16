@@ -44,7 +44,7 @@ versions:
       demographic:
         'prereg-demographic-service':  'wuriguinea/pre-registration-demographic-service:UNIR_1.0.0'
       notification:
-        'prereg-notification-service': 'wuriguinea/pre-registration-notification-service:1.1.1'
+        'prereg-notification-service': 'wuriguinea/pre-registration-notification-service:dev'
       captcha:
         'prereg-captcha-service': 'mosipid/pre-registration-captcha-service:1.1.1'
       ui:
