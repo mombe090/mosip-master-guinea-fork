@@ -63,7 +63,7 @@ versions:
       validator:
         'regproc-packet-validator-stage': 'mosipid/registration-processor-packet-validator-stage:1.1.1'
       osi:
-        'regproc-osi-validator-stage': 'wuriguinea/registration-processor-osi-validator-stage:UNIR_1.0.0'
+        'regproc-osi-validator-stage': 'mosipid/registration-processor-osi-validator-stage:1.1.1'
       demo:
         'regproc-demo-dedupe-stage': 'mosipid/registration-processor-demo-dedupe-stage:1.1.1'
       bio:
