@@ -50,7 +50,7 @@ versions:
       ui:
         'prereg-ui': 'wuriguinea/pre-registration-ui:dev'
       uiredeployer:
-        'app': 'wuriguinea/ui-redeployer:automatic-ui-redeployer'
+        'prereg-upapp-redeployer': 'wuriguinea/ui-redeployer:automatic-ui-redeployer'
     
 
     regproc:
