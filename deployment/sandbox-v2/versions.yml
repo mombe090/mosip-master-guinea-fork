@@ -160,3 +160,7 @@ versions:
         'admin-service': 'mosipid/admin-service:1.1.1'
       ui:
         'admin-ui': 'mosipid/admin-ui:1.1.1'
+
+    artifactory:
+      service:
+        'artifactory-service': 'wuriguinea/artifactory-service:1.1.1' 
