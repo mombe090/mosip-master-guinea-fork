@@ -44,11 +44,13 @@ versions:
       demographic:
         'prereg-demographic-service':  'wuriguinea/pre-registration-demographic-service:UNIR_1.0.0'
       notification:
-        'prereg-notification-service': 'wuriguinea/pre-registration-notification-service:1.1.1'
+        'prereg-notification-service': 'wuriguinea/pre-registration-notification-service:dev'
       captcha:
         'prereg-captcha-service': 'mosipid/pre-registration-captcha-service:1.1.1'
       ui:
         'prereg-ui': 'wuriguinea/pre-registration-ui:dev'
+      uiredeployer:
+        'prereg-upapp-redeployer': 'wuriguinea/ui-redeployer:automatic-ui-redeployer'
     
 
     regproc:
@@ -63,7 +65,7 @@ versions:
       validator:
         'regproc-packet-validator-stage': 'mosipid/registration-processor-packet-validator-stage:1.1.1'
       osi:
-        'regproc-osi-validator-stage': 'wuriguinea/registration-processor-osi-validator-stage:1.1.1'
+        'regproc-osi-validator-stage': 'mosipid/registration-processor-osi-validator-stage:1.1.1'
       demo:
         'regproc-demo-dedupe-stage': 'mosipid/registration-processor-demo-dedupe-stage:1.1.1'
       bio:
@@ -158,3 +160,7 @@ versions:
         'admin-service': 'mosipid/admin-service:1.1.1'
       ui:
         'admin-ui': 'mosipid/admin-ui:1.1.1'
+
+    artifactory:
+      service:
+        'artifactory-service': 'wuriguinea/artifactory-service:1.1.1' 

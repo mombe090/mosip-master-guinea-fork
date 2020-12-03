@@ -254,6 +254,11 @@ http {
            proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-contactus/api/;
         }
 
+	location /app-redeployer/v1/ {
+	    proxy_pass {{clusters.mz.ingress.base_url}}/app-redeployer/v1/;
+	 }
+
+
 
         error_page 404 /404.html;
             location = /40x.html {
