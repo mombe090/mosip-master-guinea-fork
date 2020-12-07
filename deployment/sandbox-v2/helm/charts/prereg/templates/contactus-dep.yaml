@@ -37,6 +37,12 @@ spec:
                   name: sendgrid
                   key: SENDRIG_API_KEY
 
+            - name: GOOGLE_CAPTCHA_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: gcaptchakey
+                  key: GOOGLE_CAPTCHA_KEY
+
           readinessProbe:
             tcpSocket:
               port: {{ .Values.services.contactus.containerPort }}
