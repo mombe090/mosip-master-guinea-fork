@@ -50,7 +50,7 @@ versions:
       ui:
         'prereg-ui': 'wuriguinea/pre-registration-ui:dev'
       uiredeployer:
-        'prereg-upapp-redeployer': 'wuriguinea/ui-redeployer:automatic-ui-redeployer'
+        'prereg-uiapp-redployer': 'wuriguinea/ui-redeployer:automatic-ui-redeployer'
     
 
     regproc:
@@ -112,13 +112,13 @@ versions:
         
     ida:
       auth:
-        'ida-auth-service': 'wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1'
+        'ida-auth-service': 'mosipid/authentication-service:1.1.1'
       internal: 
-         'ida-internal-service': 'wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1'
+         'ida-internal-service': 'mosipid/authentication-internal-service:1.1.1'
       kyc: 
-         'ida-kyc-service': 'wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1'
+         'ida-kyc-service': 'mosipid/authentication-kyc-service:1.1.1'
       otp: 
-         'ida-otp-service': 'wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1'
+         'ida-otp-service': 'mosipid/authentication-otp-service:1.1.1'
       key:  
         'ida-key-generator': 'mosipid/authentication-keys-generator:1.1.1'
       hashsalt:  
