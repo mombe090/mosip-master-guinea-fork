@@ -109,16 +109,22 @@ versions:
         'regproc-registration-status-service': 'mosipid/registration-processor-registration-status-service:1.1.1'
       pktserver:
         'regproc-dmz-packet-server': 'mosipid/registration-processor-dmz-packet-server:1.0.9'
-        
+    
+     
+    #'ida-auth-service': 'wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1'
+    #'ida-internal-service': 'wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1'
+    #'ida-kyc-service': 'wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1'
+    #'ida-otp-service': 'wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1'
+
     ida:
       auth:
-        'ida-auth-service': 'mosipid/authentication-service:1.1.1'
+        'ida-auth-service': 'wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1'
       internal: 
-         'ida-internal-service': 'mosipid/authentication-internal-service:1.1.1'
+         'ida-internal-service': 'wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1'
       kyc: 
-         'ida-kyc-service': 'mosipid/authentication-kyc-service:1.1.1'
+         'ida-kyc-service': 'wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1'
       otp: 
-         'ida-otp-service': 'mosipid/authentication-otp-service:1.1.1'
+         'ida-otp-service': 'wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1'
       key:  
         'ida-key-generator': 'mosipid/authentication-keys-generator:1.1.1'
       hashsalt:  
