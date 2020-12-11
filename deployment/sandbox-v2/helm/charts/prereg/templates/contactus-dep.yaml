@@ -43,6 +43,12 @@ spec:
                   name: gcaptchakey
                   key: GOOGLE_CAPTCHA_KEY
 
+            - name: SENDRIG_EMAIL_SENDER
+              valueFrom:
+                secretKeyRef:
+                  name: mailsender
+                  key: SENDRIG_EMAIL_SENDER
+
           readinessProbe:
             tcpSocket:
               port: {{ .Values.services.contactus.containerPort }}
