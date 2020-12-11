@@ -30,7 +30,12 @@ spec:
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
             - containerPort: {{ .Values.services.uiredeployer.containerPort }}
-
+          env:
+            - name: AWSKEY
+              valueFrom:
+                secretKeyRef:
+                  name: awskey
+                  key: AWSKEY
           readinessProbe:
             tcpSocket:
               port: {{ .Values.services.uiredeployer.containerPort }}
