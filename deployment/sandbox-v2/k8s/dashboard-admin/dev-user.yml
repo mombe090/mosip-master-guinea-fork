@@ -10,19 +10,16 @@ rules:
 
 ---
 
-kind: RoleBinding
+kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: dev-rolebinding
-  namespace: default
+  name: dev-clusterrolebinding
 subjects:
   - kind: User
     name: dev-user
     apiGroup: rbac.authorization.k8s.io
 roleRef:
-  kind: Role
-  name: dev-role
+  kind: ClusterRole
+  name: dev-clusterrole
   apiGroup: rbac.authorization.k8s.io
-
----
 
