@@ -39,12 +39,12 @@ spec:
   #        initialDelaySeconds: {{ .Values.probe.initialDelay }} 
   #       periodSeconds: {{ .Values.probe.period }} 
         volumeMounts:
-            - name: qa-config
+            - name: ui-config
               mountPath: /usr/share/nginx/html/assets/config.json
               # The above path is fixed in Dockerfile
               subPath: config.json #TODO: subPath is needed.  Check why
               # The config map gets mounted like files where key=file, value=file contents
       volumes:
-        - name: qa-config
+        - name: ui-config
           configMap:
             name: {{ .Values.services.qa.configName }}

@@ -55,7 +55,6 @@ versions:
 
       uiredeployer:
         'prereg-uiapp-redployer': 'wuriguinea/ui-redeployer:dev'
-    
 
     regproc:
       camel:

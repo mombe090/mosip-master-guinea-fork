@@ -99,7 +99,7 @@ services:
     dockerImage: {{ versions.services.prereg.qa.values()[0] }}
     containerPort: 80
     servicePort: 80
-    configName: prereg-qa-config # ConfigMap name
+    configName: prereg-ui-config # ConfigMap name
     apiHost: https://{{ sandbox_domain_name }}/
     ingressPath: /pre-registration-qa
 
