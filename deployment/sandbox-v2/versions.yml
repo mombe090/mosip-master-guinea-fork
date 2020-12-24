@@ -51,7 +51,7 @@ versions:
         'prereg-ui': 'wuriguinea/pre-registration-ui:dev'
 
       qa:
-        'prereg-ui': 'wuriguinea/pre-registration-ui:qa'
+        'prereg-qa': 'wuriguinea/pre-registration-ui:qa'
 
       uiredeployer:
         'prereg-uiapp-redployer': 'wuriguinea/ui-redeployer:dev'
