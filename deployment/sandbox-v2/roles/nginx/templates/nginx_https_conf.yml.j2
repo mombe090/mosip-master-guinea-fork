@@ -102,7 +102,11 @@ http {
         location /pre-registration-ui/ {
            proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-ui/;
         }
-   
+
+        location /pre-registration-qa/ {
+           proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-qa/;
+        }
+
         location /v1/masterdata/ {
            proxy_pass {{clusters.mz.ingress.base_url}}/v1/masterdata/;
         }
