@@ -49,6 +49,10 @@ versions:
         'prereg-captcha-service': 'mosipid/pre-registration-captcha-service:1.1.1'
       ui:
         'prereg-ui': 'wuriguinea/pre-registration-ui:dev'
+
+      qa:
+        'prereg-ui': 'wuriguinea/pre-registration-ui:qa'
+
       uiredeployer:
         'prereg-uiapp-redployer': 'wuriguinea/ui-redeployer:dev'
     

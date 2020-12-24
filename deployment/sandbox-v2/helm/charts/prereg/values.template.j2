@@ -93,6 +93,16 @@ services:
     configName: prereg-ui-config # ConfigMap name
     apiHost: https://{{ sandbox_domain_name }}/
     ingressPath: /pre-registration-ui
+
+  qa:
+    serviceName: {{ versions.services.prereg.qa.keys()[0] }}
+    dockerImage: {{ versions.services.prereg.qa.values()[0] }}
+    containerPort: 80
+    servicePort: 80
+    configName: prereg-qa-config # ConfigMap name
+    apiHost: https://{{ sandbox_domain_name }}/
+    ingressPath: /pre-registration-qa
+
   uiredeployer:
     serviceName: {{ versions.services.prereg.uiredeployer.keys()[0] }}
     dockerImage: {{ versions.services.prereg.uiredeployer.values()[0] }}
