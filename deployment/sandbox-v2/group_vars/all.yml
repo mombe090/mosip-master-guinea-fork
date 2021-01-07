@@ -59,7 +59,7 @@ clusters:
   dmz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/dmzcluster.config" 
     nodeport_node: dmzworker0.sb  # Any node on cluster for nodeport access
-    any_node_ip: '10.20.20.124' # ip adddress of above node
+    any_node_ip: '10.128.0.3' # ip adddress of above node
     ingress:
       namespace: ingress-nginx
       nodeports:
