@@ -159,7 +159,6 @@ versions:
       policy:
         'pms-policy-management-service': 'mosipid/pmp-policy-management-service:1.1.1'
 
-
     resident: 
       resident:  
         'resident-service': 'mosipid/resident-service:1.1.1'
