@@ -25,5 +25,5 @@ template_dir = pkt_dir + '/template'
 unenc_dir = pkt_dir + '/unencrypted'
 enc_dir = pkt_dir + '/encrypted'
 
-python_executor = 'python'
+python_executor = 'python3'
 
