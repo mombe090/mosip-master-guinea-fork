@@ -262,6 +262,12 @@ http {
 	    proxy_pass {{clusters.mz.ingress.base_url}}/app-redeployer/v1/;
 	 }
 
+        location /artifactory {
+            proxy_pass {{clusters.mz.ingress.base_url}}/artifactory;
+        }
+
+
+
 
 
         error_page 404 /404.html;
