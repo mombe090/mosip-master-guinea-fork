@@ -173,3 +173,7 @@ versions:
       service:
         'artifactory-service': 'wuriguinea/artifactory-service:release'
 
+    minio:
+      service:
+        'minio-bucket': 'minio/minio'
+
