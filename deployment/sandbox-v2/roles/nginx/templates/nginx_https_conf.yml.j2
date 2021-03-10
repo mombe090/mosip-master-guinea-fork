@@ -266,6 +266,11 @@ http {
             proxy_pass {{clusters.mz.ingress.base_url}}/artifactory;
         }
 
+    location /minio {
+         proxy_pass {{clusters.mz.ingress.base_url}}/minio;
+    }
+
+
 
 
 

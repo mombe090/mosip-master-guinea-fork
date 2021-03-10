@@ -63,7 +63,7 @@ priorityClassName: ""
 ##
 existingSecret: ""
 accessKey: {{minio.access_key}} 
-secretKey: '' # To be passed directly while calling helm 
+secretKey: {{minio.secret_key}} # To be passed directly while calling helm
 certsPath: "/etc/minio/certs/"
 configPathmc: "/etc/minio/mc/"
 mountPath: "/export"
