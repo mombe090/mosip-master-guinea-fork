@@ -10,17 +10,15 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     ingress.kubernetes.io/class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
   - http:
       paths:
-      - path: /minio  # To browser
+      - path: /minio(/|$)(.*) # To browser
         backend:
           serviceName: {{ template "minio.fullname" . }}
           servicePort: {{ .Values.service.port }}
 
-      - path: /
-        backend:
-          serviceName: {{ template "minio.fullname" . }}
-          servicePort: {{ .Values.service.port }}
+
 
