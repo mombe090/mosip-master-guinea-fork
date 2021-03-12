@@ -17,4 +17,10 @@ spec:
       - path: /minio  # To browser
         backend:
           serviceName: {{ template "minio.fullname" . }}
-          servicePort: {{ .Values.service.port }} 
+          servicePort: {{ .Values.service.port }}
+
+      - path: /
+        backend:
+          serviceName: {{ template "minio.fullname" . }}
+          servicePort: {{ .Values.service.port }}
+
