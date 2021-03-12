@@ -15,7 +15,12 @@ spec:
   rules:
   - http:
       paths:
-      - path: /minio(/|$)(.*) # To browser
+      - path: /bucket(/|$)(.*) # To xml
+        backend:
+          serviceName: {{ template "minio.fullname" . }}
+          servicePort: {{ .Values.service.port }}
+
+      - path:  /minio # To browser
         backend:
           serviceName: {{ template "minio.fullname" . }}
           servicePort: {{ .Values.service.port }}
