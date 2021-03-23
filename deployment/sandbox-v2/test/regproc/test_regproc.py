@@ -110,6 +110,7 @@ def main():
 
     zipped_pkts = zip_packets(conf)
 
+
     os.makedirs(conf.enc_dir)
     for zipped_pkt in zipped_pkts:
         mosip.encrypt_packet(zipped_pkt, conf.enc_dir, os.path.basename(zipped_pkt), refid)
@@ -120,9 +121,12 @@ def main():
     r = sync_packet(conf, mosip, final_zip, refid)
     print_response(r)
 
-    print('\n=== Uploading packet === \n')
-    r = mosip.upload_packet(final_zip)
-    print_response(r)
+    i = 0
+    while i < 1000:
+        print('\n=== Uploading packet === \n')
+        r = mosip.upload_packet(final_zip)
+        print_response(r)
+        i += 1
 
 
 if __name__ == "__main__":
