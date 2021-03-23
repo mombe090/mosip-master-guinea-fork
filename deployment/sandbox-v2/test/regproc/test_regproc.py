@@ -75,7 +75,7 @@ def template_to_packets(conf):
 def update_hashes(conf):
     for suffix in conf.sub_pkts:
         meta_path = os.path.join(os.path.join(conf.unenc_dir, suffix), 'packet_meta_info.json')
-        subprocess.run([conf.python_executor+' gen_hash.py %s' % meta_path], shell=True)
+        subprocess.run([conf.python_executor + ' gen_hash.py %s' % meta_path], shell=True)
 
 
 def sync_packet(conf, mosip, final_zip, refid):
@@ -97,32 +97,34 @@ def create_final_zip(conf):
 
 
 def main():
-    cleanup(conf)  # Cleanup an existing dirs
-
-    refid = conf.pkt_conf['center_id'] + '_' + conf.pkt_conf['machine_id']
+    i = 0
     mosip = MosipSession(conf.server, conf.user, conf.password)
+    while i < 2:
+        cleanup(conf)  # Cleanup an existing dirs
 
-    update_conf(conf, mosip)
+        refid = conf.pkt_conf['center_id'] + '_' + conf.pkt_conf['machine_id']
 
-    template_to_packets(conf)
+        update_conf(conf, mosip)
 
-    update_hashes(conf)
+        template_to_packets(conf)
 
-    zipped_pkts = zip_packets(conf)
+        update_hashes(conf)
 
-    os.makedirs(conf.enc_dir)
-    for zipped_pkt in zipped_pkts:
-        mosip.encrypt_packet(zipped_pkt, conf.enc_dir, os.path.basename(zipped_pkt), refid)
+        zipped_pkts = zip_packets(conf)
 
-    final_zip = create_final_zip(conf)
+        os.makedirs(conf.enc_dir)
+        for zipped_pkt in zipped_pkts:
+            mosip.encrypt_packet(zipped_pkt, conf.enc_dir, os.path.basename(zipped_pkt), refid)
 
-    print('\n=== Syncing packet === \n')
-    r = sync_packet(conf, mosip, final_zip, refid)
-    print_response(r)
+        final_zip = create_final_zip(conf)
+        print('\n=== Syncing packet === \n')
+        r = sync_packet(conf, mosip, final_zip, refid)
+        print_response(r)
 
-    print('\n=== Uploading packet === \n')
-    r = mosip.upload_packet(final_zip)
-    print_response(r)
+        print('\n=== Uploading packet === \n')
+        r = mosip.upload_packet(final_zip)
+        print_response(r)
+        i += 1
 
 
 if __name__ == "__main__":
