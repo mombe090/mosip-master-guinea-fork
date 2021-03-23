@@ -1,7 +1,7 @@
 { "identity" : {
   "lastName" : [ {
     "language" : "fra",
-    "value" : "GOUMOU"
+    "value" : "BAH"
   } ],
   "gender" : [ {
     "language" : "fra",
@@ -23,10 +23,10 @@
   },
   "firstName" : [ {
     "language" : "fra",
-    "value" : "NATHAN KOIU"
+    "value" : "MAMOUDOU"
   } ],
   "IDSchemaVersion" : {{id_schema}},
-  "phone" : "621989848",
+  "phone" : "627479497",
   "district" : [ {
     "language" : "fra",
     "value" : "DALABA MISSIDE"
@@ -43,5 +43,5 @@
     "language" : "fra",
     "value" : "DOUNKIMAGNA"
   } ],
-  "email" : "WURITEACHTEAM@GMAIL.COM"
-} } 
+  "email" : ""
+}  }
