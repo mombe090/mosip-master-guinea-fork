@@ -99,7 +99,7 @@ def create_final_zip(conf):
 def main():
     i = 0
     mosip = MosipSession(conf.server, conf.user, conf.password)
-    while i < 2:
+    while i < 4000:
         cleanup(conf)  # Cleanup an existing dirs
 
         refid = conf.pkt_conf['center_id'] + '_' + conf.pkt_conf['machine_id']
@@ -125,7 +125,7 @@ def main():
         r = mosip.upload_packet(final_zip)
         print_response(r)
         i += 1
-
+        print('\n===nombre d"INU généré:', i)
 
 if __name__ == "__main__":
     main()
