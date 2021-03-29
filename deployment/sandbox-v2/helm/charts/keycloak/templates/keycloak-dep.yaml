@@ -25,13 +25,6 @@ spec:
       containers:
       - name: {{ .Values.name }}
         image: {{ .Values.dockerImage }}:{{ .Values.dockerTag }}
-        resources:
-          requests:
-            memory: "2048Mi"
-            cpu: "1024m"
-          limits:
-            memory: "4096Mi"
-            cpu: "2048Mi"
         env:
         - name: KEYCLOAK_USER 
           value: {{ .Values.keycloakUser }}
