@@ -255,13 +255,16 @@ http {
            proxy_pass {{clusters.mz.ingress.base_url}}/resident/v1/;
         }
 
-	
         location /pre-registration-contactus/api/ {
            proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-contactus/api/;
         }
 
 	location /app-redeployer/v1/ {
 	    proxy_pass {{clusters.mz.ingress.base_url}}/app-redeployer/v1/;
+	 }
+
+    location /utilities-umc {
+	    proxy_pass {{clusters.mz.ingress.base_url}}/utilities-umc;
 	 }
 
         location /artifactory {
