@@ -178,5 +178,5 @@ versions:
         'minio-bucket': 'minio/minio'
 
     utilities:
-        'umc-handler': 'wuriguinea/umc-handler:dev'
+        'umchandler': 'wuriguinea/umc-handler:dev'
 

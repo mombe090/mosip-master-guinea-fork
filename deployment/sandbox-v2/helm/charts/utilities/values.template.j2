@@ -16,9 +16,9 @@ imagePullPolicy: Always
 isGlowroot: {{ is_glowroot }}
 services:
   umchandler:
-    serviceName: {{ versions.services.utilities.umc-handler.keys()[0] }}
-    dockerImage: {{ versions.services.utilities.umc-handler.values()[0] }}
+    serviceName: {{ versions.services.utilities.umchandler.keys()[0] }}
+    dockerImage: {{ versions.services.utilities.umchandler.values()[0] }}
     containerPort: 8080
     servicePort: 80
-    ingressPath: /preregistration/v1/login
-    healthUrl: /preregistration/v1/login/actuator/health
+    ingressPath: /umchandler
+    healthUrl: /umchandler
