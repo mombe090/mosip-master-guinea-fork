@@ -178,5 +178,6 @@ versions:
         'minio-bucket': 'minio/minio'
 
     utilities:
-        'umchandler': 'wuriguinea/umc-handler:yaya_dev'
+        umc:
+          handler: 'wuriguinea/umc-handler:yaya_dev'
 
