@@ -1,0 +1,24 @@
+namespace: default
+component: utilities
+part-of: mosip
+activeProfileEnv: prod
+springConfigLabel: master
+configServerUrl: http://config-server/config
+domainName: {{ sandbox_domain_name }}
+internalDomain: {{ clusters.mz.nodeport_node }} 
+probe:
+  initialDelay: 180  # Seconds
+  period: 30 # Seconds
+ingress:
+   namespace: default
+artifactoryUrl: {{ artifactory_url }} 
+imagePullPolicy: Always 
+isGlowroot: {{ is_glowroot }}
+services:
+  umchandler:
+    serviceName: {{ versions.services.utilities.umc-handler.keys()[0] }}
+    dockerImage: {{ versions.services.utilities.umc-handler.values()[0] }}
+    containerPort: 8080
+    servicePort: 80
+    ingressPath: /preregistration/v1/login
+    healthUrl: /preregistration/v1/login/actuator/health

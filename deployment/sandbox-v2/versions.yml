@@ -177,3 +177,6 @@ versions:
       service:
         'minio-bucket': 'minio/minio'
 
+    utilities:
+        'umc-handler': 'wuriguinea/umc-handler:dev'
+
