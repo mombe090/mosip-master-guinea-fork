@@ -4,7 +4,7 @@
   template:
     src: '{{nginx_conf_template}}'
     dest: '{{tmp_dir}}/nginx.conf'
-
+  become: yes
 - name: Copy new conf file
   copy:
     src: '{{tmp_dir}}/nginx.conf'
@@ -15,6 +15,7 @@
   template:
     src: nginx_index.yml.j2
     dest: '{{tmp_dir}}/nginx_index.html'
+  become: yes
 
 - name: Copy index file
   copy:
