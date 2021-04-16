@@ -26,7 +26,7 @@ docker_wait_time: 600   # Wait for docker to pull and deploy
 clusters:
   mz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/mzcluster.config" 
-    nodeport_node: mzworker0.wuriguinee.unir  # Any node on cluster for nodeport access
+    nodeport_node: mzworker0.sb  # Any node on cluster for nodeport access
     any_node_ip: '10.20.20.114' # ip address of above node
     ingress:
       namespace: ingress-nginx
@@ -58,7 +58,7 @@ clusters:
         url: http://kibana-kibana:5601 
   dmz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/dmzcluster.config" 
-    nodeport_node: dmzworker0.wuriguinee.unir  # Any node on cluster for nodeport access
+    nodeport_node: dmzworker0.sb  # Any node on cluster for nodeport access
     any_node_ip: '10.20.20.124' # ip adddress of above node
     ingress:
       namespace: ingress-nginx
@@ -85,9 +85,9 @@ clusters:
       grafana_ingress_path: 'dmz-grafana'
       grafana_token_file: '{{tmp_dir}}/grafana_dmz.token'
       elasticsearch:
-        host: 'mzworker0.wuriguinee.unir:30080/elasticsearch' # Connect to elasticsearch on MZ
+        host: 'mzworker0.sb:30080/elasticsearch' # Connect to elasticsearch on MZ
       kibana: 
-        url: http://mzworker0.wuriguinee.unir:30601  # Kibana runs on this nodeport on MZ.
+        url: http://mzworker0.sb:30601  # Kibana runs on this nodeport on MZ.
 
 # Registration processor shared variables
 #
@@ -109,7 +109,7 @@ postgres:
   max_connections: 1000
   node_affinity: 
     enabled: false # To run postgres on an exclusive node
-    node: 'mzworker0.wuriguinee.unir' # Hostname. Run only on this node, and nothing else should run on this node
+    node: 'mzworker0.sb' # Hostname. Run only on this node, and nothing else should run on this node
     taint:
       key: "postgres" # Key for applying taint on node
       value: "only"  
@@ -195,7 +195,7 @@ databases:
     sql_path: '{{repos.pms.dest}}/db_scripts'
 
 nfs:
-  server: console.wuriguinee.unir
+  server: console.sb
   folder: /srv/nfs/mosip
 
 
@@ -217,7 +217,7 @@ hdfs:
       path: '{{nfs.folder}}/hdfs/dn' 
   node_affinity: 
     enabled: false # To run all hdfs pods exclusively on a single node.
-    node: 'mzworker1.wuriguinee.unir' # Hostname. Run only on this node, and nothing else should run on this node
+    node: 'mzworker1.sb' # Hostname. Run only on this node, and nothing else should run on this node
     taint:
       key: "hdfs" # Key for applying taint on node
       value: "only"  
