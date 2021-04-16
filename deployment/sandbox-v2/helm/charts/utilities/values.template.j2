@@ -16,8 +16,8 @@ imagePullPolicy: Always
 isGlowroot: {{ is_glowroot }}
 services:
   umchandler:
-    serviceName: {{ versions.services.utilities.umchandler.keys()[0] }}
-    dockerImage: {{ versions.services.utilities.umchandler.values()[0] }}
+    serviceName: {{ versions.services.utilities.utilities.keys()[0] }}
+    dockerImage: {{ versions.services.utilities.utilities.values()[0] }}
     containerPort: 8080
     servicePort: 80
     ingressPath: /umchandler
