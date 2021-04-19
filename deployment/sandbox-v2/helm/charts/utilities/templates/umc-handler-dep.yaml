@@ -28,6 +28,32 @@ spec:
         - name: {{ .Values.services.umchandler.serviceName }}
           image: {{ .Values.services.umchandler.dockerImage }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - name: MOSIPHOSTNAME
+              valueFrom:
+                secretKeyRef:
+                    name: mosiphostname
+                    key: MOSIPHOSTNAME
+
+            - name: APPID
+              valueFrom:
+                secretKeyRef:
+                  name: appid
+                  key: APPID
+
+            - name: APPPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: apppassword
+                  key: APPPASSWORD
+
+            - name: APPUSERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: appusername
+                  key: APPUSERNAME
+
+
           ports:
             - containerPort: {{ .Values.services.umchandler.containerPort }}
           readinessProbe:
