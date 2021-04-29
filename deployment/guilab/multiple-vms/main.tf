@@ -28,7 +28,7 @@ data "vsphere_virtual_machine" "template" {
 # Clones a single Linux VM from a template
 resource "vsphere_virtual_machine" "mzk8s_master" {
   count            = length(var.mzmaster_ips)
-  name             = "mzmaster${var.guest_name_suffix}"
+  name             = "mzmaster"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
   #folder           = vsphere_folder.folder.id
@@ -46,7 +46,7 @@ resource "vsphere_virtual_machine" "mzk8s_master" {
 
   disk {
     label            = "disk0"
-    size             = data.vsphere_virtual_machine.template.disks[0].size
+    size             = "300"
     #eagerly_scrub    = data.vsphere_virtual_machine.template.disks[0].eagerly_scrub
     #thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
   }
