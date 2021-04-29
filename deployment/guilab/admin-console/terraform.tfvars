@@ -21,7 +21,7 @@ guest_ipv4_gateway    = "192.168.9.1"
 guest_dns_servers     = ["192.168.9.254", "197.149.224.10", "197.149.225.11"]
 guest_dns_suffix      = "wuri.unir"
 guest_domain          = ""
-guest_ssh_user        = "centos"
+guest_ssh_user        = "wuri"
 guest_ssh_password    = "Wuri@2021"
 guest_ssh_key_private = "~/.ssh/id_ed25519"
 guest_ssh_key_public  = "~/.ssh/id_ed25519.pub"
@@ -59,6 +59,13 @@ mzworker_ips = {
 dmzworker_ips = {
   "0" = "192.168.9.90"
   #"1" = "192.168.9.91"
+  #"2" = "192.168.9.77"
+  #"3" = "192.168.9.78"
+}
+
+abis_ips = {
+  "0" = "192.168.9.101"
+  "1" = "192.168.9.101"
   #"2" = "192.168.9.77"
   #"3" = "192.168.9.78"
 }

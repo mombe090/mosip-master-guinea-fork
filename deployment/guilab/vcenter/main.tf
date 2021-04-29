@@ -56,7 +56,7 @@ resource "vsphere_virtual_machine" "mzmasters" {
 
       ipv4_gateway = var.guest_ipv4_gateway
       dns_suffix_list = ["wuriguinee.unir"]
-      dns_server_list = ["192.168.9.254", "192.168.9.1", "8.8.8.8"]
+      dns_server_list = var.guest_dns_servers
     }
   }
 
@@ -120,7 +120,7 @@ resource "vsphere_virtual_machine" "dmzmasters" {
 
       ipv4_gateway = var.guest_ipv4_gateway
       dns_suffix_list = ["wuriguinee.unir"]
-      dns_server_list = ["192.168.9.254", "192.168.9.1", "8.8.8.8"]
+      dns_server_list = var.guest_dns_servers
     }
   }
 
@@ -184,7 +184,7 @@ resource "vsphere_virtual_machine" "mzworkers" {
 
       ipv4_gateway = var.guest_ipv4_gateway
       dns_suffix_list = ["wuriguinee.unir"]
-      dns_server_list = ["192.168.9.254", "192.168.9.1", "8.8.8.8"]
+      dns_server_list = var.guest_dns_servers
     }
   }
 
@@ -248,7 +248,7 @@ resource "vsphere_virtual_machine" "dmzworkers" {
 
       ipv4_gateway = var.guest_ipv4_gateway
       dns_suffix_list = ["wuriguinee.unir"]
-      dns_server_list = ["192.168.9.254", "192.168.9.1", "8.8.8.8"]
+      dns_server_list = var.guest_dns_servers
     }
   }
 
