@@ -37,9 +37,6 @@ resource "vsphere_virtual_machine" "reportsrver" {
 
   boot_delay = 10000
 
-  provisioner "local-exec" {
-    command = "ssh-keygen -R ${self.guest_ip_addresses[0]}"
-  }
 
   provisioner "remote-exec" {
     inline = ["echo TOBECHANGE_BY_COMMANDS"]
