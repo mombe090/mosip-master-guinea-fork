@@ -37,6 +37,24 @@ resource "vsphere_virtual_machine" "reportsrver" {
 
   boot_delay = 10000
 
+  provisioner "local-exec" {
+    command = "ssh-keygen -R ${self.guest_ip_addresses[0]}"
+  }
+
+  provisioner "remote-exec" {
+    inline = ["echo TOBECHANGE_BY_COMMANDS"]
+
+    connection {
+      type     = "ssh"
+      user     = var.guest_ssh_user
+      password = var.guest_ssh_password
+      host     = self.guest_ip_addresses[0]
+    }
+  }
+
+  provisioner "local-exec" {
+    command = "sshpass -p ${var.guest_ssh_password} ssh-copy-id -i ${var.guest_ssh_key_public} -o StrictHostKeyChecking=no ${var.guest_ssh_user}@${self.guest_ip_addresses[0]}"
+  }
 
   lifecycle {
     ignore_changes = [annotation]
