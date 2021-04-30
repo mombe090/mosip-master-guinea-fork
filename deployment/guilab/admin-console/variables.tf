@@ -90,6 +90,10 @@ variable "guest_ssh_password" {
   description = "SSH password to connect to the guest VM."
 }
 
+variable "root_ssh_password" {
+  description = "SSH password to connect to the guest VM."
+}
+
 variable "guest_ssh_key_private" {
   description = "SSH private key (e.g., id_rsa) path."
 }

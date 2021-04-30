@@ -24,6 +24,7 @@ guest_dns_suffix      = "wuri.unir"
 guest_domain          = ""
 guest_ssh_user        = "centos"
 guest_ssh_password    = "Wuri@2021"
+root_ssh_password    = "Wuri2021@"
 guest_ssh_key_private = "~/.ssh/id_rsa"
 guest_ssh_key_public  = "~/.ssh/id_rsa.pub"
 
@@ -66,7 +67,7 @@ dmzworker_ips = {
 
 abis_ips = {
   "0" = "192.168.9.101"
-  "1" = "192.168.9.101"
+  "1" = "192.168.9.102"
   #"2" = "192.168.9.77"
   #"3" = "192.168.9.78"
 }
