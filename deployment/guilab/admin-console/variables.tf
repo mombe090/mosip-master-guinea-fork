@@ -128,3 +128,8 @@ variable "abis_ips" {
   type        = map(any)
   description = "List of IPs used for the kubernetes worker nodes."
 }
+
+variable "reporter_ips" {
+  type        = string
+  description = "List of IPs used for the kubernetes worker nodes."
+}

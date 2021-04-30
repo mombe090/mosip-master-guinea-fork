@@ -2,6 +2,7 @@ resource "vsphere_virtual_machine" "reportsrver" {
   name             = "reportsrver${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
+  folder = vsphere_folder.extra_vm.path
 
   num_cpus = var.guest_vcpu
   memory   = var.guest_memory
@@ -25,7 +26,7 @@ resource "vsphere_virtual_machine" "reportsrver" {
         domain = ""
       }
       network_interface {
-        ipv4_address = "192.168.9.103"
+        ipv4_address = var.reporter_ips
         ipv4_netmask = "24"
       }
 
@@ -39,11 +40,11 @@ resource "vsphere_virtual_machine" "reportsrver" {
 
 
   provisioner "remote-exec" {
-    inline = ["echo TOBECHANGE_BY_COMMANDS"]
+    inline = ["echo \"$USER ALL=(ALL)  NOPASSWD: ALL\" >> /etc/sudoers"]
 
     connection {
       type     = "ssh"
-      user     = var.guest_ssh_user
+      user     = "root"
       password = var.guest_ssh_password
       host     = self.guest_ip_addresses[0]
     }
