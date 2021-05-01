@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.services.uiredeployer.serviceName }}
+  namespace: {{ .Values.namespace }} 
+spec:
+  ports:
+  - port: {{ .Values.services.uiredeployer.servicePort }}
+    targetPort: {{ .Values.services.uiredeployer.containerPort }}
+  selector:
+    app: {{ .Values.services.uiredeployer.serviceName }}
+
