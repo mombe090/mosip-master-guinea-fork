@@ -2,7 +2,7 @@
 - import_playbook: cluster.yml
   vars:
     cluster: mzcluster
-    master: mzmaster.sb
+    master: mzmaster.wuriguinee.unir
     workers: mzworkers
 
 # Ingress nginx controller

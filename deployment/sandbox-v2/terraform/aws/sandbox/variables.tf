@@ -34,25 +34,25 @@ variable "private_key" {
 
 /* Recommended not to change names */
 variable "console_name" {
-  default = "console.sb"  //
+  default = "console.wuriguinee.unir"  //
 }
 
 /* Recommended not to change names */
 variable "kube_names" {
    type = list(string)
    default = [
-     "mzmaster.sb",
-     "mzworker0.sb",
-     "mzworker1.sb",
-     "mzworker2.sb",
-     "mzworker3.sb",
-     "mzworker4.sb",
-     "mzworker5.sb",
-     "mzworker6.sb",
-     "mzworker7.sb",
-     "mzworker8.sb",
-     "dmzmaster.sb",
-     "dmzworker0.sb"
+     "mzmaster.wuriguinee.unir",
+     "mzworker0.wuriguinee.unir",
+     "mzworker1.wuriguinee.unir",
+     "mzworker2.wuriguinee.unir",
+     "mzworker3.wuriguinee.unir",
+     "mzworker4.wuriguinee.unir",
+     "mzworker5.wuriguinee.unir",
+     "mzworker6.wuriguinee.unir",
+     "mzworker7.wuriguinee.unir",
+     "mzworker8.wuriguinee.unir",
+     "dmzmaster.wuriguinee.unir",
+     "dmzworker0.wuriguinee.unir"
    ]
 }
 
