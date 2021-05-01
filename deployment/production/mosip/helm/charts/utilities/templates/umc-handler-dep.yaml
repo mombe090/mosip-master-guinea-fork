@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.services.umchandler.serviceName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.services.umchandler.serviceName }}
+    component: {{ .Values.component }}
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.services.umchandler.serviceName }}
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.services.umchandler.serviceName }}
+        component: {{ .Values.component }}
+    spec:
+      containers:
+        - name: {{ .Values.services.umchandler.serviceName }}
+          image: {{ .Values.services.umchandler.dockerImage }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - name: MOSIPHOSTNAME
+              valueFrom:
+                secretKeyRef:
+                    name: mosiphostname
+                    key: MOSIPHOSTNAME
+
+            - name: APPID
+              valueFrom:
+                secretKeyRef:
+                  name: appid
+                  key: APPID
+
+            - name: APPPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: apppassword
+                  key: APPPASSWORD
+
+            - name: APPUSERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: appusername
+                  key: APPUSERNAME
+
+
+          ports:
+            - containerPort: {{ .Values.services.umchandler.containerPort }}
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.services.umchandler.containerPort }}
+
