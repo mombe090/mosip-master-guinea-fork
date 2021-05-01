@@ -28,7 +28,7 @@ resource "vsphere_virtual_machine" "nfserver" {
         domain = ""
       }
       network_interface {
-        ipv4_address = var.dmzmaster_ip
+        ipv4_address = var.nfs_ip
         ipv4_netmask = "24"
       }
 

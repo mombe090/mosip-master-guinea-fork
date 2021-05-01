@@ -24,7 +24,7 @@ resource "vsphere_virtual_machine" "mzworkers" {
 
     customize {
       linux_options{
-        host_name =  "test-mzworker${count.index}"
+        host_name =  "prod-mzworker${count.index}"
         # domain = "wuriguinee.unir"
         domain = ""
       }
@@ -66,7 +66,7 @@ resource "vsphere_virtual_machine" "mzworkers" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/kube_auth.sh",
-      format("%s %s", "sudo /tmp/kube_auth.sh", "test-mzworker${count.index}")
+      format("%s %s", "sudo /tmp/kube_auth.sh", "prod-mzworker${count.index}")
     ]
   }
     connection {
