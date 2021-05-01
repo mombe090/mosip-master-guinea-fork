@@ -52,7 +52,7 @@ provisioner "file" {
   }
 
   provisioner "file" {
-    source = "extra_vm.sh"
+    source = "scripts/extra_vm.sh"
     destination = "/tmp/extra_vm.sh"
     connection {
       type     = "ssh"

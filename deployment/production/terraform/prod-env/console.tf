@@ -63,7 +63,7 @@ resource "vsphere_virtual_machine" "prod_console" {
   }
 
 provisioner "file" {
-    source = "console_auth.sh"
+    source = "scripts/console_auth.sh"
     destination = "/tmp/console_auth.sh"
     connection {
       type     = "ssh"
