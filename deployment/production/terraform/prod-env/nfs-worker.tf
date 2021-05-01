@@ -4,7 +4,6 @@ resource "vsphere_virtual_machine" "nfserver" {
   datastore_id     = data.vsphere_datastore.datastore.id
   folder = vsphere_folder.storage.path
 
-4196352   520112127
   num_cpus = var.guest_vcpu
   memory   = var.guest_memory
   guest_id = "centos7_64Guest"
