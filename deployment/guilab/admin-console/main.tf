@@ -22,32 +22,10 @@ data "vsphere_virtual_machine" "template" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-resource "vsphere_folder" "parent" {
-  path          = "mosip"
-  type          = "vm"
+resource "vsphere_folder" "folder" {
+  path = "test-env"
+  type = "vm"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-resource "vsphere_folder" "test_env" {
-  path          = "${vsphere_folder.parent.path}/test-env"
-  type          = "vm"
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
-
-resource "vsphere_folder" "extra_vm" {
-  path          = "${vsphere_folder.test_env.path}/extra-vm"
-  type          = "vm"
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
-
-resource "vsphere_folder" "k8s_vm" {
-  path          = "${vsphere_folder.test_env.path}/k8s-vm"
-  type          = "vm"
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
-
-resource "vsphere_folder" "prod_env" {
-  path          = "${vsphere_folder.parent.path}/prod-env"
-  type          = "vm"
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
+======
