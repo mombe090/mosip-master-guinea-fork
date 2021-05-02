@@ -1,5 +1,5 @@
 resource "vsphere_virtual_machine" "test_console" {
-  name             = "prod.console${var.guest_name_suffix}"
+  name             = "test.console${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
   folder = vsphere_folder.k8s_vm.path
@@ -13,7 +13,7 @@ resource "vsphere_virtual_machine" "test_console" {
 
   disk {
     label = "disk0"
-    size  = 250
+    size  = 300
     eagerly_scrub    = data.vsphere_virtual_machine.template.disks[0].eagerly_scrub
     thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
   }
@@ -23,7 +23,7 @@ resource "vsphere_virtual_machine" "test_console" {
 
     customize {
       linux_options{
-        host_name =  "console-prod"
+        host_name =  "console-test"
         # domain = "wuriguinee.unir"
         domain = ""
       }
@@ -63,7 +63,7 @@ resource "vsphere_virtual_machine" "test_console" {
   }
 
 provisioner "file" {
-    source = "console_auth.sh"
+    source = "scripts/console_auth.sh"
     destination = "/tmp/console_auth.sh"
     connection {
       type     = "ssh"
@@ -76,7 +76,7 @@ provisioner "file" {
  provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/console_auth.sh",
-      format("%s %s", "sudo /tmp/console_auth.sh", "console-prod")
+      format("%s %s", "sudo /tmp/console_auth.sh", "console-test")
     ]
   }
     connection {

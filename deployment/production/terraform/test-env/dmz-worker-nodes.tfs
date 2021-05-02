@@ -1,9 +1,9 @@
-resource "vsphere_virtual_machine" "abis" {
-  count            = length(var.abis_ips)
-  name             = "abis${count.index}${var.guest_name_suffix}"
+resource "vsphere_virtual_machine" "dmzworkers" {
+  count            = length(var.dmzworker_ips)
+  name             = "prod.dmzworker${count.index}${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
-  folder = vsphere_folder.extra_vm.path
+  folder = vsphere_folder.dmz_nodes.path
 
   num_cpus = var.guest_vcpu
   memory   = var.guest_memory
@@ -14,7 +14,7 @@ resource "vsphere_virtual_machine" "abis" {
 
   disk {
     label = "disk0"
-    size  = 500
+    size  = var.k8s_node_memory
     eagerly_scrub    = data.vsphere_virtual_machine.template.disks[0].eagerly_scrub
     thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
   }
@@ -24,12 +24,12 @@ resource "vsphere_virtual_machine" "abis" {
 
     customize {
       linux_options{
-        host_name =  "abis${count.index}"
+        host_name =  "prod-mzworker${count.index}"
         # domain = "wuriguinee.unir"
         domain = ""
       }
       network_interface {
-        ipv4_address = lookup(var.abis_ips, count.index)
+        ipv4_address = lookup(var.dmzworker_ips, count.index)
         ipv4_netmask = "24"
       }
 
@@ -53,8 +53,8 @@ resource "vsphere_virtual_machine" "abis" {
   }
 
   provisioner "file" {
-    source = "scripts/extra_vm.sh"
-    destination = "/tmp/extra_vm.sh"
+    source = "scripts/kube_auth.sh"
+    destination = "/tmp/kube_auth.sh"
     connection {
       type     = "ssh"
       user     = "centos"
@@ -65,8 +65,8 @@ resource "vsphere_virtual_machine" "abis" {
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/extra_vm.sh",
-      format("%s %s", "sudo /tmp/extra_vm.sh", "abis${count.index}")
+      "chmod +x /tmp/kube_auth.sh",
+      format("%s %s", "sudo /tmp/kube_auth.sh", "prod-mzworker${count.index}")
     ]
   }
     connection {
@@ -75,7 +75,6 @@ resource "vsphere_virtual_machine" "abis" {
       password = var.root_ssh_password
       host     = self.guest_ip_addresses[0]
     }
-
 
   lifecycle {
     ignore_changes = [annotation]
