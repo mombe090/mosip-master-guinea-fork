@@ -14,7 +14,7 @@ resource "vsphere_virtual_machine" "test_abis" {
 
   disk {
     label = "disk0"
-    size  = 500
+    size  = 250
     eagerly_scrub    = data.vsphere_virtual_machine.template.disks[0].eagerly_scrub
     thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
   }

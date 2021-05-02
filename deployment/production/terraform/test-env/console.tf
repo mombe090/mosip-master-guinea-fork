@@ -13,7 +13,7 @@ resource "vsphere_virtual_machine" "test_console" {
 
   disk {
     label = "disk0"
-    size  = 300
+    size  = 125
     eagerly_scrub    = data.vsphere_virtual_machine.template.disks[0].eagerly_scrub
     thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
   }

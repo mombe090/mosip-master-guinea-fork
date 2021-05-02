@@ -1,5 +1,5 @@
-resource "vsphere_virtual_machine" "dmzmaster" {
-  name             = "prod.dmzmaster${var.guest_name_suffix}"
+resource "vsphere_virtual_machine" "test_dmzmaster" {
+  name             = "test.dmzmaster${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
   folder = vsphere_folder.masters.path
@@ -23,7 +23,7 @@ resource "vsphere_virtual_machine" "dmzmaster" {
 
     customize {
       linux_options{
-        host_name =  "prod-dmzmaster"
+        host_name =  "test-dmzmaster"
         # domain = "wuriguinee.unir"
         domain = ""
       }
@@ -65,7 +65,7 @@ resource "vsphere_virtual_machine" "dmzmaster" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/kube_auth.sh",
-      format("%s %s", "sudo /tmp/kube_auth.sh", "prod-dmzmaster")
+      format("%s %s", "sudo /tmp/kube_auth.sh", "test-dmzmaster")
     ]
   }
     connection {
