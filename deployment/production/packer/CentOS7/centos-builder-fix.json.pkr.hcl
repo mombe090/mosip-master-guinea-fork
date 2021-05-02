@@ -81,8 +81,8 @@ source "vsphere-iso" "centos_7" {
   }
   notes        = "Build via Packer"
   password     = "${var.vsphere-password}"
-  ssh_password = "Wuri@2021"
-  ssh_username = "centos"
+  ssh_password = "server"
+  ssh_username = "root"
   storage {
     disk_size             = "${var.vm-disk-size}"
     disk_thin_provisioned = true
