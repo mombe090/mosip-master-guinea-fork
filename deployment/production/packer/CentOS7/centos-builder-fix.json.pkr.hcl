@@ -21,7 +21,7 @@ variable "vm-mem-size" {
 
 variable "vm-name" {
   type    = string
-  default = "CentOS7-Template-PACKER"
+  default = "CentOS7-Template-PACKER-p"
 }
 
 variable "vsphere-cluster" {
