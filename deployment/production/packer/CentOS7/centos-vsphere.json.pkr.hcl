@@ -70,7 +70,7 @@ source "vsphere-iso" "centos_7" {
   convert_to_template   = true
   datacenter            = "${var.vsphere-datacenter}"
   datastore             = "${var.vsphere-datastore}"
-  disk_controller_type  = "pvscsi"
+  disk_controller_type  = ["pvscsi"]
   disk_size             = "${var.vm-disk-size}"
   disk_thin_provisioned = true
   floppy_files          = ["ks.cfg"]
