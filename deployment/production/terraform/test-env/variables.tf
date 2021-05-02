@@ -145,11 +145,6 @@ variable "console_ip" {
   description = ""
 }
 
-variable "nfs_ip" {
-  type        = string
-  description = ""
-}
-
 variable "k8s_node_memory" {
   type        = string
   description = ""
