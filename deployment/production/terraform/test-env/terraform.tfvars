@@ -14,7 +14,7 @@ deploy_vsphere_network    = "VMKernel"
 # Guest
 guest_name_prefix     = "k8s-prod"
 guest_name_suffix    = ".wuriguinee.unir"
-guest_template        = "CENTOS-7-TEMPL"
+guest_template        = "CentOS7-Template-PACKER"
 guest_vcpu            = 4
 guest_memory          = 16384
 k8s_node_memory       = 70
