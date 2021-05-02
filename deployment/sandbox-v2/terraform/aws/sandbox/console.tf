@@ -24,7 +24,7 @@ resource "aws_instance" "console" {
   }
 
   provisioner "file" {
-    source = "id_rsa.pub"
+    source = "~/.ssh/id_rsa.pub"
     destination = "/tmp/id_rsa.pub"
     connection {
       type     = "ssh"

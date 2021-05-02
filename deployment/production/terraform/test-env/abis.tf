@@ -1,6 +1,6 @@
 resource "vsphere_virtual_machine" "test_abis" {
   count            = length(var.abis_ips)
-  name             = "test_abis${count.index}${var.guest_name_suffix}"
+  name             = "test_abis"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
   folder = vsphere_folder.extra_vm.path
@@ -24,7 +24,7 @@ resource "vsphere_virtual_machine" "test_abis" {
 
     customize {
       linux_options{
-        host_name =  "abis${count.index}"
+        host_name =  "test-abis"
         # domain = "wuriguinee.unir"
         domain = ""
       }
@@ -42,7 +42,7 @@ resource "vsphere_virtual_machine" "test_abis" {
   boot_delay = 5000
 
   provisioner "file" {
-    source = "id_rsa.pub"
+    source = "~/.ssh/id_rsa.pub"
     destination = "/tmp/id_rsa.pub"
     connection {
       type     = "ssh"
@@ -66,7 +66,7 @@ resource "vsphere_virtual_machine" "test_abis" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/extra_vm.sh",
-      format("%s %s", "sudo /tmp/extra_vm.sh", "abis${count.index}")
+      format("%s %s", "sudo /tmp/extra_vm.sh", "test-abis")
     ]
   }
     connection {
