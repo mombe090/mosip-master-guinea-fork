@@ -22,6 +22,11 @@ data "vsphere_virtual_machine" "template_k8s" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
+data "vsphere_virtual_machine" "template_extra" {
+  name = "TEST-EXTRA-VM"
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+
 resource "vsphere_folder" "parent" {
   path          = "mosip-test-env"
   type          = "vm"

@@ -1,4 +1,4 @@
-resource "vsphere_virtual_machine" "mzworkers" {
+resource "vsphere_virtual_machine" "test_mzworkers" {
   count            = length(var.mzworker_ips)
   name             = "test.mzworker${count.index}${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
