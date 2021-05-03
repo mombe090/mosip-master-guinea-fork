@@ -7,7 +7,7 @@ provider_vsphere_password = "Wuri@2021"
 # Infrastructure
 deploy_vsphere_datacenter = "WURI-DC"
 deploy_vsphere_cluster    = "GUINEE"
-deploy_vsphere_datastore  = "datastoreHote2"
+deploy_vsphere_datastore  = "datastoreHote1"
 deploy_vsphere_folder     = "k8s"
 deploy_vsphere_network    = "VMKernel"
 
