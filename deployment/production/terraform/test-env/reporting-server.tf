@@ -13,13 +13,13 @@ resource "vsphere_virtual_machine" "test_reportsrver" {
 
   disk {
     label = "disk0"
-    size  = 300
-    eagerly_scrub    = data.vsphere_virtual_machine.template_extra.disks[0].eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.template_extra.disks[0].thin_provisioned
+    size  = 125
+    eagerly_scrub    = data.vsphere_virtual_machine.template_k8s.disks[0].eagerly_scrub
+    thin_provisioned = data.vsphere_virtual_machine.template_k8s.disks[0].thin_provisioned
   }
 
   clone {
-    template_uuid = data.vsphere_virtual_machine.template_extra.id
+    template_uuid = data.vsphere_virtual_machine.template_k8s.id
 
     customize {
       linux_options{
