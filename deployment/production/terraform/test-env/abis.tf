@@ -51,7 +51,7 @@ resource "vsphere_virtual_machine" "test_abis" {
     }
   }
 
-  provisioner "file" {
+  /*provisioner "file" {
     source = "scripts/extra_vm.sh"
     destination = "/tmp/extra_vm.sh"
     connection {
@@ -67,7 +67,7 @@ resource "vsphere_virtual_machine" "test_abis" {
       "chmod +x /tmp/extra_vm.sh",
       format("%s %s", "sudo /tmp/extra_vm.sh", "test-abis")
     ]
-  }
+  }*/
     connection {
       type     = "ssh"
       user     = "root"
