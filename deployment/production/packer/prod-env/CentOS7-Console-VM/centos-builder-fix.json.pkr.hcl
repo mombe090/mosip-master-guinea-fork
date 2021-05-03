@@ -21,7 +21,7 @@ variable "vm-mem-size" {
 
 variable "vm-name" {
   type    = string
-  default = "PROD-K8S-VM-TEMPL"
+  default = "PROD-CONSOLE-VM-TEMPL"
 }
 
 variable "vsphere-cluster" {
