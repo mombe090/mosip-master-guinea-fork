@@ -13,13 +13,13 @@ resource "vsphere_virtual_machine" "test_abis" {
 
   disk {
     label = "disk0"
-    size  = 250
-    eagerly_scrub    = data.vsphere_virtual_machine.template_extra.disks[0].eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.template_extra.disks[0].thin_provisioned
+    size  = 128
+    eagerly_scrub    = data.vsphere_virtual_machine.template_console.disks[0].eagerly_scrub
+    thin_provisioned = data.vsphere_virtual_machine.template_console.disks[0].thin_provisioned
   }
 
   clone {
-    template_uuid = data.vsphere_virtual_machine.template_extra.id
+    template_uuid = data.vsphere_virtual_machine.template_console.id
 
     customize {
       linux_options{
