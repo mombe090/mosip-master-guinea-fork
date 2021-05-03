@@ -1,9 +1,3 @@
-data "vsphere_virtual_machine" "template_k8s" {
-  name = "TEST-K8S-TEMPL"
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
-
-
 resource "vsphere_virtual_machine" "mzworkers" {
   count            = length(var.mzworker_ips)
   name             = "prod.mzworker${count.index}${var.guest_name_suffix}"

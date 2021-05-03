@@ -1,8 +1,3 @@
-data "vsphere_virtual_machine" "template_k8s" {
-  name = "TEST-K8S-TEMPL"
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
-
 resource "vsphere_virtual_machine" "test_mzmaster" {
   name             = "test.mzmaster${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
