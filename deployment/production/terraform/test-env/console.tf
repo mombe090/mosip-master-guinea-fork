@@ -1,7 +1,3 @@
-data "vsphere_virtual_machine" "template_console" {
-  name = "TEST-EXTRA-VM"
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
 
 resource "vsphere_virtual_machine" "test_console" {
   name             = "test.console${var.guest_name_suffix}"

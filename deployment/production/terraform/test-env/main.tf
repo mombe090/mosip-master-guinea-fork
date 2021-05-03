@@ -27,6 +27,12 @@ data "vsphere_virtual_machine" "template_extra" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
+data "vsphere_virtual_machine" "template_console" {
+  name = "TEST-CONSOLE-TEMPL"
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+
+
 resource "vsphere_folder" "parent" {
   path          = "mosip-test-env"
   type          = "vm"
