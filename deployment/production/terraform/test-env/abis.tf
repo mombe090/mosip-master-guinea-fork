@@ -1,3 +1,8 @@
+data "vsphere_virtual_machine" "template_abis" {
+  name = "TEST-EXTRA-VM"
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+
 resource "vsphere_virtual_machine" "test_abis" {
   count            = length(var.abis_ips)
   name             = "test_abis"
@@ -15,12 +20,12 @@ resource "vsphere_virtual_machine" "test_abis" {
   disk {
     label = "disk0"
     size  = 250
-    eagerly_scrub    = data.vsphere_virtual_machine.template.disks[0].eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
+    eagerly_scrub    = data.vsphere_virtual_machine.template_abis.disks[0].eagerly_scrub
+    thin_provisioned = data.vsphere_virtual_machine.template_abis.disks[0].thin_provisioned
   }
 
   clone {
-    template_uuid = data.vsphere_virtual_machine.template.id
+    template_uuid = data.vsphere_virtual_machine.template_abis.id
 
     customize {
       linux_options{
@@ -46,8 +51,8 @@ resource "vsphere_virtual_machine" "test_abis" {
     destination = "/tmp/id_rsa.pub"
     connection {
       type     = "ssh"
-      user     = "centos"
-      password = var.guest_ssh_password
+      user     = "root"
+      password = var.root_ssh_password
       host     = self.guest_ip_addresses[0]
     }
   }
@@ -57,8 +62,8 @@ resource "vsphere_virtual_machine" "test_abis" {
     destination = "/tmp/extra_vm.sh"
     connection {
       type     = "ssh"
-      user     = "centos"
-      password = var.guest_ssh_password
+      user     = "root"
+      password = var.root_ssh_password
       host     = self.guest_ip_addresses[0]
     }
   }

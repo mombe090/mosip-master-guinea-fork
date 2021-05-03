@@ -1,3 +1,8 @@
+data "vsphere_virtual_machine" "template_console" {
+  name = "TEST-CONSOLE-TEMPL"
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+
 resource "vsphere_virtual_machine" "test_console" {
   name             = "test.console${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
@@ -14,12 +19,12 @@ resource "vsphere_virtual_machine" "test_console" {
   disk {
     label = "disk0"
     size  = 125
-    eagerly_scrub    = data.vsphere_virtual_machine.template.disks[0].eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
+    eagerly_scrub    = data.vsphere_virtual_machine.template_console.disks[0].eagerly_scrub
+    thin_provisioned = data.vsphere_virtual_machine.template_console.disks[0].thin_provisioned
   }
 
   clone {
-    template_uuid = data.vsphere_virtual_machine.template.id
+    template_uuid = data.vsphere_virtual_machine.template_console.id
 
     customize {
       linux_options{
