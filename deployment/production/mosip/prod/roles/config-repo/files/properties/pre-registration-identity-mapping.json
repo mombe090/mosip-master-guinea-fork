@@ -1,0 +1,14 @@
+{
+	"identity": {
+		"name": {
+			"value": "firstName,lastName",
+			"isMandatory" : true
+		},
+		"proofOfAddress": {
+			"value" : "proofOfAddress"
+		},
+		"postalCode": {
+			"value" : "prefecture"
+		}
+	}
+}
