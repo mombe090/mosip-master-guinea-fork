@@ -20,6 +20,9 @@ chmod 600 $SSH_DIR/$KEY
 chown $MUSER $SSH_DIR/*
 chgrp $MUSER $SSH_DIR/*
 
+mkdir -p /root/.ssh
+cat $KEY >> /root/.ssh/authorized_keys
+
 sed -i 's/#PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
 service sshd restart
 systemctl stop firewalld

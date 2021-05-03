@@ -23,8 +23,8 @@ pod_network_cidr: "10.244.0.0/16"
 network: flannel
 
 # Change this to an appropriate interface, preferably a private network.
-# Default is 'eth0'.  
-network_interface: "eth0"
+# Default is 'ens192'.
+network_interface: "ens192"
 ansible_interface_param: 'ansible_{{network_interface}}'
 kubemaster_ip: '{{ hostvars[cluster_master][ansible_interface_param].ipv4.address }}'
 
