@@ -11,7 +11,7 @@ variable "vm-cpu-num" {
 
 variable "vm-disk-size" {
   type    = string
-  default = "25600"
+  default = "256000"
 }
 
 variable "vm-mem-size" {
@@ -21,7 +21,7 @@ variable "vm-mem-size" {
 
 variable "vm-name" {
   type    = string
-  default = "CentOS7-Template-PACKER-p"
+  default = "PROD-K8S-VM-TEMPL"
 }
 
 variable "vsphere-cluster" {
