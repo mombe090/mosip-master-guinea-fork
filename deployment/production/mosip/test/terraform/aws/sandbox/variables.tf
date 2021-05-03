@@ -45,7 +45,7 @@ variable "kube_names" {
      "test_mzworker0.wuriguinee.unir",
      "test_mzworker1.wuriguinee.unir",
      "test_mzworker2.wuriguinee.unir",
-     "test_mzworker3..wuriguinee.unir",
+     "test_mzworker3.wuriguinee.unir",
      "test_mzworker4.wuriguinee.unir",
      "test_mzworker5.wuriguinee.unir",
      "test_mzworker6.wuriguinee.unir",
