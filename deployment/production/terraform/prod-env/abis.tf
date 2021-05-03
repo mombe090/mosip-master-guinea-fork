@@ -1,6 +1,6 @@
-resource "vsphere_virtual_machine" "abis" {
+resource "vsphere_virtual_machine" "prod_abis" {
   count            = length(var.abis_ips)
-  name             = "abis${count.index}${var.guest_name_suffix}"
+  name             = "prod.abis${count.index}${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
   folder = vsphere_folder.extra_vm.path
@@ -15,16 +15,16 @@ resource "vsphere_virtual_machine" "abis" {
   disk {
     label = "disk0"
     size  = 500
-    eagerly_scrub    = data.vsphere_virtual_machine.template.disks[0].eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
+    eagerly_scrub    = data.vsphere_virtual_machine.prod_template_extra.disks[0].eagerly_scrub
+    thin_provisioned = data.vsphere_virtual_machine.prod_template_extra.disks[0].thin_provisioned
   }
 
   clone {
-    template_uuid = data.vsphere_virtual_machine.template.id
+    template_uuid = data.vsphere_virtual_machine.prod_template_extra.id
 
     customize {
       linux_options{
-        host_name =  "abis${count.index}"
+        host_name =  "prod-abis${count.index}"
         # domain = "wuriguinee.unir"
         domain = ""
       }
@@ -46,8 +46,8 @@ resource "vsphere_virtual_machine" "abis" {
     destination = "/tmp/id_rsa.pub"
     connection {
       type     = "ssh"
-      user     = "centos"
-      password = var.guest_ssh_password
+      user     = "root"
+      password = var.root_ssh_password
       host     = self.guest_ip_addresses[0]
     }
   }
@@ -57,8 +57,8 @@ resource "vsphere_virtual_machine" "abis" {
     destination = "/tmp/extra_vm.sh"
     connection {
       type     = "ssh"
-      user     = "centos"
-      password = var.guest_ssh_password
+      user     = "root"
+      password = var.root_ssh_password
       host     = self.guest_ip_addresses[0]
     }
   }
@@ -66,7 +66,7 @@ resource "vsphere_virtual_machine" "abis" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/extra_vm.sh",
-      format("%s %s", "sudo /tmp/extra_vm.sh", "abis${count.index}")
+      format("%s %s", "sudo /tmp/extra_vm.sh", "prod-abis${count.index}")
     ]
   }
     connection {

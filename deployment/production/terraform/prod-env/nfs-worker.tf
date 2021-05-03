@@ -1,4 +1,4 @@
-resource "vsphere_virtual_machine" "nfserver" {
+resource "vsphere_virtual_machine" "prod_nfserver" {
   name             = "prod.nfserver${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
@@ -14,12 +14,12 @@ resource "vsphere_virtual_machine" "nfserver" {
   disk {
     label = "disk0"
     size  = 800
-    eagerly_scrub    = data.vsphere_virtual_machine.template.disks[0].eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
+    eagerly_scrub    = data.vsphere_virtual_machine.prod_template_k8s.disks[0].eagerly_scrub
+    thin_provisioned = data.vsphere_virtual_machine.prod_template_k8s.disks[0].thin_provisioned
   }
 
   clone {
-    template_uuid = data.vsphere_virtual_machine.template.id
+    template_uuid = data.vsphere_virtual_machine.prod_template_k8s.id
 
     customize {
       linux_options{
@@ -45,8 +45,8 @@ resource "vsphere_virtual_machine" "nfserver" {
     destination = "/tmp/id_rsa.pub"
     connection {
       type     = "ssh"
-      user     = "centos"
-      password = var.guest_ssh_password
+      user     = "root"
+      password = var.root_ssh_password
       host     = self.guest_ip_addresses[0]
     }
   }
@@ -56,8 +56,8 @@ resource "vsphere_virtual_machine" "nfserver" {
     destination = "/tmp/kube_auth.sh"
     connection {
       type     = "ssh"
-      user     = "centos"
-      password = var.guest_ssh_password
+      user     = "root"
+      password = var.root_ssh_password
       host     = self.guest_ip_addresses[0]
     }
   }

@@ -17,8 +17,13 @@ data "vsphere_network" "network" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-data "vsphere_virtual_machine" "template" {
-  name = "CENTOS-7-TEMPL"
+data "vsphere_virtual_machine" "prod_template_extra" {
+  name = "PROD-EXTRA-VM-TEMPL"
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+
+data "vsphere_virtual_machine" "prod_template_k8s" {
+  name = "PROD-K8S-VM-TEMPL"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
