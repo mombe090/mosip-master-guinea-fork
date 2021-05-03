@@ -1,7 +1,7 @@
 
 resource "vsphere_virtual_machine" "dmzworkers" {
   count            = length(var.dmzworker_ips)
-  name             = "prod.dmzworker${count.index}${var.guest_name_suffix}"
+  name             = "test.dmzworker${count.index}${var.guest_name_suffix}"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
   folder = vsphere_folder.dmz_nodes.path
@@ -25,7 +25,7 @@ resource "vsphere_virtual_machine" "dmzworkers" {
 
     customize {
       linux_options{
-        host_name =  "prod-mzworker${count.index}"
+        host_name =  "test-dmzworker${count.index}"
         # domain = "wuriguinee.unir"
         domain = ""
       }
@@ -67,7 +67,7 @@ resource "vsphere_virtual_machine" "dmzworkers" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/kube_auth.sh",
-      format("%s %s", "sudo /tmp/kube_auth.sh", "prod-mzworker${count.index}")
+      format("%s %s", "sudo /tmp/kube_auth.sh", "test-dmzworker${count.index}")
     ]
   }
     connection {
