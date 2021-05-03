@@ -11,7 +11,7 @@ variable "vm-cpu-num" {
 
 variable "vm-disk-size" {
   type    = string
-  default = "25600"
+  default = "71680"
 }
 
 variable "vm-mem-size" {
@@ -21,7 +21,7 @@ variable "vm-mem-size" {
 
 variable "vm-name" {
   type    = string
-  default = "TEST-K8s"
+  default = "TEST-K8S-TEMPL"
 }
 
 variable "vsphere-cluster" {
