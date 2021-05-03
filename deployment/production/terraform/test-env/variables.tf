@@ -130,9 +130,9 @@ variable "dmzworker_ips" {
   description = "List of IPs used for the kubernetes worker nodes."
 }
 
-variable "abis_ips" {
-  type        = map(any)
-  description = "List of IPs used for the kubernetes worker nodes."
+variable "abis_ip" {
+  type        = string
+  description = ""
 }
 
 variable "reporter_ips" {

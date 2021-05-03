@@ -1,5 +1,4 @@
 resource "vsphere_virtual_machine" "test_abis" {
-  count            = length(var.abis_ips)
   name             = "test_abis"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
@@ -29,7 +28,7 @@ resource "vsphere_virtual_machine" "test_abis" {
         domain = ""
       }
       network_interface {
-        ipv4_address = lookup(var.abis_ips, count.index)
+        ipv4_address = var.abis_ip
         ipv4_netmask = "24"
       }
 
