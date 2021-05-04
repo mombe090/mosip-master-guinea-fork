@@ -26,10 +26,4 @@ service sshd restart
 systemctl stop firewalld
 systemctl disable firewalld
 
-sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-sudo yum install -y ansible
-sudo yum install -y tmux
-sudo yum install -y vim
-sudo yum install -y nano
-cp $HOME/mosip-infra/deployment/production/mosip/utils/tmux.conf $HOME/.tmux.conf
 

@@ -28,25 +28,20 @@ data "vsphere_virtual_machine" "prod_template_k8s" {
 }
 
 resource "vsphere_folder" "parent" {
-  path          = "mosip"
+  path          = "mosip-prod-env"
   type          = "vm"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-resource "vsphere_folder" "prod_env" {
-  path          = "${vsphere_folder.parent.path}/prod-env"
-  type          = "vm"
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
 
 resource "vsphere_folder" "extra_vm" {
-  path          = "${vsphere_folder.prod_env.path}/extra-vm"
+  path          = "${vsphere_folder.parent.path}/extra-vm"
   type          = "vm"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
 resource "vsphere_folder" "k8s_vm" {
-  path          = "${vsphere_folder.prod_env.path}/k8s-vm"
+  path          = "${vsphere_folder.parent.path}/k8s-vm"
   type          = "vm"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
