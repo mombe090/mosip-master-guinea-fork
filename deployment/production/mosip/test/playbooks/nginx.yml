@@ -4,8 +4,8 @@
   gather_facts: true
   roles:
     - {role: packages/epel, tags: [epel]}
-    - {role: nginx, when: site.ssl.get_certificate == false, tags: [nginx]}
-    - {role: letsencrypt, when: site.ssl.get_certificate == false, tags: [letsencrypt]}
+    - {role: nginx, when: site.ssl.get_certificate == true, tags: [nginx]}
+    - {role: letsencrypt, when: site.ssl.get_certificate == true, tags: [letsencrypt]}
     - {role: nginx, nginx_conf_template: nginx_https_conf.yml.j2}  # Conf file with ssl
   
 

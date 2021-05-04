@@ -11,7 +11,7 @@ variable "vm-cpu-num" {
 
 variable "vm-disk-size" {
   type    = string
-  default = "512000"
+  default = "256000"
 }
 
 variable "vm-mem-size" {
