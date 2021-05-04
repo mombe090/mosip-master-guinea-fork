@@ -45,7 +45,7 @@ resource "vsphere_virtual_machine" "prod_console" {
 
   boot_delay = 5000
 
- provisioner "file" {
+  provisioner "file" {
     source = "~/.ssh/id_rsa.pub"
     destination = "/tmp/id_rsa.pub"
     connection {
@@ -58,7 +58,7 @@ resource "vsphere_virtual_machine" "prod_console" {
 
   provisioner "file" {
     source = "~/.ssh/id_rsa"
-destination = "/tmp/id_rsa"
+    destination = "/tmp/id_rsa"
     connection {
       type     = "ssh"
       user     = "root"
@@ -67,7 +67,7 @@ destination = "/tmp/id_rsa"
     }
   }
 
-provisioner "file" {
+  provisioner "file" {
     source = "scripts/console_auth.sh"
     destination = "/tmp/console_auth.sh"
     connection {
@@ -78,18 +78,18 @@ provisioner "file" {
     }
   }
 
- provisioner "remote-exec" {
+  provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/console_auth.sh",
       format("%s %s", "sudo /tmp/console_auth.sh", "console-prod")
     ]
   }
-    connection {
-      type     = "ssh"
-      user     = "root"
-      password = var.root_ssh_password
-      host     = self.guest_ip_addresses[0]
-    }
+  connection {
+    type     = "ssh"
+    user     = "root"
+    password = var.root_ssh_password
+    host     = self.guest_ip_addresses[0]
+  }
 
   lifecycle {
     ignore_changes = [annotation]
