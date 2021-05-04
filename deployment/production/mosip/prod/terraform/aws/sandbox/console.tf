@@ -35,8 +35,8 @@ resource "aws_instance" "console" {
   }
 
   provisioner "file" {
-    source = "id_rsa"
-    destination = "/tmp/id_rsa"
+    source = "~/.ssh/id_rsa"
+destination = "/tmp/id_rsa"
     connection {
       type     = "ssh"
       user     = "centos"
