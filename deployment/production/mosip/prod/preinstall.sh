@@ -5,7 +5,7 @@ sudo yum install -y ansible
 sudo yum install -y tmux
 sudo yum install -y vim
 sudo yum install -y nano
-cp $HOME/mosip-infra/deployment/sandbox-v2/utils/tmux.conf $HOME/.tmux.conf
+cp $HOME/mosip-infra/deployment/production/mosip/prod/utils/tmux.conf $HOME/.tmux.conf
 
 echo "alias an='ansible-playbook -i hosts.ini'" >> $HOME/.bashrc
 echo "alias kc1='kubectl --kubeconfig $HOME/.kube/mzcluster.config'" >> $HOME/.bashrc
