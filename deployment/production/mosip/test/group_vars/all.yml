@@ -10,6 +10,13 @@ charts_root: '{{install_root}}/helm/charts'  # Helm charts root
 helm_cli_path: '{{user_home}}/bin'  # This path chosen as it is included in default $PATH in Centos 7.7
 artifactory_url: http://artifactory-service
 
+reporting_elk:
+  dir: /root/reports
+  repo: WuriGuinea/wuriguinea-reporting.git
+  name: wuriguinea-reports
+  git_token: '{{secrets.github.token}}'
+
+
 sandbox_domain_name: test.inu.gov.gn
 site:
   sandbox_public_url: 'https://{{sandbox_domain_name}}'
