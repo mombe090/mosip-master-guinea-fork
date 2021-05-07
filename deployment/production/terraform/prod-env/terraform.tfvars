@@ -1,5 +1,5 @@
 # Provider
-#provider_vsphere_host     = "vcenter.wuriguinee.unir"
+#provider_vsphere_host     = "vcenter.inu.gov.gn"
 provider_vsphere_host     = "192.168.9.100"
 provider_vsphere_user     = "administrator@vsphere.local"
 provider_vsphere_password = "Wuri@2021"
@@ -13,7 +13,7 @@ deploy_vsphere_network    = "VMKernel"
 
 # Guest
 guest_name_prefix     = "k8s-prod"
-guest_name_suffix    = ".wuriguinee.unir"
+guest_name_suffix    = ".inu.gov.gn"
 guest_template        = "CENTOS-7-TEMPL"
 guest_vcpu            = 4
 guest_memory          = 16384

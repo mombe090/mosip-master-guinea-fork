@@ -34,25 +34,25 @@ variable "private_key" {
 
 /* Recommended not to change names */
 variable "console_name" {
-  default = "console.wuriguinee.unir"  //
+  default = "console.inu.gov.gn"  //
 }
 
 /* Recommended not to change names */
 variable "kube_names" {
    type = list(string)
    default = [
-     "mzmaster.wuriguinee.unir",
-     "test_mzworker0.wuriguinee.unir",
-     "test_mzworker1.wuriguinee.unir",
-     "test_mzworker2.wuriguinee.unir",
-     "test_mzworker3.wuriguinee.unir",
-     "test_mzworker4.wuriguinee.unir",
-     "test_mzworker5.wuriguinee.unir",
-     "test_mzworker6.wuriguinee.unir",
-     "test_mzworker7.wuriguinee.unir",
-     "test_mzworker8.wuriguinee.unir",
-     "test_dmzmaster.wuriguinee.unir",
-     "test_dmzworker0.wuriguinee.unir"
+     "mzmaster.inu.gov.gn",
+     "test_mzworker0.inu.gov.gn",
+     "test_mzworker1.inu.gov.gn",
+     "test_mzworker2.inu.gov.gn",
+     "test_mzworker3.inu.gov.gn",
+     "test_mzworker4.inu.gov.gn",
+     "test_mzworker5.inu.gov.gn",
+     "test_mzworker6.inu.gov.gn",
+     "test_mzworker7.inu.gov.gn",
+     "test_mzworker8.inu.gov.gn",
+     "test_dmzmaster.inu.gov.gn",
+     "test_dmzworker0.inu.gov.gn"
    ]
 }
 
