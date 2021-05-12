@@ -23,6 +23,14 @@
     enabled: yes
     gpgcheck: no
 
+- name: UnInstall old kubernetes packages (RHEL/CentOS)
+  when: ansible_os_family == "RedHat"
+  yum:
+    name: "{{ pkgs }}"
+    update_cache: yes
+    state: absent
+  with_items: "{{ pkgs }}"
+
 - name: Install kubernetes packages (RHEL/CentOS)
   when: ansible_os_family == "RedHat"
   yum:
