@@ -200,7 +200,7 @@ databases:
     sql_path: '{{repos.pms.dest}}/db_scripts'
 
 nfs:
-  server: console.inu.gov.gn
+  server: test_console.inu.gov.gn
   folder: /srv/nfs/mosip
 
 
