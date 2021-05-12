@@ -10,6 +10,13 @@ charts_root: '{{install_root}}/helm/charts'  # Helm charts root
 helm_cli_path: '{{user_home}}/bin'  # This path chosen as it is included in default $PATH in Centos 7.7
 artifactory_url: http://artifactory-service
 
+reporting_elk:
+  dir: /root/reports
+  repo: WuriGuinea/wuriguinea-reporting.git
+  name: wuriguinea-reports
+  git_token: '{{secrets.github.token}}'
+
+
 sandbox_domain_name: test.inu.gov.gn
 site:
   sandbox_public_url: 'https://{{sandbox_domain_name}}'
@@ -26,7 +33,7 @@ docker_wait_time: 600   # Wait for docker to pull and deploy
 clusters:
   mz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/mzcluster.config" 
-    nodeport_node: test_mzworker0.wuriguinee.unir  # Any node on cluster for nodeport access
+    nodeport_node: test_mzworker0.inu.gov.gn  # Any node on cluster for nodeport access
     any_node_ip: '192.168.9.106' # ip address of above node
     ingress:
       namespace: ingress-nginx
@@ -58,7 +65,7 @@ clusters:
         url: http://kibana-kibana:5601 
   dmz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/dmzcluster.config" 
-    nodeport_node: test_dmzworker0.wuriguinee.unir  # Any node on cluster for nodeport access
+    nodeport_node: test_dmzworker0.inu.gov.gn  # Any node on cluster for nodeport access
     any_node_ip: '192.168.9.139' # ip adddress of above node
     ingress:
       namespace: ingress-nginx
@@ -85,9 +92,9 @@ clusters:
       grafana_ingress_path: 'dmz-grafana'
       grafana_token_file: '{{tmp_dir}}/grafana_dmz.token'
       elasticsearch:
-        host: 'test_mzworker0.wuriguinee.unir:30080/elasticsearch' # Connect to elasticsearch on MZ
+        host: 'test_mzworker0.inu.gov.gn:30080/elasticsearch' # Connect to elasticsearch on MZ
       kibana: 
-        url: http://test_mzworker0.wuriguinee.unir:30601  # Kibana runs on this nodeport on MZ.
+        url: http://test_mzworker0.inu.gov.gn:30601  # Kibana runs on this nodeport on MZ.
 
 # Registration processor shared variables
 #
@@ -109,7 +116,7 @@ postgres:
   max_connections: 1000
   node_affinity: 
     enabled: false # To run postgres on an exclusive node
-    node: 'test_mzworker0.wuriguinee.unir' # Hostname. Run only on this node, and nothing else should run on this node
+    node: 'test_mzworker0.inu.gov.gn' # Hostname. Run only on this node, and nothing else should run on this node
     taint:
       key: "postgres" # Key for applying taint on node
       value: "only"  
@@ -195,7 +202,7 @@ databases:
     sql_path: '{{repos.pms.dest}}/db_scripts'
 
 nfs:
-  server: console.wuriguinee.unir
+  server: console.inu.gov.gn
   folder: /srv/nfs/mosip
 
 
@@ -217,7 +224,7 @@ hdfs:
       path: '{{nfs.folder}}/hdfs/dn' 
   node_affinity: 
     enabled: false # To run all hdfs pods exclusively on a single node.
-    node: 'test_mzworker1.wuriguinee.unir' # Hostname. Run only on this node, and nothing else should run on this node
+    node: 'test_mzworker1.inu.gov.gn' # Hostname. Run only on this node, and nothing else should run on this node
     taint:
       key: "hdfs" # Key for applying taint on node
       value: "only"  

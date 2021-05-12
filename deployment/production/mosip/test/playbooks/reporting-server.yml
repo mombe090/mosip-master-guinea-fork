@@ -1,0 +1,19 @@
+#-# Create folder on nfs
+- hosts: reporting_server
+  gather_facts: true
+  roles:
+      - { role: packages/reporting-server, tags: [ 'git' ] }
+      - { role: reporting-elk }
+
+  tasks:
+    - {
+      name: 'Create folder',
+      file: {name: '{{reporting_elk.dir}}',
+             state: directory},
+      become: yes
+    }
+
+    - name: Create git folder
+      git:
+        repo: "https://{{ user | urlencode }}:{{ password | urlencode }}@github.com/{{reporting_elk.repo}}"
+        dest: '{{reporting_elk.dir}}'

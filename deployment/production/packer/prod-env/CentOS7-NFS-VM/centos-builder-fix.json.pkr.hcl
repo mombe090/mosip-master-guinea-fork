@@ -51,7 +51,7 @@ variable "vsphere-password" {
 
 variable "vsphere-server" {
   type    = string
-  default = "vcenter.wuriguinee.unir"
+  default = "vcenter.inu.gov.gn"
 }
 
 variable "vsphere-user" {
