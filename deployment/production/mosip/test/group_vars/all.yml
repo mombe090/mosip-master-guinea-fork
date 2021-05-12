@@ -1,5 +1,3 @@
-
----
 # Global variables - accessed by different roles and plays
 #
 tmp_dir: '/tmp/mosip' 

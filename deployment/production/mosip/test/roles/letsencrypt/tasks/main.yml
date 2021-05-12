@@ -1,14 +1,14 @@
 # letsencrypt requires latest version of various python modules, hence
 # We will run in a virtual environment of python3
 
-- name: upgrade the pip version
-  shell: pip install --upgrade pip
-
 - name: Install virtualenv
   yum:
     name: python-virtualenv 
     state: present
   become: yes
+
+- name: upgrade the pip version
+  shell: '{{ansible_env.HOME}}/.venv-py3/bin/pip install --upgrade pip'
 
 - name: Install certbot in python3 virtual environment 
   pip:
