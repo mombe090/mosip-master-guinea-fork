@@ -22,3 +22,4 @@
 - name: "Update Helm repo"
   shell: "{{helm_cli_path}}/helm repo update"  # Shell instead of command for getting all the paths
 
+

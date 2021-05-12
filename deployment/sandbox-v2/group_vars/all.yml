@@ -1,4 +1,3 @@
-
 ---
 # Global variables - accessed by different roles and plays
 #
@@ -227,3 +226,4 @@ coredns:
   path: '{{tmp_dir}}/dns'
   db: '{{tmp_dir}}/dns/sandbox_dns.db'
   image: coredns/coredns
+

@@ -1,3 +1,4 @@
+
 # MOSIP Sandbox Installer
 
 ## Introduction
@@ -52,12 +53,12 @@ Before installing MOSIP modules you will have to set up your VMs as below:
 1. Disable `firewalld` on all machines. 
 1. Exchange ssh keys between console and K8s cluster machines such that ssh is password-less from console machine:
     ```  
-    $[mosipuser@console.sb] ssh root@<any K8s node>
-    $[mosipuser@console.sb] ssh mosipuser@console.sb
+    $[mosipuser@console.inu.gov.gn] ssh root@<any K8s node>
+    $[mosipuser@console.inu.gov.gn] ssh mosipuser@console.inu.gov.gn
     ```  
 1. Make console machine accessible via a public domain name (e.g. sandbox.mycompany.com).  This step may be skipped if you do not plan to access the sandbox externally. 
 1. Open ports 80, 443, 30090 (postgres) on console machine for external access.
-1. DNS: Setup a DNS server (or use cloud provider's DNS) such that console and nodes are accessible via their domain names listed in `hosts.ini`.  It is important to check if domain names are resolved from within pods of K8s cluster.  One way to check is after the cluster is up, deploy `utils/busybox.yml` pod, login into the pod and run the command `ping mzworker0.sb`.  DO NOT use `/etc/hosts` for domain name resolution, as name resolution will fail from within pods if this method is followed.
+1. DNS: Setup a DNS server (or use cloud provider's DNS) such that console and nodes are accessible via their domain names listed in `hosts.ini`.  It is important to check if domain names are resolved from within pods of K8s cluster.  One way to check is after the cluster is up, deploy `utils/busybox.yml` pod, login into the pod and run the command `ping mzworker0.inu.gov.gn`.  DO NOT use `/etc/hosts` for domain name resolution, as name resolution will fail from within pods if this method is followed.
 
 ## Terraform
 All the above is achieved using Terraform scripts available in `terraform/`.  At present, AWS scripts are being used and maintained.  It is highly recommended that you study the scripts in detail before running them. 
@@ -94,21 +95,21 @@ ssl:
   certificate: <certificate dir>
   certificate_key: <private key path> 
 ```
-* Get the ips of mzworker0.sb and dmzworker0.sb
+* Get the ips of mzworker0.inu.gov.gn and dmzworker0.inu.gov.gn
 ```
-ping mzworker0.sb
-ping dmzworker0.sb
+ping mzworker0.inu.gov.gn
+ping dmzworker0.inu.gov.gn
 ```
-* Set **private ip** address of `mzworker0.sb` and `dmzworker0.sb` in `group_vars/all.yml`:
+* Set **private ip** address of `mzworker0.inu.gov.gn` and `dmzworker0.inu.gov.gn` in `group_vars/all.yml`:
 
 ```
 clusters:
   mz:
-    any_node_ip: '<mzworker0.sb ip>'
+    any_node_ip: '<mzworker0.inu.gov.gn ip>'
 
 clusters:
   dmz:
-    any_node_ip: '<dmzworker0.sb ip>'
+    any_node_ip: '<dmzworker0.inu.gov.gn ip>'
 ```
 ### Network interface
 If your cluster machines use network interface other than "eth0", update it in `group_vars/mzcluster.yml` and `group_vars/dmzcluster.yml`:
@@ -183,3 +184,4 @@ To compare two property files (`*.properties`) use:
 ```
 $ ./utils/prop_comparator.py <file1> <file2>
 ```
+

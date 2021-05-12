@@ -1,0 +1,174 @@
+# Manifest file containing version of all MOSIP core components.
+versions:
+  services:
+
+    kernel:
+      auth:
+        'kernel-auth-service':  'quay.io/wuriguinea/kernel-auth-service:1.1.1'
+      masterdata:
+        'kernel-masterdata-service': 'quay.io/wuriguinea/kernel-masterdata-service:1.1.1'
+      idgen:
+        'kernel-idgenerator-service': 'quay.io/wuriguinea/kernel-idgenerator-service:1.1.1'
+      prid:
+        'kernel-pridgenerator-service': 'quay.io/wuriguinea/kernel-pridgenerator-service:1.1.1'
+      sync:
+        'kernel-syncdata-service': 'quay.io/wuriguinea/kernel-syncdata-service:1.1.1'
+      audit :
+        'kernel-auditmanager-service': 'quay.io/wuriguinea/kernel-auditmanager-service:1.1.1'
+      key:
+        'kernel-keymanager-service': 'quay.io/wuriguinea/kernel-keymanager-service:1.1.1'
+      notifier:
+        'kernel-notification-service': 'quay.io/wuriguinea/kernel-notification-service:dev'
+      otp:
+        'kernel-otpmanager-service': 'quay.io/wuriguinea/kernel-otpmanager-service:1.1.1'
+      rid:
+        'kernel-ridgenerator-service': 'quay.io/wuriguinea/kernel-ridgenerator-service:1.1.1'
+
+    prereg:
+      login:
+        'prereg-login-service': 'quay.io/wuriguinea/pre-registration-login-service:1.1.1'
+      batch:
+        'prereg-batchjob-service': 'quay.io/wuriguinea/pre-registration-batchjob:dev'
+      contactus:
+        'prereg-contactus-service': 'quay.io/wuriguinea/pre-registration-contactus:dev'
+      document:
+        'prereg-document-service':  'quay.io/wuriguinea/pre-registration-document-service:1.1.1'
+      transliteration:
+        'prereg-transliteration-service': 'quay.io/wuriguinea/pre-registration-transliteration-service:1.1.1'
+      booking:
+        'prereg-booking-service': 'quay.io/wuriguinea/pre-registration-booking-service:1.1.1'
+      qrcode:
+        'prereg-qrcode-service': 'quay.io/wuriguinea/pre-registration-generateqrcode-service:1.1.1'
+      datasync:
+        'prereg-datasync-service': 'quay.io/wuriguinea/pre-registration-datasync-service:1.1.1'
+      demographic:
+        'prereg-demographic-service':  'quay.io/wuriguinea/pre-registration-demographic-service:UNIR_1.0.0'
+      notification:
+        'prereg-notification-service': 'quay.io/wuriguinea/pre-registration-notification-service:dev'
+      captcha:
+        'prereg-captcha-service': 'quay.io/wuriguinea/pre-registration-captcha-service:1.1.1'
+      ui:
+        'prereg-ui': 'quay.io/wuriguinea/pre-registration-ui:dev'
+
+      qa:
+        'prereg-qa': 'quay.io/wuriguinea/pre-registration-ui:qa'
+
+      uiredeployer:
+        'prereg-uiapp-redployer': 'quay.io/wuriguinea/ui-redeployer:dev'
+
+    regproc:
+      camel:
+        'regproc-camel-stage': 'quay.io/wuriguinea/registration-processor-common-camel-bridge:1.1.1'
+      notification: 
+        'regproc-securezone-notification-stage': 'quay.io/wuriguinea/registration-processor-securezone-notification-stage:1.1.1'
+      uploader:
+        'regproc-packet-uploader-stage': 'quay.io/wuriguinea/registration-processor-packet-uploader-stage:1.1.1'
+      quality:
+        'regproc-quality-checker-stage': 'quay.io/wuriguinea/registration-processor-quality-checker-stage:1.1.1'
+      validator:
+        'regproc-packet-validator-stage': 'quay.io/wuriguinea/registration-processor-packet-validator-stage:1.1.1'
+      osi:
+        'regproc-osi-validator-stage': 'quay.io/wuriguinea/registration-processor-osi-validator-stage:1.1.1'
+      demo:
+        'regproc-demo-dedupe-stage': 'quay.io/wuriguinea/registration-processor-demo-dedupe-stage:1.1.1'
+      bio:
+        'regproc-bio-dedupe-stage': 'quay.io/wuriguinea/registration-processor-bio-dedupe-stage:1.1.1'
+      biosvc:
+        'regproc-bio-dedupe-service': 'quay.io/wuriguinea/registration-processor-bio-dedupe-service:1.1.1'
+      bioauth:
+        'regproc-biometric-authentication-stage': 'quay.io/wuriguinea/registration-processor-biometric-authentication-stage:1.1.1'
+      abishandler:
+        'regproc-abis-handler-stage': 'quay.io/wuriguinea/registration-processor-abis-handler-stage:1.1.1'
+      abismid:
+        'regproc-abis-middleware-stage': 'quay.io/wuriguinea/registration-processor-abis-middleware-stage:1.1.1'
+      proxyabis:
+        'regproc-proxy-abis': 'quay.io/wuriguinea/registration-processor-abis:1.1.1'
+      manual:
+        'regproc-manual-verification-stage': 'quay.io/wuriguinea/registration-processor-manual-verification-stage:1.1.1'
+      external:
+        'regproc-external-stage': 'quay.io/wuriguinea/registration-processor-external-stage:1.1.1'
+      eis: 
+        'regproc-external-integration-service': 'quay.io/wuriguinea/registration-processor-external-integration-service:1.1.1'
+      uin:
+        'regproc-uin-generator-stage': 'quay.io/wuriguinea/registration-processor-uin-generator-stage:1.1.1'
+      msg:
+        'regproc-message-sender-stage': 'quay.io/wuriguinea/registration-processor-message-sender-stage:dev'
+      print:
+        'regproc-printing-stage': 'quay.io/wuriguinea/registration-processor-printing-stage:dev'
+      printsvc:
+        'regproc-print-service': 'quay.io/wuriguinea/registration-processor-print-service:dev'
+      trans:
+        'regproc-registration-transaction-service': 'quay.io/wuriguinea/registration-processor-registration-transaction-service:1.1.1'
+      request: 
+        'regproc-request-handler-service': 'quay.io/wuriguinea/registration-processor-request-handler-service:1.1.1'
+      reprocess:
+        'regproc-reprocessor-stage': 'quay.io/wuriguinea/registration-processor-reprocessor-stage:1.1.1'
+    dmzregproc:  
+      receiver:
+        'regproc-packet-receiver-stage': 'quay.io/wuriguinea/registration-processor-packet-receiver-stage:1.1.1'
+      camel:
+        'regproc-camel-stage': 'quay.io/wuriguinea/registration-processor-common-camel-bridge:1.1.1'
+      status:
+        'regproc-registration-status-service': 'quay.io/wuriguinea/registration-processor-registration-status-service:1.1.1'
+      pktserver:
+        'regproc-dmz-packet-server': 'quay.io/wuriguinea/registration-processor-dmz-packet-server:1.0.9'
+    
+     
+    #'ida-auth-service': 'quay.io/wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1'
+    #'ida-internal-service': 'quay.io/wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1'
+    #'ida-kyc-service': 'quay.io/wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1'
+    #'ida-otp-service': 'quay.io/wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1'
+
+    ida:
+      auth:
+        'ida-auth-service': 'quay.io/wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1'
+      internal: 
+         'ida-internal-service': 'quay.io/wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1'
+      kyc: 
+         'ida-kyc-service': 'quay.io/wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1'
+      otp: 
+         'ida-otp-service': 'quay.io/wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1'
+      key:  
+        'ida-key-generator': 'quay.io/wuriguinea/authentication-keys-generator:1.1.1'
+      hashsalt:  
+        'ida-hash-salt-generator': 'quay.io/wuriguinea/kernel-salt-generator:1.1.1'
+      encryptsalt:  
+         'ida-encrypt-salt-generator': 'quay.io/wuriguinea/kernel-salt-generator:1.1.1'
+
+    idrepo:
+      identity:
+        'idrepo-identity-service': 'quay.io/wuriguinea/id-repository-identity-service:1.1.1'
+      vid: 
+        'idrepo-vid-service': 'quay.io/wuriguinea/id-repository-vid-service:1.1.1'
+      uinhash:  
+        'idrepo-uin-hash-generator': 'quay.io/wuriguinea/kernel-salt-generator:1.1.1'
+      uinencrypt:
+        'idrepo-uin-encrypt-generator' :  'quay.io/wuriguinea/kernel-salt-generator:1.1.1'
+      vidhash:
+        'idrepo-vid-hash-generator': 'quay.io/wuriguinea/kernel-salt-generator:1.1.1'
+      videncrypt:
+        'idrepo-vid-encrypt-generator': 'quay.io/wuriguinea/kernel-salt-generator:1.1.1'
+
+    pms:
+      misp: 
+        'pms-misp-service': 'quay.io/wuriguinea/pmp-misp-service:1.1.1'
+      pm:
+        'pms-partner-management-service': 'quay.io/wuriguinea/pmp-partner-management-service:1.1.1'
+      partner:
+        'pms-partner-service': 'quay.io/wuriguinea/pmp-partner-service:1.1.1'
+      policy:
+        'pms-policy-management-service': 'quay.io/wuriguinea/pmp-policy-management-service:1.1.1'
+
+    resident: 
+      resident:  
+        'resident-service': 'quay.io/wuriguinea/resident-service:1.1.1'
+    
+    admin:
+      service:
+        'admin-service': 'quay.io/wuriguinea/admin-service:1.1.1'
+      ui:
+        'admin-ui': 'quay.io/wuriguinea/admin-ui:1.1.1'
+
+    artifactory:
+      service:
+        'artifactory-service': 'quay.io/wuriguinea/artifactory-service:1.1.1'

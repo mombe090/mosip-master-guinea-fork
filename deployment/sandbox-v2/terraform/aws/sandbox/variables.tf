@@ -60,4 +60,3 @@ variable "kube_names" {
 variable "hosted_domain_name" {  // Do not change this name - has dependency on Ansible scripts 
   default = "sb"
 }
-

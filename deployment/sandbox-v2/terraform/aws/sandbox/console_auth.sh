@@ -25,3 +25,4 @@ mkfs -t xfs /dev/nvme1n1
 mount /dev/nvme1n1 /srv
 # Make the above permanent
 echo "/dev/nvme1n1 /srv                       xfs     defaults        0 0" >> /etc/fstab
+

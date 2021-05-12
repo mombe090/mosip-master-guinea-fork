@@ -1,0 +1,37 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: isory-dev
+  namespace: kubernetes-dashboard
+rules:
+- apiGroups: [""]
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - delete
+  resources:
+    - pods
+    - pods/log
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dev-user
+  namespace: kubernetes-dashboard
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: dev-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: dev-user
+    namespace: kubernetes-dashboard
+

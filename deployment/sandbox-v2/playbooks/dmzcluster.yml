@@ -19,3 +19,4 @@
     dashboard_conf: '{{clusters.dmz.dashboard}}'
   roles:
     - {role: k8scluster/dashboard}
+

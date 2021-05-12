@@ -47,4 +47,3 @@ spec:
         readinessProbe:
           tcpSocket:
             port: {{ .Values.containerPort }}  # All defaults used
-

@@ -80,3 +80,4 @@ resource "aws_route53_record" "console" {
     aws_instance.console.private_ip
   ]
 }
+

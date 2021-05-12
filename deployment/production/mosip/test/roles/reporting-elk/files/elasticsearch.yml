@@ -1,0 +1,4 @@
+network.host: 192.168.9.105
+http.port: 9200
+discovery.seed_hosts: ["192.168.9.105"]
+discovery.type: single-node

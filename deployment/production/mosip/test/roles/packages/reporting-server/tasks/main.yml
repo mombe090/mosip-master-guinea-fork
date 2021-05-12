@@ -1,0 +1,9 @@
+- name: 'Install git, vim, tmux'
+  yum:
+    name: "{{ packages }}"
+  vars:
+      packages:
+        - git
+        - vim
+        - tmux
+        - java
