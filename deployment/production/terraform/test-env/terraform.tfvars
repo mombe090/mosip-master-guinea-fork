@@ -1,7 +1,7 @@
 # Provider
 #provider_vsphere_host     = "vcenter.wuriguinee.unir"
 provider_vsphere_host     = "192.168.9.100"
-provider_vsphere_user     = "administrator@vsphere.local"
+provider_vsphere_user     = "administrator@inu.gov.gn"
 provider_vsphere_password = "Wuri@2021"
 
 # Infrastructure
