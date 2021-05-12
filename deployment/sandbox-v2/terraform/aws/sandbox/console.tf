@@ -24,7 +24,7 @@ resource "aws_instance" "console" {
   }
 
   provisioner "file" {
-    source = "~/.ssh/id_rsa.pub"
+    source = "id_rsa.pub"
     destination = "/tmp/id_rsa.pub"
     connection {
       type     = "ssh"
@@ -35,8 +35,8 @@ resource "aws_instance" "console" {
   }
 
   provisioner "file" {
-    source = "~/.ssh/id_rsa"
-destination = "/tmp/id_rsa"
+    source = "id_rsa"
+    destination = "/tmp/id_rsa"
     connection {
       type     = "ssh"
       user     = "centos"
@@ -80,3 +80,4 @@ resource "aws_route53_record" "console" {
     aws_instance.console.private_ip
   ]
 }
+

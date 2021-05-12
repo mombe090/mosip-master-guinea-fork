@@ -1,8 +1,15 @@
 # Registration Processor Test Packet Uploader 
 
-## Prerequisites
+## Requirements
+* Linux (tested on Ubuntu > 18)
+* Python version >= 3.6.9
 
-The scripts here require `python3` that must have got installed during the standard deployment setup.
+## How to setup & run
+* Install python3
+* Download dependencies: `pip3 install -r requirements.txt`
+* Update config.py with the correct info
+* Run script: `python3 test_regproc.py`
+
 
 ## Packet creation
 

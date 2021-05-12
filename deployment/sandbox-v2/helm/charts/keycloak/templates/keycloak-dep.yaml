@@ -24,14 +24,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.name }}
-        image: {{ .Values.dockerImage }}:{{ .Values.dockerTag }}
-        resources:
-          requests:
-            memory: "2048Mi"
-            cpu: "1024m"
-          limits:
-            memory: "4096Mi"
-            cpu: "2048Mi"
+        image: {{ .Values.dockerImage }}:{{ .Values.dockerTag }} 
         env:
         - name: KEYCLOAK_USER 
           value: {{ .Values.keycloakUser }}
@@ -48,12 +41,9 @@ spec:
         - name: DB_PASSWORD
           value: {{ .Values.db.password }} 
         - name: KEYCLOAK_FRONTEND_URL
-          value: {{ .Values.keycloakExternalUrl }}
-        - name: JAVA_OPTS
-          value: -server {{.Values.keycloakXms}} {{.Values.keycloakXmx}} -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true
+          value: {{ .Values.keycloakExternalUrl }}  
         ports:
         - containerPort: {{ .Values.containerPort }} 
         readinessProbe:
           tcpSocket:
             port: {{ .Values.containerPort }}  # All defaults used
-

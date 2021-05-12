@@ -1,3 +1,4 @@
+
 # MOSIP Sandbox Installer
 
 ## Introduction
@@ -183,3 +184,4 @@ To compare two property files (`*.properties`) use:
 ```
 $ ./utils/prop_comparator.py <file1> <file2>
 ```
+

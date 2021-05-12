@@ -2,7 +2,7 @@
 # ansible_user: root
 
 cluster_name: 'mzcluster'  # Same as in hosts.ini
-cluster_master: 'mzmaster.inu.gov.gn' # Same as in hosts.ini
+cluster_master: 'mzmaster.sb' # Same as in hosts.ini
 
 # Kubernetes
 kube_version: v1.19.0
@@ -49,4 +49,3 @@ additional_features:
 
 # temporary directory used by additional features
 tmp_dir: /tmp/kubeadm-ansible-files
-

@@ -171,13 +171,4 @@ versions:
 
     artifactory:
       service:
-        'artifactory-service': 'wuriguinea/artifactory-service:release'
-
-    minio:
-      service:
-        'minio-bucket': 'minio/minio'
-
-    utilities:
-        umc:
-          handler: 'wuriguinea/umc-handler:yaya_dev'
-
+        'artifactory-service': 'wuriguinea/artifactory-service:1.1.1' 
