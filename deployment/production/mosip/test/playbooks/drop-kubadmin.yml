@@ -1,0 +1,8 @@
+- hosts: mzworkers
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Drop service kube
+      shell: |
+        yum erase kubeadm kubectl kubelet
+        yum install kubeadm-1.19.0 kubectl-1.19.0 kubelet-1.19.0
