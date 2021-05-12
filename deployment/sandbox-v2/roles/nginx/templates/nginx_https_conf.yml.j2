@@ -30,7 +30,9 @@ http {
     include             /etc/nginx/mime.types;
     default_type        application/octet-stream;
 
-    disable_symlinks off; 
+    disable_symlinks off;
+
+
 
     # Load modular configuration files from the /etc/nginx/conf.d directory.
     # See http://nginx.org/en/docs/ngx_core_module.html#include
@@ -102,7 +104,11 @@ http {
         location /pre-registration-ui/ {
            proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-ui/;
         }
-   
+
+        location /pre-registration-qa/ {
+           proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-qa/;
+        }
+
         location /v1/masterdata/ {
            proxy_pass {{clusters.mz.ingress.base_url}}/v1/masterdata/;
         }
@@ -249,6 +255,26 @@ http {
            proxy_pass {{clusters.mz.ingress.base_url}}/resident/v1/;
         }
 
+        location /pre-registration-contactus/api/ {
+           proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-contactus/api/;
+        }
+
+	location /app-redeployer/v1/ {
+	    proxy_pass {{clusters.mz.ingress.base_url}}/app-redeployer/v1/;
+	 }
+
+    location /utilities-umc/v1 {
+	    proxy_pass {{clusters.mz.ingress.base_url}}/utilities-umc/v1/;
+	 }
+
+        location /artifactory {
+            proxy_pass {{clusters.mz.ingress.base_url}}/artifactory;
+        }
+
+    location /minio {
+         proxy_pass {{clusters.mz.ingress.base_url}}/minio;
+    }
+
         error_page 404 /404.html;
             location = /40x.html {
         }
@@ -256,6 +282,7 @@ http {
         error_page 500 502 503 504 /50x.html;
             location = /50x.html {
         }
+
     }
 
 }
@@ -267,9 +294,18 @@ stream {
     }
 
     server {
+        listen {{minio.nodeport}};  # For postgres. Connecting to nodeport
+        proxy_pass {{minio.server}}:{{minio.nodeport}};
+    }
+
+    server {
         listen {{activemq.nodeport}};  # For activemq. Connecting to nodeport
         proxy_pass {{clusters.mz.nodeport_node}}:{{activemq.nodeport}};
     }
 }
+
+
+
+
 
 

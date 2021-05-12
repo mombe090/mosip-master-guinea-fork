@@ -23,6 +23,8 @@ spec:
         app: {{ .Values.services.osi.serviceName }} 
         component: service-hazelcast-server
     spec:
+      imagePullSecrets:
+      - name: guinea-docker-cred
       containers:
       - name: {{ .Values.services.osi.serviceName }} 
         image: {{ .Values.services.osi.dockerImage }}

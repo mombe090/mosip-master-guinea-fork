@@ -4,7 +4,7 @@ versions:
 
     kernel:
       auth:
-        'kernel-auth-service':  'mosipid/kernel-auth-service:1.1.1'
+        'kernel-auth-service':  'wuriguinea/kernel-auth-service:1.1.1'
       masterdata:
         'kernel-masterdata-service': 'mosipid/kernel-masterdata-service:1.1.1'
       idgen:
@@ -18,7 +18,7 @@ versions:
       key:
         'kernel-keymanager-service': 'mosipid/kernel-keymanager-service:1.1.1'
       notifier:
-        'kernel-notification-service': 'mosipid/kernel-notification-service:1.1.1'
+        'kernel-notification-service': 'wuriguinea/kernel-notification-service:dev'
       otp:
         'kernel-otpmanager-service': 'mosipid/kernel-otpmanager-service:1.1.1'
       rid:
@@ -28,7 +28,9 @@ versions:
       login:
         'prereg-login-service': 'mosipid/pre-registration-login-service:1.1.1'
       batch:
-        'prereg-batchjob-service': 'mosipid/pre-registration-batchjob:1.1.1'
+        'prereg-batchjob-service': 'wuriguinea/pre-registration-batchjob:dev'
+      contactus:
+        'prereg-contactus-service': 'wuriguinea/pre-registration-contactus:dev'
       document:
         'prereg-document-service':  'mosipid/pre-registration-document-service:1.1.1'
       transliteration:
@@ -40,14 +42,19 @@ versions:
       datasync:
         'prereg-datasync-service': 'mosipid/pre-registration-datasync-service:1.1.1'
       demographic:
-        'prereg-demographic-service':  'mosipid/pre-registration-demographic-service:1.1.1'
+        'prereg-demographic-service':  'wuriguinea/pre-registration-demographic-service:UNIR_1.0.0'
       notification:
-        'prereg-notification-service': 'mosipid/pre-registration-notification-service:1.1.1'
+        'prereg-notification-service': 'wuriguinea/pre-registration-notification-service:dev'
       captcha:
         'prereg-captcha-service': 'mosipid/pre-registration-captcha-service:1.1.1'
       ui:
-        'prereg-ui': 'mosipid/pre-registration-ui:1.1.1'
-    
+        'prereg-ui': 'wuriguinea/pre-registration-ui:dev'
+
+      qa:
+        'prereg-qa': 'wuriguinea/pre-registration-ui:qa'
+
+      uiredeployer:
+        'prereg-uiapp-redployer': 'wuriguinea/ui-redeployer:dev'
 
     regproc:
       camel:
@@ -85,11 +92,11 @@ versions:
       uin:
         'regproc-uin-generator-stage': 'mosipid/registration-processor-uin-generator-stage:1.1.1'
       msg:
-        'regproc-message-sender-stage': 'mosipid/registration-processor-message-sender-stage:1.1.1'
+        'regproc-message-sender-stage': 'wuriguinea/registration-processor-message-sender-stage:dev'
       print:
-        'regproc-printing-stage': 'mosipid/registration-processor-printing-stage:1.1.1'
+        'regproc-printing-stage': 'wuriguinea/registration-processor-printing-stage:dev'
       printsvc:
-        'regproc-print-service': 'mosipid/registration-processor-print-service:1.1.1'
+        'regproc-print-service': 'wuriguinea/registration-processor-print-service:dev'
       trans:
         'regproc-registration-transaction-service': 'mosipid/registration-processor-registration-transaction-service:1.1.1'
       request: 
@@ -105,16 +112,22 @@ versions:
         'regproc-registration-status-service': 'mosipid/registration-processor-registration-status-service:1.1.1'
       pktserver:
         'regproc-dmz-packet-server': 'mosipid/registration-processor-dmz-packet-server:1.0.9'
-        
+    
+     
+    #'ida-auth-service': 'wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1'
+    #'ida-internal-service': 'wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1'
+    #'ida-kyc-service': 'wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1'
+    #'ida-otp-service': 'wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1'
+
     ida:
       auth:
-        'ida-auth-service': 'mosipid/authentication-service:1.1.1'
+        'ida-auth-service': 'wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1'
       internal: 
-         'ida-internal-service': 'mosipid/authentication-internal-service:1.1.1'
+         'ida-internal-service': 'wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1'
       kyc: 
-         'ida-kyc-service': 'mosipid/authentication-kyc-service:1.1.1'
+         'ida-kyc-service': 'wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1'
       otp: 
-         'ida-otp-service': 'mosipid/authentication-otp-service:1.1.1'
+         'ida-otp-service': 'wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1'
       key:  
         'ida-key-generator': 'mosipid/authentication-keys-generator:1.1.1'
       hashsalt:  
@@ -146,7 +159,6 @@ versions:
       policy:
         'pms-policy-management-service': 'mosipid/pmp-policy-management-service:1.1.1'
 
-
     resident: 
       resident:  
         'resident-service': 'mosipid/resident-service:1.1.1'
@@ -156,3 +168,16 @@ versions:
         'admin-service': 'mosipid/admin-service:1.1.1'
       ui:
         'admin-ui': 'mosipid/admin-ui:1.1.1'
+
+    artifactory:
+      service:
+        'artifactory-service': 'wuriguinea/artifactory-service:release'
+
+    minio:
+      service:
+        'minio-bucket': 'minio/minio'
+
+    utilities:
+        umc:
+          handler: 'wuriguinea/umc-handler:yaya_dev'
+

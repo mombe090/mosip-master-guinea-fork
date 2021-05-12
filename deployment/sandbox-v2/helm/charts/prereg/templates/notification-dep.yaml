@@ -24,6 +24,8 @@ spec:
         app: {{ .Values.services.notification.serviceName }} 
         component: {{ .Values.component }} 
     spec:
+      imagePullSecrets:
+      - name: guinea-docker-cred
       containers:
       - name: {{ .Values.services.notification.serviceName }} 
         image: {{ .Values.services.notification.dockerImage }}

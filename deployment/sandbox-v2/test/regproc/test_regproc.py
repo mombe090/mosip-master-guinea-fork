@@ -1,14 +1,13 @@
 #!/bin/python3
 
-import base64
-import os
-import config as conf
-import datetime as dt
-import shutil
 import glob
 import subprocess
+
+import jinja2 as j2
+
+import config as conf
 from common import *
-import  jinja2 as j2
+
 
 def update_conf(conf, mosip):
     '''

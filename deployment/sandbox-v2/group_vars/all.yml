@@ -8,9 +8,9 @@ user_home: '{{lookup("env", "HOME")}}'
 install_root: '{{user_home}}/mosip-infra/deployment/sandbox-v2'
 charts_root: '{{install_root}}/helm/charts'  # Helm charts root
 helm_cli_path: '{{user_home}}/bin'  # This path chosen as it is included in default $PATH in Centos 7.7
-artifactory_url: http://15.207.222.178
+artifactory_url: http://artifactory-service
 
-sandbox_domain_name: minibox.mosip.net
+sandbox_domain_name: guinea-sandbox.mosip.net
 site:
   sandbox_public_url: 'https://{{sandbox_domain_name}}'
   ssl:
@@ -27,7 +27,7 @@ clusters:
   mz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/mzcluster.config" 
     nodeport_node: mzworker0.sb  # Any node on cluster for nodeport access
-    any_node_ip: '10.20.20.157' # ip address of above node
+    any_node_ip: '10.20.20.114' # ip address of above node
     ingress:
       namespace: ingress-nginx
       nodeports:
@@ -59,7 +59,7 @@ clusters:
   dmz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/dmzcluster.config" 
     nodeport_node: dmzworker0.sb  # Any node on cluster for nodeport access
-    any_node_ip: '10.20.20.207' # ip adddress of above node
+    any_node_ip: '10.20.20.124' # ip adddress of above node
     ingress:
       namespace: ingress-nginx
       nodeports:
@@ -87,7 +87,7 @@ clusters:
       elasticsearch:
         host: 'mzworker0.sb:30080/elasticsearch' # Connect to elasticsearch on MZ
       kibana: 
-        url: http://mzworker0.sb:30601  # Kibana runs on this nodeport on MZ. 
+        url: http://mzworker0.sb:30601  # Kibana runs on this nodeport on MZ.
 
 # Registration processor shared variables
 #
@@ -120,6 +120,20 @@ keycloak:
   password: admin
   url: '{{clusters.mz.ingress.base_url}}/keycloak'
 
+# minio
+minio:
+  access_key: admin
+  secret_key: '{{secrets.minio.secretkey}}'
+  nfs_path: '{{nfs.folder}}/minio'
+  nodeport: 32000
+  server: '{{clusters.mz.nodeport_node}}'
+  node_affinity:
+    enabled: false # To run minio on an exclusive node
+    node: '{{groups.mzworkers[1]}}' # Hostname. Run only on this node, and nothing else should run on this node
+    taint:
+      key: "minio" # Key for applying taint on node
+      value: "only"
+
 softhsm:
   keymanager:  
     label: keymanager  
@@ -136,25 +150,25 @@ softhsm:
 
 repos:
   commons:
-    src: https://github.com/mosip/commons 
+    src: https://github.com/WuriGuinea/mosip-guinea-ref-impl
     dest: '{{tmp_dir}}/commons'
-    tag: 1.0.9
+    tag: dev
   prereg:
     src: https://github.com/mosip/pre-registration
     dest: '{{tmp_dir}}/pre-registration'
-    tag: master
+    tag: 1.1.1
   regproc:
     src: https://github.com/mosip/registration
     dest: '{{tmp_dir}}/registration'
-    tag: master
+    tag: 1.1.1
   ida:
     src: https://github.com/mosip/id-authentication
     dest: '{{tmp_dir}}/id-authentication'
-    tag: 1.0.9
+    tag: 1.1.1
   pms:
     src: https://github.com/mosip/partner-management-services
     dest: '{{tmp_dir}}/partner-management-services'
-    tag: master
+    tag: 1.1.1
 
 # DBs 
 #
@@ -218,3 +232,12 @@ activemq:
   name: activemq
   nodeport: 30616  # Arbitrary
   container_port: 61616 
+
+# Private DNS - typically required for on-prem setups, but we enable it as
+# default for cloud as well.  So we don't have to use cloud DNS.
+coredns:
+  enabled: true  # Disable to use Cloud provided DNS
+  name: coredns
+  path: '{{tmp_dir}}/dns'
+  db: '{{tmp_dir}}/dns/sandbox_dns.db'
+  image: coredns/coredns

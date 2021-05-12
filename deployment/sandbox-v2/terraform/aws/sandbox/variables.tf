@@ -1,5 +1,5 @@
 variable "sandbox_name" { //Change this to your sandbox name.
-  default = "qa"  // This is informational.  A tag will be added with this name.
+  default = "wuri-sandbox"  // This is informational.  A tag will be added with this name.
 }
 
 variable "region" {
@@ -27,14 +27,14 @@ variable "instance_type" {
 variable "private_key" {
   type = map(string)
   default = {
-    "name" = "mosip-aws"  // Name as given while creating keys on AWS console 
-    "local_path" = "~/.ssh/mosip-aws.pem" // Location on the machine from where you are running terraform
+    "name" = "wuri-sandbox"  // Name as given while creating keys on AWS console
+    "local_path" = "~/.ssh/wuri-sandbox.pem" // Location on the machine from where you are running terraform
   } 
 }
 
 /* Recommended not to change names */
 variable "console_name" {
-  default = "console.sb"  // 
+  default = "console.sb"  //
 }
 
 /* Recommended not to change names */

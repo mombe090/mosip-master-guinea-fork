@@ -93,4 +93,29 @@ services:
     configName: prereg-ui-config # ConfigMap name
     apiHost: https://{{ sandbox_domain_name }}/
     ingressPath: /pre-registration-ui
-    
+
+  qa:
+    serviceName: {{ versions.services.prereg.qa.keys()[0] }}
+    dockerImage: {{ versions.services.prereg.qa.values()[0] }}
+    containerPort: 80
+    servicePort: 80
+    configName: prereg-ui-config # ConfigMap name
+    apiHost: https://{{ sandbox_domain_name }}/
+    ingressPath: /pre-registration-qa
+
+  uiredeployer:
+    serviceName: {{ versions.services.prereg.uiredeployer.keys()[0] }}
+    dockerImage: {{ versions.services.prereg.uiredeployer.values()[0] }}
+    containerPort: 8080
+    servicePort: 80
+    configName: prereg-ui-config # ConfigMap name
+    apiHost: https://{{ sandbox_domain_name }}/
+    ingressPath: /app-redeployer
+  contactus:
+    serviceName: {{ versions.services.prereg.contactus.keys()[0] }}
+    dockerImage: {{ versions.services.prereg.contactus.values()[0] }}
+    containerPort: 8081
+    servicePort: 80
+    apiHost: https://{{ sandbox_domain_name }}/
+    ingressPath: /pre-registration-contactus
+
