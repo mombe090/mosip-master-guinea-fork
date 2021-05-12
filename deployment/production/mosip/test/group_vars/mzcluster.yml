@@ -1,6 +1,5 @@
 # Ansible
 # ansible_user: root
-
 cluster_name: 'mzcluster'  # Same as in hosts.ini
 cluster_master: 'mzmaster.inu.gov.gn' # Same as in hosts.ini
 

@@ -1,6 +1,5 @@
 # Ansible
 # ansible_user: root
-
 cluster_name: 'dmzcluster'  # Same as in hosts.ini
 cluster_master: 'test_dmzmaster.inu.gov.gn' # Same as in hosts.ini
 

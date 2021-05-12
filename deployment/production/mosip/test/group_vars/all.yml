@@ -38,7 +38,7 @@ clusters:
       nodeports:
         http: 30080 
         https: 30443
-      base_url: 'http://{{groups["test_mzworkers"][0]}}:30080' # Any node since ingress runs on nodeport
+      base_url: 'http://{{groups["dmzworkers"][0]}}:30080' # Any node since ingress runs on nodeport
     dashboard:
       url: /mz-dashboard
       token_file: '{{tmp_dir}}/dashboard_mz.token'
@@ -70,7 +70,7 @@ clusters:
       nodeports:
         http: 30080 
         https: 30443
-      base_url: 'http://{{groups["test_dmzworkers"][0]}}:30080' # Any node since ingress runs on nodeport
+      base_url: 'http://{{groups["dmzworkers"][0]}}:30080' # Any node since ingress runs on nodeport
     dashboard: 
       url: /dmz-dashboard
       token_file: '{{tmp_dir}}/dashboard_dmz.token'
@@ -134,7 +134,7 @@ minio:
   server: '{{clusters.mz.nodeport_node}}'
   node_affinity:
     enabled: false # To run minio on an exclusive node
-    node: '{{groups.test_mzworkers[1]}}' # Hostname. Run only on this node, and nothing else should run on this node
+    node: '{{groups.dmzworkers[1]}}' # Hostname. Run only on this node, and nothing else should run on this node
     taint:
       key: "minio" # Key for applying taint on node
       value: "only"

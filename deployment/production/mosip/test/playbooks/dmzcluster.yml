@@ -3,7 +3,7 @@
   vars:
     cluster: dmzcluster
     master: test_dmzmaster.inu.gov.gn
-    workers: test_dmzworkers
+    workers: dmzworkers
 
 # Ingress nginx controller
 - import_playbook: ingress-nginx.yml
