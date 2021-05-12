@@ -16,7 +16,7 @@ resource "aws_instance" "kube" {
   }
 
   provisioner "file" {
-    source = "~/.ssh/id_rsa.pub"
+    source = "id_rsa.pub"
     destination = "/tmp/id_rsa.pub"
     connection {
       type     = "ssh"
@@ -27,7 +27,7 @@ resource "aws_instance" "kube" {
   }
 
   provisioner "file" {
-    source = "scripts/kube_auth.sh"
+    source = "kube_auth.sh"
     destination = "/tmp/kube_auth.sh"
     connection {
       type     = "ssh"
