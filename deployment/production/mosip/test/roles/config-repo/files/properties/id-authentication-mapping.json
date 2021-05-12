@@ -1,0 +1,67 @@
+{
+	"ida-mapping": {
+		"name": [
+			"firstName",
+			"lastName"
+		],
+		"dob": [
+			"dateOfBirth"
+		],
+		"dobType": [],
+		"age": [
+			"dateOfBirth"
+		],
+		"gender": [
+			"gender"
+		],
+		"phoneNumber": [
+			"phone"
+		],
+		"emailId": [
+			"email"
+		],
+		"addressLine1": [
+			"additionalAddressDetails"
+		],
+		"addressLine2": [
+			"additionalAddressDetails"
+		],
+		"addressLine3": [
+			"additionalAddressDetails"
+		],
+		"location1": [
+			"district"
+		],
+		"location2": [
+			"prefecture"
+		],
+		"location3": [
+			"region"
+		],
+		"postalCode": [
+			""
+		],
+		"fullAddress": [
+			"sector",
+			"district",
+			"subPrefectureOrCommune",
+			"prefecture",
+			"region"
+		],
+		"otp": [
+			"otp"
+		],
+		"pin": [
+			"pin"
+		],
+		"iris": [
+			"CBEFF"
+		],
+		"fingerprint": [
+			"CBEFF"
+		],
+		"face": [
+			"CBEFF"
+		]
+	}
+}

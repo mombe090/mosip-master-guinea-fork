@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.services.uiredeployer.serviceName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.services.uiredeployer.serviceName }}
+    component: {{ .Values.component }}
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.services.uiredeployer.serviceName }}
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.services.uiredeployer.serviceName }}
+        component: {{ .Values.component }}
+    spec:
+      containers:
+        - name: {{ .Values.services.uiredeployer.serviceName }}
+          image: {{ .Values.services.uiredeployer.dockerImage }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.services.uiredeployer.containerPort }}
+          env:
+            - name: AWSKEY
+              valueFrom:
+                secretKeyRef:
+                  name: awskey
+                  key: AWSKEY
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.services.uiredeployer.containerPort }}
+

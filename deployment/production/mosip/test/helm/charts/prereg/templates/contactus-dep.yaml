@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.services.contactus.serviceName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.services.contactus.serviceName }}
+    component: {{ .Values.component }}
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.services.contactus.serviceName }}
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.services.contactus.serviceName }}
+        component: {{ .Values.component }}
+    spec:
+      containers:
+        - name: {{ .Values.services.contactus.serviceName }}
+          image: {{ .Values.services.contactus.dockerImage }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.services.contactus.containerPort }}
+          env:
+            - name: SENDRIG_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sendgrid
+                  key: SENDRIG_API_KEY
+
+            - name: GOOGLE_CAPTCHA_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: gcaptchakey
+                  key: GOOGLE_CAPTCHA_KEY
+
+            - name: SENDRIG_EMAIL_SENDER
+              valueFrom:
+                secretKeyRef:
+                  name: mailsender
+                  key: SENDRIG_EMAIL_SENDER
+
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.services.contactus.containerPort }}
+

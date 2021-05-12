@@ -1,0 +1,10 @@
+{
+	"name": "firstName,lastName",
+	"address": "additionalAddressDetails",
+	"region": "region",
+	"province": "prefecture",
+	"city": "district",
+	"postalCode": "sector",
+	"phoneNumber": "phone",
+	"uin":"UIN"
+}

@@ -1,0 +1,22 @@
+- name: Download Elastic search 7.8.1
+  get_url:
+    url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.1-x86_64.rpm"
+    dest: /root/elasticsearch-7.8.1-x86_64.rpm
+    force: no
+  become: yes
+
+- name: Install Elastic Search
+  shell: "rpm --install elasticsearch-7.8.1-x86_64.rpm && chkconfig --add elasticsearch"
+  ignore_errors: yes
+  become: yes
+
+- name: Start Service Elastic Search
+  shell: |
+    sudo chkconfig --add elasticsearch
+    sudo -i service elasticsearch start
+    sudo -i service elasticsearch stop
+    sudo /bin/systemctl daemon-reload
+    sudo /bin/systemctl enable elasticsearch.service
+    sudo systemctl start elasticsearch.service
+  ignore_errors: yes
+
