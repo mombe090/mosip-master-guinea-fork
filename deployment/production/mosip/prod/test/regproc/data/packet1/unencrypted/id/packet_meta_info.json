@@ -1,0 +1,182 @@
+{ "identity" : {
+  "biometrics" : {
+    "applicant" : {
+      "face" : {
+        "numRetry" : 1,
+        "forceCaptured" : false,
+        "BIRIndex" : "6224716b-91ce-4332-92dc-31ee66551eea"
+      }
+    }
+  },
+  "exceptionBiometrics" : [ {
+    "type" : "Iris",
+    "missingBiometric" : "leftEye",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Iris",
+    "missingBiometric" : "rightEye",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "leftIndex",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "leftRing",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "leftLittle",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "leftMiddle",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "rightIndex",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "rightRing",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "rightMiddle",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "rightLittle",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "rightThumb",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  }, {
+    "type" : "Finger",
+    "missingBiometric" : "leftThumb",
+    "reason" : "Temporary",
+    "exceptionType" : "Temporary",
+    "individualType" : "applicant"
+  } ],
+  "documents" : [ ],
+  "metaData" : [ {
+    "label" : "registrationId",
+    "value" : "10001100060061720210323125145"
+  }, {
+    "label" : "creationDate",
+    "value" : "2021-02-01T10:42:37.000Z"
+  }, {
+    "label" : "Registration Client Version Number",
+    "value" : "1.1.1"
+  }, {
+    "label" : "registrationType",
+    "value" : "New"
+  }, {
+    "label" : "preRegistrationId",
+    "value" : ""
+  }, {
+    "label" : "machineId",
+    "value" : "10006"
+  }, {
+    "label" : "centerId",
+    "value" : "10001"
+  }, {
+    "label" : "dongleId",
+    "value" : null
+  }, {
+    "label" : "keyIndex",
+    "value" : "F8:B8:C7:47:0B:0F:83:98:5E:E4:CA:DD:07:98:6B:1E:98:A7:E7:0E:F2:F5:FD:F9:28:3B:4B:CB:17:49:F0:BA"
+  }, {
+    "label" : "consentOfApplicant",
+    "value" : null
+  } ],
+  "operationsData" : [ {
+    "label" : "officerId",
+    "value" : "berlin"
+  }, {
+    "label" : "officerBiometricFileName",
+    "value" : null
+  }, {
+    "label" : "supervisorId",
+    "value" : null
+  }, {
+    "label" : "supervisorBiometricFileName",
+    "value" : null
+  }, {
+    "label" : "supervisorPassword",
+    "value" : "false"
+  }, {
+    "label" : "officerPassword",
+    "value" : "true"
+  }, {
+    "label" : "supervisorPIN",
+    "value" : null
+  }, {
+    "label" : "officerPIN",
+    "value" : null
+  }, {
+    "label" : "supervisorOTPAuthentication",
+    "value" : "false"
+  }, {
+    "label" : "officerOTPAuthentication",
+    "value" : "false"
+  } ],
+  "hashSequence1" : [ {
+    "label" : "biometricSequence",
+    "value" : [ "individualBiometrics_bio_CBEFF" ]
+  }, {
+    "label" : "demographicSequence",
+    "value" : [ "ID" ]
+  } ],
+  "hashSequence2" : [ {
+    "label" : "otherFiles",
+    "value" : [ "audit" ]
+  } ],
+  "capturedRegisteredDevices" : [ {
+    "deviceCode" : "01d2463c-d8a3-4b56-a9c6-5169a143e734",
+    "deviceServiceVersion" : "SB.WIN.001",
+    "digitalId" :
+	{
+      "serialNo":"298073940",
+      "deviceProvider":"SYNCBYTE",
+      "deviceProviderId":"SYNCBYTE.LTC165",
+      "make":"Logitech",
+      "model":"B525",
+      "dateTime":"2020-12-17T14:50:05.877Z",
+      "type":"Face",
+      "deviceSubType":"Full face"
+	}
+  } ],
+  "capturedNonRegisteredDevices" : null,
+  "checkSum" : [ {
+    "label" : "mosip-client.jar",
+    "value" : "AB73E046FF78DC5AD9C18DF0AB6E85F04C01D1AA74002F0DAA437CCF9E6A8053"
+  }, {
+    "label" : "mosip-services.jar",
+    "value" : "3F46C816012A6BDB4432606C0037CE4740F8F495EE1B742D60B5E80CCA2E1819"
+  } ],
+  "printingName" : [ ]
+} } 

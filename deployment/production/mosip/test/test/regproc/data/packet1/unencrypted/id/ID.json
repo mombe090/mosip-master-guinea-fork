@@ -1,0 +1,47 @@
+{ "identity" : {
+  "lastName" : [ {
+    "language" : "fra",
+    "value" : "BAH"
+  } ],
+  "gender" : [ {
+    "language" : "fra",
+    "value" : "HOMME"
+  } ],
+  "prefecture" : [ {
+    "language" : "fra",
+    "value" : "DALABA"
+  } ],
+  "subPrefectureOrCommune" : [ {
+    "language" : "fra",
+    "value" : "CU-DALABA"
+  } ],
+  "dateOfBirth" : "1997/01/01",
+  "individualBiometrics" : {
+    "format" : "cbeff",
+    "version" : 1.0,
+    "value" : "individualBiometrics_bio_CBEFF"
+  },
+  "firstName" : [ {
+    "language" : "fra",
+    "value" : "MAMOUDOU"
+  } ],
+  "IDSchemaVersion" : 1.0,
+  "phone" : "627479497",
+  "district" : [ {
+    "language" : "fra",
+    "value" : "DALABA MISSIDE"
+  } ],
+  "residenceStatus" : [ {
+    "language" : "fra",
+    "value" : "GUINEENNE"
+  } ],
+  "region" : [ {
+    "language" : "fra",
+    "value" : "MAMOU"
+  } ],
+  "sector" : [ {
+    "language" : "fra",
+    "value" : "DOUNKIMAGNA"
+  } ],
+  "email" : ""
+}  }
