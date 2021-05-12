@@ -1,5 +1,9 @@
 # letsencrypt requires latest version of various python modules, hence
 # We will run in a virtual environment of python3
+
+- name: upgrade the pip version
+  shell: pip install --upgrade pip
+
 - name: Install virtualenv
   yum:
     name: python-virtualenv 
