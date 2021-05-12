@@ -27,14 +27,14 @@
 - hosts: console
   vars:
     kube_config: '{{kube_config}}'
-    install_name: 'prometheus'
+    install_name: 'prom'
     helm_chart: '{{charts_root}}/prometheus'
     is_template: true  
     helm_namespace: '{{ mon_prop.namespace }}'
     helm_values: '{{charts_root}}/prometheus/values.template.j2'
   roles:
     - {role:  helm}
-    
+
 
 
 
