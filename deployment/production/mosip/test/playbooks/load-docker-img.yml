@@ -83,8 +83,10 @@
 - hosts: mzworkers dmzworkers
   become: yes
   tasks:
-    - name: mkdir img on root
-      - shell: "cd /root && mkdir img"
+    - name: Create a directory if it does not exist
+      file:
+        path: /root/img
+        state: directory
 
     - name: Copy the images
       copy:
