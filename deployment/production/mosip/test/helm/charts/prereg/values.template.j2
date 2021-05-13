@@ -12,7 +12,8 @@ probe:
 ingress:
    namespace: default
 artifactoryUrl: {{ artifactory_url }} 
-imagePullPolicy: Always 
+#imagePullPolicy: IfNotPresent    #imagePullPolicy: Always
+imagePullPolicy: IfNotPresent
 isGlowroot: {{ is_glowroot }}
 services:
   login:

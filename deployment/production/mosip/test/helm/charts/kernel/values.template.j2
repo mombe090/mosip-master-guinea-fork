@@ -11,7 +11,7 @@ artifactoryUrl: {{ artifactory_url }}
 probe:
   initialDelay: 120  # Seconds
   period: 30 # Seconds
-imagePullPolicy: Always
+imagePullPolicy: IfNotPresent    #imagePullPolicy: Always
 isGlowroot: {{ is_glowroot }} 
 domainName: {{ sandbox_domain_name }}
 internalDomain: {{ clusters.mz.nodeport_node }} 

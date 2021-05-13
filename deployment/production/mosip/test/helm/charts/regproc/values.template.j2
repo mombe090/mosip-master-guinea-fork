@@ -15,7 +15,8 @@ ingress:
 
 artifactoryUrl: {{ artifactory_url }} 
 
-imagePullPolicy: Always 
+#imagePullPolicy: IfNotPresent    #imagePullPolicy: Always
+imagePullPolicy: IfNotPresent
 
 domainName: {{ sandbox_domain_name }}
 internalDomain: {{ clusters.mz.nodeport_node }} 
