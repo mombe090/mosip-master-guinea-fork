@@ -1,0 +1,84 @@
+- hosts: admin_pc
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Export image to tar
+      shell: "docker save -o /home/wuri/img/img_{{item.0 + 1}}.tar {{item.1}}"
+      with_indexed_items:
+        - wuriguinea/kernel-auth-service:1.1.1
+        - mosipid/kernel-masterdata-service:1.1.1
+        - mosipid/kernel-idgenerator-service:1.1.1
+        - mosipid/kernel-pridgenerator-service:1.1.1
+        - mosipid/kernel-syncdata-service:1.1.1
+        - mosipid/kernel-auditmanager-service:1.1.1
+        - mosipid/kernel-keymanager-service:1.1.1
+        - wuriguinea/kernel-notification-service:dev
+        - mosipid/kernel-otpmanager-service:1.1.1
+        - mosipid/kernel-ridgenerator-service:1.1.1
+        - mosipid/pre-registration-login-service:1.1.1
+        - wuriguinea/pre-registration-batchjob:dev
+        - wuriguinea/pre-registration-contactus:dev
+        - mosipid/pre-registration-document-service:1.1.1
+        - mosipid/pre-registration-transliteration-service:1.1.1
+        - mosipid/pre-registration-booking-service:1.1.1
+        - mosipid/pre-registration-generateqrcode-service:1.1.1
+        - mosipid/pre-registration-datasync-service:1.1.1
+        - wuriguinea/pre-registration-demographic-service:UNIR_1.0.0
+        - wuriguinea/pre-registration-notification-service:dev
+        - mosipid/pre-registration-captcha-service:1.1.1
+        - wuriguinea/pre-registration-ui:dev
+        - wuriguinea/pre-registration-ui:qa
+        - wuriguinea/ui-redeployer:dev
+        - mosipid/registration-processor-common-camel-bridge:1.1.1
+        - mosipid/registration-processor-securezone-notification-stage:1.1.1
+        - mosipid/registration-processor-packet-uploader-stage:1.1.1
+        - mosipid/registration-processor-quality-checker-stage:1.1.1
+        - mosipid/registration-processor-packet-validator-stage:1.1.1
+        - mosipid/registration-processor-osi-validator-stage:1.1.1
+        - mosipid/registration-processor-demo-dedupe-stage:1.1.1
+        - mosipid/registration-processor-bio-dedupe-stage:1.1.1
+        - mosipid/registration-processor-bio-dedupe-service:1.1.1
+        - mosipid/registration-processor-biometric-authentication-stage:1.1.1
+        - mosipid/registration-processor-abis-handler-stage:1.1.1
+        - mosipid/registration-processor-abis-middleware-stage:1.1.1
+        - mosipid/registration-processor-abis:1.1.1
+        - mosipid/registration-processor-manual-verification-stage:1.1.1
+        - mosipid/registration-processor-external-stage:1.1.1
+        - mosipid/registration-processor-external-integration-service:1.1.1
+        - mosipid/registration-processor-uin-generator-stage:1.1.1
+        - wuriguinea/registration-processor-message-sender-stage:dev
+        - wuriguinea/registration-processor-printing-stage:dev
+        - wuriguinea/registration-processor-print-service:dev
+        - mosipid/registration-processor-registration-transaction-service:1.1.1
+        - mosipid/registration-processor-request-handler-service:1.1.1
+        - mosipid/registration-processor-reprocessor-stage:1.1.1
+        - mosipid/registration-processor-packet-receiver-stage:1.1.1
+        - mosipid/registration-processor-common-camel-bridge:1.1.1
+        - mosipid/registration-processor-registration-status-service:1.1.1
+        - mosipid/registration-processor-dmz-packet-server:1.0.9
+        - wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1
+        - wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1
+        - wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1
+        - wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1
+        - mosipid/authentication-keys-generator:1.1.1
+        - mosipid/kernel-salt-generator:1.1.1
+        - mosipid/kernel-salt-generator:1.1.1
+        - mosipid/id-repository-identity-service:1.1.1
+        - mosipid/id-repository-vid-service:1.1.1
+        - mosipid/kernel-salt-generator:1.1.1
+        - mosipid/kernel-salt-generator:1.1.1
+        - mosipid/kernel-salt-generator:1.1.1
+        - mosipid/kernel-salt-generator:1.1.1
+        - mosipid/pmp-misp-service:1.1.1
+        - mosipid/pmp-partner-management-service:1.1.1
+        - mosipid/pmp-partner-service:1.1.1
+        - mosipid/pmp-policy-management-service:1.1.1
+        - mosipid/resident-service:1.1.1
+        - mosipid/admin-service:1.1.1
+        - mosipid/admin-ui:1.1.1
+        - wuriguinea/artifactory-service:release
+        - minio/minio
+        - wuriguinea/umc-handler:yaya_dev
+
+
+
