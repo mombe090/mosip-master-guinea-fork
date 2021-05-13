@@ -85,18 +85,18 @@
   tasks:
     - name: Create a directory if it does not exist
       file:
-        path: /var/img
+        path: /root/img
         state: directory
 
     - name: Copy the images
       shell: |
         echo "{{item.1}} start copy"
-        scp /home/wuri/img/{{item.1}} root@{{ansible_default_ipv4.address}}:/var/img/
+        scp /img/{{item.1}} root@{{ansible_default_ipv4.address}}:/root/img/
         echo 'Copy done'
-        docker load -i {{item.1}}
+        docker load -i /root/img/{{item.1}}
         echo "{{item.1}} load"
-        rm -rf /var/img/{{item.1}}
-         echo "{{item.1}} deleted"
+        rm -rf /root/img/{{item.1}}
+        echo "{{item.1}} deleted"
       become: yes
       with_indexed_items:
         - img_1.tar
@@ -173,3 +173,6 @@
           img_72.tar
           img_73.tar
 
+#ansible -i hosts.ini -m copy  -a "src=/img/img_1.tar dest=/root" dmzworkers mzworkers
+#ansible -i hosts.ini -m shell  -a 'docker load -i /root/img_1.tar' dmzworkers mzworkers
+#ansible -i hosts.ini -m shell  -a 'rm -rf /root/img_1.tar' mzworkers dmzworkers
