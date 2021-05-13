@@ -1,84 +1,168 @@
-- hosts: admin_pc
+#- hosts: admin_pc
+#  become: yes
+#  gather_facts: no
+#  tasks:
+#    - name: Export image to tar
+#      shell: "docker save -o /home/wuri/img/img_{{item.0 + 1}}.tar {{item.1}}"
+#      with_indexed_items:
+#        - wuriguinea/kernel-auth-service:1.1.1
+#        - mosipid/kernel-masterdata-service:1.1.1
+#        - mosipid/kernel-idgenerator-service:1.1.1
+#        - mosipid/kernel-pridgenerator-service:1.1.1
+#        - mosipid/kernel-syncdata-service:1.1.1
+#        - mosipid/kernel-auditmanager-service:1.1.1
+#        - mosipid/kernel-keymanager-service:1.1.1
+#        - wuriguinea/kernel-notification-service:dev
+#        - mosipid/kernel-otpmanager-service:1.1.1
+#        - mosipid/kernel-ridgenerator-service:1.1.1
+#        - mosipid/pre-registration-login-service:1.1.1
+#        - wuriguinea/pre-registration-batchjob:dev
+#        - wuriguinea/pre-registration-contactus:dev
+#        - mosipid/pre-registration-document-service:1.1.1
+#        - mosipid/pre-registration-transliteration-service:1.1.1
+#        - mosipid/pre-registration-booking-service:1.1.1
+#        - mosipid/pre-registration-generateqrcode-service:1.1.1
+#        - mosipid/pre-registration-datasync-service:1.1.1
+#        - wuriguinea/pre-registration-demographic-service:UNIR_1.0.0
+#        - wuriguinea/pre-registration-notification-service:dev
+#        - mosipid/pre-registration-captcha-service:1.1.1
+#        - wuriguinea/pre-registration-ui:dev
+#        - wuriguinea/pre-registration-ui:qa
+#        - wuriguinea/ui-redeployer:dev
+#        - mosipid/registration-processor-common-camel-bridge:1.1.1
+#        - mosipid/registration-processor-securezone-notification-stage:1.1.1
+#        - mosipid/registration-processor-packet-uploader-stage:1.1.1
+#        - mosipid/registration-processor-quality-checker-stage:1.1.1
+#        - mosipid/registration-processor-packet-validator-stage:1.1.1
+#        - mosipid/registration-processor-osi-validator-stage:1.1.1
+#        - mosipid/registration-processor-demo-dedupe-stage:1.1.1
+#        - mosipid/registration-processor-bio-dedupe-stage:1.1.1
+#        - mosipid/registration-processor-bio-dedupe-service:1.1.1
+#        - mosipid/registration-processor-biometric-authentication-stage:1.1.1
+#        - mosipid/registration-processor-abis-handler-stage:1.1.1
+#        - mosipid/registration-processor-abis-middleware-stage:1.1.1
+#        - mosipid/registration-processor-abis:1.1.1
+#        - mosipid/registration-processor-manual-verification-stage:1.1.1
+#        - mosipid/registration-processor-external-stage:1.1.1
+#        - mosipid/registration-processor-external-integration-service:1.1.1
+#        - mosipid/registration-processor-uin-generator-stage:1.1.1
+#        - wuriguinea/registration-processor-message-sender-stage:dev
+#        - wuriguinea/registration-processor-printing-stage:dev
+#        - wuriguinea/registration-processor-print-service:dev
+#        - mosipid/registration-processor-registration-transaction-service:1.1.1
+#        - mosipid/registration-processor-request-handler-service:1.1.1
+#        - mosipid/registration-processor-reprocessor-stage:1.1.1
+#        - mosipid/registration-processor-packet-receiver-stage:1.1.1
+#        - mosipid/registration-processor-common-camel-bridge:1.1.1
+#        - mosipid/registration-processor-registration-status-service:1.1.1
+#        - mosipid/registration-processor-dmz-packet-server:1.0.9
+#        - wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1
+#        - wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1
+#        - wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1
+#        - wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1
+#        - mosipid/authentication-keys-generator:1.1.1
+#        - mosipid/kernel-salt-generator:1.1.1
+#        - mosipid/kernel-salt-generator:1.1.1
+#        - mosipid/id-repository-identity-service:1.1.1
+#        - mosipid/id-repository-vid-service:1.1.1
+#        - mosipid/kernel-salt-generator:1.1.1
+#        - mosipid/kernel-salt-generator:1.1.1
+#        - mosipid/kernel-salt-generator:1.1.1
+#        - mosipid/kernel-salt-generator:1.1.1
+#        - mosipid/pmp-misp-service:1.1.1
+#        - mosipid/pmp-partner-management-service:1.1.1
+#        - mosipid/pmp-partner-service:1.1.1
+#        - mosipid/pmp-policy-management-service:1.1.1
+#        - mosipid/resident-service:1.1.1
+#        - mosipid/admin-service:1.1.1
+#        - mosipid/admin-ui:1.1.1
+#        - wuriguinea/artifactory-service:release
+#        - minio/minio
+#        - wuriguinea/umc-handler:yaya_dev
+
+- hosts: mzworkers dmzworkers
   become: yes
-  gather_facts: no
   tasks:
-    - name: Export image to tar
-      shell: "docker save -o /home/wuri/img/img_{{item.0 + 1}}.tar {{item.1}}"
+    - name: mkdir img on root
+      - shell: mkdir /root/img
+
+    - name: Copy the images
+      copy:
+        src: '/home/wuri/img'
+        dest: '/root/img'
+      become: yes
       with_indexed_items:
-        - wuriguinea/kernel-auth-service:1.1.1
-        - mosipid/kernel-masterdata-service:1.1.1
-        - mosipid/kernel-idgenerator-service:1.1.1
-        - mosipid/kernel-pridgenerator-service:1.1.1
-        - mosipid/kernel-syncdata-service:1.1.1
-        - mosipid/kernel-auditmanager-service:1.1.1
-        - mosipid/kernel-keymanager-service:1.1.1
-        - wuriguinea/kernel-notification-service:dev
-        - mosipid/kernel-otpmanager-service:1.1.1
-        - mosipid/kernel-ridgenerator-service:1.1.1
-        - mosipid/pre-registration-login-service:1.1.1
-        - wuriguinea/pre-registration-batchjob:dev
-        - wuriguinea/pre-registration-contactus:dev
-        - mosipid/pre-registration-document-service:1.1.1
-        - mosipid/pre-registration-transliteration-service:1.1.1
-        - mosipid/pre-registration-booking-service:1.1.1
-        - mosipid/pre-registration-generateqrcode-service:1.1.1
-        - mosipid/pre-registration-datasync-service:1.1.1
-        - wuriguinea/pre-registration-demographic-service:UNIR_1.0.0
-        - wuriguinea/pre-registration-notification-service:dev
-        - mosipid/pre-registration-captcha-service:1.1.1
-        - wuriguinea/pre-registration-ui:dev
-        - wuriguinea/pre-registration-ui:qa
-        - wuriguinea/ui-redeployer:dev
-        - mosipid/registration-processor-common-camel-bridge:1.1.1
-        - mosipid/registration-processor-securezone-notification-stage:1.1.1
-        - mosipid/registration-processor-packet-uploader-stage:1.1.1
-        - mosipid/registration-processor-quality-checker-stage:1.1.1
-        - mosipid/registration-processor-packet-validator-stage:1.1.1
-        - mosipid/registration-processor-osi-validator-stage:1.1.1
-        - mosipid/registration-processor-demo-dedupe-stage:1.1.1
-        - mosipid/registration-processor-bio-dedupe-stage:1.1.1
-        - mosipid/registration-processor-bio-dedupe-service:1.1.1
-        - mosipid/registration-processor-biometric-authentication-stage:1.1.1
-        - mosipid/registration-processor-abis-handler-stage:1.1.1
-        - mosipid/registration-processor-abis-middleware-stage:1.1.1
-        - mosipid/registration-processor-abis:1.1.1
-        - mosipid/registration-processor-manual-verification-stage:1.1.1
-        - mosipid/registration-processor-external-stage:1.1.1
-        - mosipid/registration-processor-external-integration-service:1.1.1
-        - mosipid/registration-processor-uin-generator-stage:1.1.1
-        - wuriguinea/registration-processor-message-sender-stage:dev
-        - wuriguinea/registration-processor-printing-stage:dev
-        - wuriguinea/registration-processor-print-service:dev
-        - mosipid/registration-processor-registration-transaction-service:1.1.1
-        - mosipid/registration-processor-request-handler-service:1.1.1
-        - mosipid/registration-processor-reprocessor-stage:1.1.1
-        - mosipid/registration-processor-packet-receiver-stage:1.1.1
-        - mosipid/registration-processor-common-camel-bridge:1.1.1
-        - mosipid/registration-processor-registration-status-service:1.1.1
-        - mosipid/registration-processor-dmz-packet-server:1.0.9
-        - wuriguinea/authentication-service-tech5-softhsmclient:1.0.10-rc1
-        - wuriguinea/authentication-internal-service-tech5-softhsmclient:1.0.10-rc1
-        - wuriguinea/authentication-kyc-service-tech5-softhsmclient:1.0.10-rc1
-        - wuriguinea/authentication-otp-service-softhsmclient:1.0.10-rc1
-        - mosipid/authentication-keys-generator:1.1.1
-        - mosipid/kernel-salt-generator:1.1.1
-        - mosipid/kernel-salt-generator:1.1.1
-        - mosipid/id-repository-identity-service:1.1.1
-        - mosipid/id-repository-vid-service:1.1.1
-        - mosipid/kernel-salt-generator:1.1.1
-        - mosipid/kernel-salt-generator:1.1.1
-        - mosipid/kernel-salt-generator:1.1.1
-        - mosipid/kernel-salt-generator:1.1.1
-        - mosipid/pmp-misp-service:1.1.1
-        - mosipid/pmp-partner-management-service:1.1.1
-        - mosipid/pmp-partner-service:1.1.1
-        - mosipid/pmp-policy-management-service:1.1.1
-        - mosipid/resident-service:1.1.1
-        - mosipid/admin-service:1.1.1
-        - mosipid/admin-ui:1.1.1
-        - wuriguinea/artifactory-service:release
-        - minio/minio
-        - wuriguinea/umc-handler:yaya_dev
-
-
+        - img_1.tar
+          img_2.tar
+          img_3.tar
+          img_4.tar
+          img_5.tar
+          img_6.tar
+          img_7.tar
+          img_8.tar
+          img_9.tar
+          img_10.tar
+          img_11.tar
+          img_12.tar
+          img_13.tar
+          img_14.tar
+          img_15.tar
+          img_16.tar
+          img_17.tar
+          img_18.tar
+          img_19.tar
+          img_20.tar
+          img_21.tar
+          img_22.tar
+          img_23.tar
+          img_24.tar
+          img_25.tar
+          img_26.tar
+          img_27.tar
+          img_28.tar
+          img_29.tar
+          img_30.tar
+          img_31.tar
+          img_32.tar
+          img_33.tar
+          img_34.tar
+          img_35.tar
+          img_36.tar
+          img_37.tar
+          img_38.tar
+          img_39.tar
+          img_40.tar
+          img_41.tar
+          img_42.tar
+          img_43.tar
+          img_44.tar
+          img_45.tar
+          img_46.tar
+          img_47.tar
+          img_48.tar
+          img_49.tar
+          img_50.tar
+          img_51.tar
+          img_52.tar
+          img_53.tar
+          img_54.tar
+          img_55.tar
+          img_56.tar
+          img_57.tar
+          img_58.tar
+          img_59.tar
+          img_60.tar
+          img_61.tar
+          img_62.tar
+          img_63.tar
+          img_64.tar
+          img_65.tar
+          img_66.tar
+          img_67.tar
+          img_68.tar
+          img_69.tar
+          img_70.tar
+          img_71.tar
+          img_72.tar
+          img_73.tar
 
