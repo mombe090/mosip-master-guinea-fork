@@ -84,7 +84,7 @@
   become: yes
   tasks:
     - name: mkdir img on root
-      - shell: "cd /root mkdir img"
+      - shell: "cd /root && mkdir img"
 
     - name: Copy the images
       copy:
