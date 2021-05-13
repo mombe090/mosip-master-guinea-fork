@@ -86,85 +86,85 @@
     - name: Create a directory if it does not exist
       file:
         path: /root/img
-        state: directory
+        state: absent
 
-    - name: Copy the images
-      copy:
-        src: '/home/wuri/img'
-        dest: '/root/img'
-      become: yes
-      with_indexed_items:
-        - img_1.tar
-          img_2.tar
-          img_3.tar
-          img_4.tar
-          img_5.tar
-          img_6.tar
-          img_7.tar
-          img_8.tar
-          img_9.tar
-          img_10.tar
-          img_11.tar
-          img_12.tar
-          img_13.tar
-          img_14.tar
-          img_15.tar
-          img_16.tar
-          img_17.tar
-          img_18.tar
-          img_19.tar
-          img_20.tar
-          img_21.tar
-          img_22.tar
-          img_23.tar
-          img_24.tar
-          img_25.tar
-          img_26.tar
-          img_27.tar
-          img_28.tar
-          img_29.tar
-          img_30.tar
-          img_31.tar
-          img_32.tar
-          img_33.tar
-          img_34.tar
-          img_35.tar
-          img_36.tar
-          img_37.tar
-          img_38.tar
-          img_39.tar
-          img_40.tar
-          img_41.tar
-          img_42.tar
-          img_43.tar
-          img_44.tar
-          img_45.tar
-          img_46.tar
-          img_47.tar
-          img_48.tar
-          img_49.tar
-          img_50.tar
-          img_51.tar
-          img_52.tar
-          img_53.tar
-          img_54.tar
-          img_55.tar
-          img_56.tar
-          img_57.tar
-          img_58.tar
-          img_59.tar
-          img_60.tar
-          img_61.tar
-          img_62.tar
-          img_63.tar
-          img_64.tar
-          img_65.tar
-          img_66.tar
-          img_67.tar
-          img_68.tar
-          img_69.tar
-          img_70.tar
-          img_71.tar
-          img_72.tar
-          img_73.tar
+#    - name: Copy the images
+#      copy:
+#        src: '/home/wuri/img'
+#        dest: '/root/img'
+#      become: yes
+#      with_indexed_items:
+#        - img_1.tar
+#          img_2.tar
+#          img_3.tar
+#          img_4.tar
+#          img_5.tar
+#          img_6.tar
+#          img_7.tar
+#          img_8.tar
+#          img_9.tar
+#          img_10.tar
+#          img_11.tar
+#          img_12.tar
+#          img_13.tar
+#          img_14.tar
+#          img_15.tar
+#          img_16.tar
+#          img_17.tar
+#          img_18.tar
+#          img_19.tar
+#          img_20.tar
+#          img_21.tar
+#          img_22.tar
+#          img_23.tar
+#          img_24.tar
+#          img_25.tar
+#          img_26.tar
+#          img_27.tar
+#          img_28.tar
+#          img_29.tar
+#          img_30.tar
+#          img_31.tar
+#          img_32.tar
+#          img_33.tar
+#          img_34.tar
+#          img_35.tar
+#          img_36.tar
+#          img_37.tar
+#          img_38.tar
+#          img_39.tar
+#          img_40.tar
+#          img_41.tar
+#          img_42.tar
+#          img_43.tar
+#          img_44.tar
+#          img_45.tar
+#          img_46.tar
+#          img_47.tar
+#          img_48.tar
+#          img_49.tar
+#          img_50.tar
+#          img_51.tar
+#          img_52.tar
+#          img_53.tar
+#          img_54.tar
+#          img_55.tar
+#          img_56.tar
+#          img_57.tar
+#          img_58.tar
+#          img_59.tar
+#          img_60.tar
+#          img_61.tar
+#          img_62.tar
+#          img_63.tar
+#          img_64.tar
+#          img_65.tar
+#          img_66.tar
+#          img_67.tar
+#          img_68.tar
+#          img_69.tar
+#          img_70.tar
+#          img_71.tar
+#          img_72.tar
+#          img_73.tar
 
