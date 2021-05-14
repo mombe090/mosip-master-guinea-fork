@@ -134,7 +134,7 @@ minio:
   server: '{{clusters.mz.nodeport_node}}'
   node_affinity:
     enabled: false # To run minio on an exclusive node
-    node: '{{groups.dmzworkers[1]}}' # Hostname. Run only on this node, and nothing else should run on this node
+    node: '{{groups.mzworkers[1]}}' # Hostname. Run only on this node, and nothing else should run on this node
     taint:
       key: "minio" # Key for applying taint on node
       value: "only"
