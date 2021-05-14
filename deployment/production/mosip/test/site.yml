@@ -12,20 +12,20 @@
 #- import_playbook: playbooks/taints.yml # At this point we apply any taints for MOSIP pods.
 # DMZ cluster
 #- import_playbook: playbooks/dmzcluster.yml
-- import_playbook: playbooks/dmzmonitoring.yml
+#- import_playbook: playbooks/dmzmonitoring.yml
 # Non-MOSIP modules
-- import_playbook: playbooks/postgres.yml
-- import_playbook: playbooks/keycloak.yml
-- import_playbook: playbooks/mzclamav.yml  # Each zone has it's own clamav
-- import_playbook: playbooks/dmzclamav.yml
-- import_playbook: playbooks/activemq.yml
-- import_playbook: playbooks/hdfs.yml
+#- import_playbook: playbooks/postgres.yml
+#- import_playbook: playbooks/keycloak.yml
+#- import_playbook: playbooks/mzclamav.yml  # Each zone has it's own clamav
+#- import_playbook: playbooks/dmzclamav.yml
+#- import_playbook: playbooks/activemq.yml
+#- import_playbook: playbooks/hdfs.yml
 # MOSIP modules
-- import_playbook: playbooks/artifactory.yml
-- import_playbook: playbooks/config-server.yml
-- import_playbook: playbooks/kernel.yml
-- import_playbook: playbooks/prereg.yml
-- import_playbook: playbooks/regproc.yml
+#- import_playbook: playbooks/artifactory.yml
+#- import_playbook: playbooks/config-server.yml
+#- import_playbook: playbooks/kernel.yml
+#- import_playbook: playbooks/prereg.yml
+#- import_playbook: playbooks/regproc.yml
 - import_playbook: playbooks/ida.yml
 - import_playbook: playbooks/idrepo.yml
 - import_playbook: playbooks/pms.yml
