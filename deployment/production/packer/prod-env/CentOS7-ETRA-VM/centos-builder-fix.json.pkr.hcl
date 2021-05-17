@@ -56,7 +56,7 @@ variable "vsphere-server" {
 
 variable "vsphere-user" {
   type    = string
-  default = "administrator@vsphere.local"
+  default = "administrator@inu.gov.gn"
 }
 
 source "vsphere-iso" "centos_7" {

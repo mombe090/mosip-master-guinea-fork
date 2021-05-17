@@ -17,7 +17,7 @@ data "vsphere_network" "network" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-data "vsphere_virtual_machine" "prod_template_extra" {
+/*data "vsphere_virtual_machine" "prod_template_extra" {
   name = "PROD-EXTRA-VM-TEMPL"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
@@ -25,7 +25,7 @@ data "vsphere_virtual_machine" "prod_template_extra" {
 data "vsphere_virtual_machine" "prod_template_k8s" {
   name = "PROD-K8S-VM-TEMPL"
   datacenter_id = data.vsphere_datacenter.dc.id
-}
+}*/
 
 resource "vsphere_folder" "parent" {
   path          = "mosip-prod-env"

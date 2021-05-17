@@ -6,8 +6,8 @@ variable "provider_vsphere_host" {
 }
 
 variable "provider_vsphere_user" {
-  description = "vSphere username to use to connect to the environment - Default: administrator@vsphere.local"
-  default     = "administrator@vsphere.local"
+  description = "vSphere username to use to connect to the environment - Default: administrator@inu.gov.gn"
+  default     = "administrator@inu.gov.gn"
 }
 
 variable "provider_vsphere_password" {
