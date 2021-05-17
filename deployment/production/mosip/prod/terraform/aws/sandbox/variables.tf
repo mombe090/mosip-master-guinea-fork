@@ -41,18 +41,18 @@ variable "console_name" {
 variable "kube_names" {
    type = list(string)
    default = [
-     "mzmaster.inu.gov.gn",
-     "mzworker0.inu.gov.gn",
-     "mzworker1.inu.gov.gn",
-     "mzworker2.inu.gov.gn",
-     "mzworker3.inu.gov.gn",
-     "mzworker4.inu.gov.gn",
-     "mzworker5.inu.gov.gn",
-     "mzworker6.inu.gov.gn",
-     "mzworker7.inu.gov.gn",
-     "mzworker8.inu.gov.gn",
-     "dmzmaster.inu.gov.gn",
-     "dmzworker0.inu.gov.gn"
+     "mzmaster.sb",
+     "mzworker0.sb",
+     "mzworker1.sb",
+     "mzworker2.sb",
+     "mzworker3.sb",
+     "mzworker4.sb",
+     "mzworker5.sb",
+     "mzworker6.sb",
+     "mzworker7.sb",
+     "mzworker8.sb",
+     "dmzmaster.sb",
+     "dmzworker0.sb"
    ]
 }
 
