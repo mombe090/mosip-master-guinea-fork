@@ -6,6 +6,8 @@
     state: present
   become: yes
 
+- name: upgrade the pip version
+  shell: '{{ansible_env.HOME}}/.venv-py3/bin/pip install --upgrade pip'
 
 - name: Install certbot in python3 virtual environment 
   pip:
@@ -14,9 +16,6 @@
     virtualenv_python: python3
     virtualenv: '{{ansible_env.HOME}}/.venv-py3'
     state: present
-
-- name: upgrade the pip version
-  shell: '{{ansible_env.HOME}}/.venv-py3/bin/pip install --upgrade pip'
 
 - name: Install certbot-nginx
   pip:
