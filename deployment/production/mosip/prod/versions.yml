@@ -126,6 +126,11 @@ versions:
     #'ida-kyc-service': 'wuriguinea/authentication-kyc-service:1.1.1'
     #'ida-otp-service': 'wuriguinea/authentication-otp-service:1.1.1'
 
+    #'ida-auth-service': 'wuriguinea/authentication-service:1.1.1'
+    #'ida-internal-service': 'wuriguinea/authentication-internal-service:1.1.1'
+    #'ida-kyc-service': 'wuriguinea/authentication-kyc-service:1.1.1'
+    #'ida-otp-service': 'wuriguinea/authentication-otp-service:1.1.1'
+
     ida:
       auth:
         'ida-auth-service': 'wuriguinea/authentication-service:1.1.1'
