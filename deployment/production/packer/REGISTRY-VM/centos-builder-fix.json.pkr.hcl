@@ -49,6 +49,11 @@ variable "vsphere-password" {
   default = ""
 }
 
+variable "ssh-password" {
+  type    = string
+  default = ""
+}
+
 variable "vsphere-server" {
   type    = string
   default = ""
@@ -81,7 +86,7 @@ source "vsphere-iso" "centos_7" {
   }
   notes        = "Build via Packer"
   password     = "${var.vsphere-password}"
-  ssh_password = ""
+  ssh_password = "${var.ssh-password}"
   ssh_username = "root"
   storage {
     disk_size             = "${var.vm-disk-size}"
