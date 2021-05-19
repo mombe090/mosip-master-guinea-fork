@@ -26,12 +26,12 @@ variable "vm-name" {
 
 variable "vsphere-cluster" {
   type    = string
-  default = env("VSPHERE_PASSWORD")
+  default = ""
 }
 
 variable "vsphere-datacenter" {
   type    = string
-  default = env("VSPHERE_DC")
+  default = ""
 }
 
 variable "vsphere-datastore" {
@@ -46,17 +46,17 @@ variable "vsphere-network" {
 
 variable "vsphere-password" {
   type    = string
-  default = env("VSPHERE_PASSWORD")
+  default = ""
 }
 
 variable "vsphere-server" {
   type    = string
-  default = env("VSPHERE_SERVER")
+  default = ""
 }
 
 variable "vsphere-user" {
   type    = string
-  default = env("VSPHERE_USER")
+  default = ""
 }
 
 source "vsphere-iso" "centos_7" {
@@ -81,7 +81,7 @@ source "vsphere-iso" "centos_7" {
   }
   notes        = "Build via Packer"
   password     = "${var.vsphere-password}"
-  ssh_password = env("PACKER_SSH_ROOT_PWD")
+  ssh_password = ""
   ssh_username = "root"
   storage {
     disk_size             = "${var.vm-disk-size}"
