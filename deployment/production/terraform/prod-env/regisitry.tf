@@ -23,7 +23,7 @@ resource "vsphere_virtual_machine" "registry" {
 
     customize {
       linux_options{
-        host_name =  "quay_registry"
+        host_name =  "registry"
         domain = "inu.gov.gn"
       }
       network_interface {
@@ -64,7 +64,7 @@ resource "vsphere_virtual_machine" "registry" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/extra_vm.sh",
-      format("%s %s", "sudo /tmp/extra_vm.sh", "quay_registry")
+      format("%s %s", "sudo /tmp/extra_vm.sh", "registry")
     ]
   }
     connection {
