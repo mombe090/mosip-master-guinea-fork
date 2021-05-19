@@ -26,12 +26,12 @@ variable "vm-name" {
 
 variable "vsphere-cluster" {
   type    = string
-  default = "GUINEE"
+  default = "{{env `VSPHERE_PASSWORD`}}"
 }
 
 variable "vsphere-datacenter" {
   type    = string
-  default = "WURI-DC"
+  default = "{{env `VSPHERE_DC`}}"
 }
 
 variable "vsphere-datastore" {
@@ -46,17 +46,17 @@ variable "vsphere-network" {
 
 variable "vsphere-password" {
   type    = string
-  default = "Wuri@2021"
+  default = "{{env `VSPHERE_PASSWORD`}}"
 }
 
 variable "vsphere-server" {
   type    = string
-  default = "vcenter.inu.gov.gn"
+  default = "{{env `VSPHERE_SERVER`}}"
 }
 
 variable "vsphere-user" {
   type    = string
-  default = "administrator@inu.gov.gn"
+  default = "{{env `VSPHERE_USER`}}"
 }
 
 source "vsphere-iso" "centos_7" {
@@ -81,7 +81,7 @@ source "vsphere-iso" "centos_7" {
   }
   notes        = "Build via Packer"
   password     = "${var.vsphere-password}"
-  ssh_password = "Wuri2021@"
+  ssh_password = "{{env `PACKER_SSH_ROOT_PWD`}}"
   ssh_username = "root"
   storage {
     disk_size             = "${var.vm-disk-size}"
