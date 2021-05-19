@@ -62,6 +62,7 @@ abis_ips = {
 }
 
 reporter_ips =  "192.168.9.103"
+registry_ip =  "192.168.9.150"
 console_ip =  "192.168.9.110"
 nfs_ip =  "192.168.9.135"
 

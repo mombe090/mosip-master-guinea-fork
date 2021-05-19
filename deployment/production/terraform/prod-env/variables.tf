@@ -150,6 +150,11 @@ variable "nfs_ip" {
   description = ""
 }
 
+variable "registry_ip" {
+  type        = string
+  description = ""
+}
+
 variable "k8s_node_memory" {
   type        = string
   description = ""
