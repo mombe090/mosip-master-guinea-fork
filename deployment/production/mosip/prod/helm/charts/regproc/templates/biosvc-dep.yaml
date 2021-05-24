@@ -21,6 +21,8 @@ spec:
       labels:
         app: {{ .Values.services.biosvc.serviceName }} 
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{ .Values.services.biosvc.serviceName }} 
         image: {{ .Values.services.biosvc.dockerImage }}

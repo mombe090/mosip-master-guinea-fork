@@ -24,7 +24,7 @@ spec:
         component: service-hazelcast-server
     spec:
       imagePullSecrets:
-      - name: guinea-docker-cred
+      - name: regcred
       containers:
       - name: {{ .Values.services.msg.serviceName }} 
         image: {{ .Values.services.msg.dockerImage }}

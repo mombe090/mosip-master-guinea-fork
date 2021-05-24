@@ -25,7 +25,7 @@ spec:
         component: {{ .Values.component }} 
     spec:
       imagePullSecrets:
-      - name: guinea-docker-cred
+      - name: regcred
       containers:
       - name: {{ .Values.services.auth.serviceName }} 
         image: {{ .Values.services.auth.dockerImage }}

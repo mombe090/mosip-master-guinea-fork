@@ -21,6 +21,8 @@ spec:
       labels:
         app: {{ .Values.services.request.serviceName }} 
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{ .Values.services.request.serviceName }} 
         image: {{ .Values.services.request.dockerImage }}

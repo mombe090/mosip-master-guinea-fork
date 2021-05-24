@@ -24,6 +24,8 @@ spec:
         app: {{ .Values.services.captcha.serviceName }} 
         component: {{ .Values.component }} 
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{ .Values.services.captcha.serviceName }} 
         image: {{ .Values.services.captcha.dockerImage }}

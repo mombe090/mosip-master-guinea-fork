@@ -24,6 +24,8 @@ spec:
         app: {{ .Values.services.datasync.serviceName }} 
         component: {{ .Values.component }} 
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{ .Values.services.datasync.serviceName }} 
         image: {{ .Values.services.datasync.dockerImage }}

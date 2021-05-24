@@ -134,6 +134,7 @@ minio:
       key: "minio" # Key for applying taint on node
       value: "only"
 
+
 softhsm:
   keymanager:  
     label: keymanager  
@@ -244,3 +245,6 @@ coredns:
 
 
 #t5Plugin]# keytool -import -noprompt -trustcacerts -alias mosipAuth -file /opt/Tech5/t5Plugin/test.inu.gov.gn.cer -keystore /etc/pki/java/cacerts -storepass changeit
+
+docker:
+  private_regisry_keyName: '{{secrets.docker.registry.keyName}}'
