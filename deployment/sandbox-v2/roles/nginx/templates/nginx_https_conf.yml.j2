@@ -254,8 +254,8 @@ http {
         }
 
 	
-        location /pre-registration-contactus/api/ {
-           proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-contactus/api/;
+        location /pre-registration-contactus/ {
+           proxy_pass {{clusters.mz.ingress.base_url}}/pre-registration-contactus/;
         }
 
 	location /app-redeployer/v1/ {

@@ -1,0 +1,44 @@
+chart/regproc/templates/proxyAbis
+
+helm1 delete regproc
+an playbook/regproc.yml
+
+t5pluging
+
+config.properties
+
+sudo docker run -d  --name postgres-server \
+  -e POSTGRES_USER=wuri \
+  -e POSTGRES_PASSWORD=Wuri2021 \
+  -e POSTGRES_DB=quay \
+  -p 5435:5432 \
+  --restart=always \
+  -v $QUAY/postgres-quay:/var/lib/pgsql/data:Z \
+  postgres:11
+
+sudo docker exec \
+-it postgres-server \
+/bin/bash -c 'echo "CREATE EXTENSION IF NOT EXISTS pg_trgm" | psql -d quay -U postgres'
+
+sudo docker run -d --name redis \
+  -p 6311:6379 \
+  -e REDIS_PASSWORD=Wuri@2021 \
+  --restart=always \
+  registry.redhat.io/rhel8/redis-5:1
+
+sudo docker run --rm -it \
+ --name quay_config \
+ -p 8080:8080 \
+ registry.redhat.io/quay/quay-rhel8:v3.5.1 config secret
+
+sudo docker run -d -p 80:8080 -p 443:8443  \
+   --name=quay \
+   -v $QUAY/config:/conf/stack:Z \
+   -v $QUAY/storage:/datastorage:Z \
+   --restart always \
+   registry.redhat.io/quay/quay-rhel8:v3.5.1
+
+sudo docker run -d --name mirroring-worker \
+  -v $QUAY/config:/conf/stack \
+  -v /root/ca.crt:/etc/pki/ca-trust/source/anchors/ca.crt \
+  registry.redhat.io/quay/quay-rhel8:v3.5.1 repomirror
