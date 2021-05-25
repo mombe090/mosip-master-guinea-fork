@@ -112,7 +112,9 @@ postgres:
     node: 'mzworker0.inu.gov.gn' # Hostname. Run only on this node, and nothing else should run on this node
     taint:
       key: "postgres" # Key for applying taint on node
-      value: "only"  
+      value: "only"
+
+
 
 # Keycloak
 keycloak:
