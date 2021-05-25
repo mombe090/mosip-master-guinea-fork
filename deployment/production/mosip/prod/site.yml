@@ -21,6 +21,7 @@
 - import_playbook: playbooks/activemq.yml
 - import_playbook: playbooks/hdfs.yml
 # MOSIP modules
+- import_playbook: playbooks/k8s.yml
 - import_playbook: playbooks/artifactory.yml
 - import_playbook: playbooks/config-server.yml
 - import_playbook: playbooks/kernel.yml
