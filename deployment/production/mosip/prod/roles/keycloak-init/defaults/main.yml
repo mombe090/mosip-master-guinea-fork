@@ -5,19 +5,19 @@ keycloak_mosip_realms:
 
 # IMPORTANT: If the client secret is changed below make sure you update the corresponding property in the property files of config-server. 
 keycloak_mosip_clients:
-  - {realm_id: 'mosip', client_id: 'mosip-admin-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-auth-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-prereg-client', secret: 'Wuri@2021'}  # TODO: To be removed later after client-realm bugfix.
-  - {realm_id: 'preregistration', client_id: 'mosip-prereg-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-regproc-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-ida-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-reg-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-misp-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-partner-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-policymanager-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-partnermanager-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-resident-client', secret: 'Wuri@2021'}
-  - {realm_id: 'mosip', client_id: 'mosip-admin-services-client', secret: 'Wuri@2021'}
+  - {realm_id: 'mosip', client_id: 'mosip-admin-client', secret: 'xyz123'}
+  - {realm_id: 'mosip', client_id: 'mosip-auth-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-prereg-client', secret: 'abc123'}  # TODO: To be removed later after client-realm bugfix.
+  - {realm_id: 'preregistration', client_id: 'mosip-prereg-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-regproc-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-ida-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-reg-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-misp-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-partner-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-policymanager-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-partnermanager-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-resident-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-admin-services-client', secret: 'abc123'}
 
 keycloak_mosip_roles:  # Currently, all rolese belong to a realm (not to any client)
   - {realm_id: 'mosip', client_id: '', role_name: 'REGISTRATION_OFFICER'}
