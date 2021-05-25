@@ -3,6 +3,6 @@ docker:
   service: {{ versions.services.artifactory.service.keys()[0] }}
   image: {{ versions.services.artifactory.service.values()[0] }}
   containerPort: 80
-#imagePullPolicy: IfNotPresent
+#imagePullPolicy: Always
 imagePullPolicy: Always
 registrySecret: {{docker.private_regisry_keyName}}
