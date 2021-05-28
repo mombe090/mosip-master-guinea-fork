@@ -83,7 +83,8 @@ keycloak_mosip_users: # Assumption "username.json" exists with same username ins
   - {realm_id: 'mosip', user_file: 'users/910005.json'}
   - {realm_id: 'mosip', user_file: 'users/910006.json'}
   - {realm_id: 'mosip', user_file: 'users/910007.json'}
-  
+  - {realm_id: 'mosip', user_file: 'users/910008.json'}
+
 
 keycloak_mosip_user_role_map:  
   # testuser
@@ -329,6 +330,11 @@ keycloak_mosip_user_role_map:
   - {realm_id: 'mosip', username: '910007', role_name: 'REGISTRATION_ADMIN'}
   - {realm_id: 'mosip', username: '910007', role_name: 'REGISTRATION_OFFICER'}
   - {realm_id: 'mosip', username: '910007', role_name: 'REGISTRATION_SUPERVISOR'}
+
+  - { realm_id: 'mosip', username: '910008', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '910008', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '910008', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '910008', role_name: 'REGISTRATION_SUPERVISOR' }
 
     # For service account mappings client name must be prefixed with service-account-
   - {realm_id: 'mosip', username: 'service-account-mosip-prereg-client', role_name: 'INDIVIDUAL'}

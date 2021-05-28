@@ -114,12 +114,10 @@ postgres:
       key: "postgres" # Key for applying taint on node
       value: "only"
 
-
-
 # Keycloak
 keycloak:
   user: admin
-  password: admin
+  password: Wuri@2021
   url: '{{clusters.mz.ingress.base_url}}/keycloak'
 
 # minio
