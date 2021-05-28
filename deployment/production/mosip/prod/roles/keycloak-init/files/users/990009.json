@@ -1,0 +1,18 @@
+{
+    "username": "990009",
+    "enabled": true,
+    "email": "kit9@wuriguinee.com",
+    "emailVerified": false,
+    "firstName": "PC-KIT-9",
+    "lastName": "",
+    "credentials": [
+        {
+            "type": "password",
+            "value": "mosip",
+            "temporary": false
+        }
+    ],
+    "attributes": {
+      "userPassword": "e1NTSEEyNTZ9ZDZYWXY3ZExCeXlKNWMxb0tZM3BDSklSYlovK2dEQlRZa2JVaGp0YUpVU1dzTWZNZGtablRBPT0="
+    }
+}

@@ -275,6 +275,10 @@ http {
          proxy_pass {{clusters.mz.ingress.base_url}}/minio;
     }
 
+  location /bucket {
+  proxy_pass {{clusters.mz.ingress.base_url}}/bucket;
+  }
+
         error_page 404 /404.html;
             location = /40x.html {
         }
