@@ -5,19 +5,19 @@ keycloak_mosip_realms:
 
 # IMPORTANT: If the client secret is changed below make sure you update the corresponding property in the property files of config-server. 
 keycloak_mosip_clients:
-  - {realm_id: 'mosip', client_id: 'mosip-admin-client', secret: 'xyz123'}  
-  - {realm_id: 'mosip', client_id: 'mosip-auth-client', secret: 'abc123'}  
+  - {realm_id: 'mosip', client_id: 'mosip-admin-client', secret: 'xyz123'}
+  - {realm_id: 'mosip', client_id: 'mosip-auth-client', secret: 'abc123'}
   - {realm_id: 'mosip', client_id: 'mosip-prereg-client', secret: 'abc123'}  # TODO: To be removed later after client-realm bugfix.
-  - {realm_id: 'preregistration', client_id: 'mosip-prereg-client', secret: 'abc123'} 
-  - {realm_id: 'mosip', client_id: 'mosip-regproc-client', secret: 'abc123'} 
-  - {realm_id: 'mosip', client_id: 'mosip-ida-client', secret: 'abc123'} 
-  - {realm_id: 'mosip', client_id: 'mosip-reg-client', secret: 'abc123'} 
-  - {realm_id: 'mosip', client_id: 'mosip-misp-client', secret: 'abc123'} 
-  - {realm_id: 'mosip', client_id: 'mosip-partner-client', secret: 'abc123'} 
-  - {realm_id: 'mosip', client_id: 'mosip-policymanager-client', secret: 'abc123'} 
-  - {realm_id: 'mosip', client_id: 'mosip-partnermanager-client', secret: 'abc123'} 
-  - {realm_id: 'mosip', client_id: 'mosip-resident-client', secret: 'abc123'} 
-  - {realm_id: 'mosip', client_id: 'mosip-admin-services-client', secret: 'abc123'} 
+  - {realm_id: 'preregistration', client_id: 'mosip-prereg-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-regproc-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-ida-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-reg-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-misp-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-partner-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-policymanager-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-partnermanager-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-resident-client', secret: 'abc123'}
+  - {realm_id: 'mosip', client_id: 'mosip-admin-services-client', secret: 'abc123'}
 
 keycloak_mosip_roles:  # Currently, all rolese belong to a realm (not to any client)
   - {realm_id: 'mosip', client_id: '', role_name: 'REGISTRATION_OFFICER'}
@@ -83,12 +83,24 @@ keycloak_mosip_users: # Assumption "username.json" exists with same username ins
   - {realm_id: 'mosip', user_file: 'users/910005.json'}
   - {realm_id: 'mosip', user_file: 'users/910006.json'}
   - {realm_id: 'mosip', user_file: 'users/910007.json'}
-  
+  - {realm_id: 'mosip', user_file: 'users/910008.json'}
+  - {realm_id: 'mosip', user_file: 'users/990001.json'}
+  - {realm_id: 'mosip', user_file: 'users/990002.json'}
+  - {realm_id: 'mosip', user_file: 'users/990003.json'}
+  - {realm_id: 'mosip', user_file: 'users/990004.json'}
+  - {realm_id: 'mosip', user_file: 'users/990005.json'}
+  - {realm_id: 'mosip', user_file: 'users/990006.json'}
+  - {realm_id: 'mosip', user_file: 'users/990007.json'}
+  - {realm_id: 'mosip', user_file: 'users/990008.json'}
+  - {realm_id: 'mosip', user_file: 'users/990009.json'}
+  - {realm_id: 'mosip', user_file: 'users/990010.json'}
+  - {realm_id: 'mosip', user_file: 'users/990011.json'}
 
-keycloak_mosip_user_role_map:  
+
+keycloak_mosip_user_role_map:
   # testuser
   - {realm_id: 'mosip', username: 'testuser', role_name: 'REGISTRATION_OFFICER'}
-  
+
   - {realm_id: 'mosip', username: 'regproc_test', role_name: 'REGISTRATION_OFFICER'}
 
   - {realm_id: 'mosip', username: '110005', role_name: 'GLOBAL_ADMIN'}
@@ -134,7 +146,7 @@ keycloak_mosip_user_role_map:
   - {realm_id: 'mosip', username: '110119', role_name: 'REGISTRATION_ADMIN'}
   - {realm_id: 'mosip', username: '110119', role_name: 'REGISTRATION_SUPERVISOR'}
   - {realm_id: 'mosip', username: '110119', role_name: 'RESIDENT'}
-  
+
   - {realm_id: 'mosip', username: '110127', role_name: 'REGISTRATION_OFFICER'}
   - {realm_id: 'mosip', username: '110127', role_name: 'ID_AUTHENTICATION'}
   - {realm_id: 'mosip', username: '110127', role_name: 'DEVICE_PROVIDER'}
@@ -154,7 +166,7 @@ keycloak_mosip_user_role_map:
   - {realm_id: 'mosip', username: '110127', role_name: 'REGISTRATION_ADMIN'}
   - {realm_id: 'mosip', username: '110127', role_name: 'REGISTRATION_SUPERVISOR'}
   - {realm_id: 'mosip', username: '110127', role_name: 'RESIDENT'}
-  
+
   - {realm_id: 'mosip', username: '110068', role_name: 'REGISTRATION_OFFICER'}
   - {realm_id: 'mosip', username: '110068', role_name: 'ID_AUTHENTICATION'}
   - {realm_id: 'mosip', username: '110068', role_name: 'DEVICE_PROVIDER'}
@@ -174,9 +186,9 @@ keycloak_mosip_user_role_map:
   - {realm_id: 'mosip', username: '110068', role_name: 'REGISTRATION_ADMIN'}
   - {realm_id: 'mosip', username: '110068', role_name: 'REGISTRATION_SUPERVISOR'}
   - {realm_id: 'mosip', username: '110068', role_name: 'RESIDENT'}
-  
+
   - {realm_id: 'mosip', username: 'mosipautouser', role_name: 'ZONAL_ADMIN'}
-  
+
   - {realm_id: 'mosip', username: '110038', role_name: 'REGISTRATION_OFFICER'}
   - {realm_id: 'mosip', username: '110038', role_name: 'ID_AUTHENTICATION'}
   - {realm_id: 'mosip', username: '110038', role_name: 'DEVICE_PROVIDER'}
@@ -254,7 +266,7 @@ keycloak_mosip_user_role_map:
   - {realm_id: 'mosip', username: '110024', role_name: 'REGISTRATION_ADMIN'}
   - {realm_id: 'mosip', username: '110024', role_name: 'REGISTRATION_OFFICER'}
   - {realm_id: 'mosip', username: '110024', role_name: 'REGISTRATION_SUPERVISOR'}
-  
+
   - {realm_id: 'mosip', username: '110022', role_name: 'REGISTRATION_OFFICER'}
   - {realm_id: 'mosip', username: '110022', role_name: 'ID_AUTHENTICATION'}
   - {realm_id: 'mosip', username: '110022', role_name: 'DEVICE_PROVIDER'}
@@ -274,7 +286,7 @@ keycloak_mosip_user_role_map:
   - {realm_id: 'mosip', username: '110022', role_name: 'REGISTRATION_ADMIN'}
   - {realm_id: 'mosip', username: '110022', role_name: 'REGISTRATION_SUPERVISOR'}
   - {realm_id: 'mosip', username: '110022', role_name: 'RESIDENT'}
-  
+
   - {realm_id: 'mosip', username: 'pm_testuser', role_name: 'MISP'}
   - {realm_id: 'mosip', username: 'pm_testuser', role_name: 'PARTNER'}
   - {realm_id: 'mosip', username: 'pm_testuser', role_name: 'POLICYMANAGER'}
@@ -330,7 +342,68 @@ keycloak_mosip_user_role_map:
   - {realm_id: 'mosip', username: '910007', role_name: 'REGISTRATION_OFFICER'}
   - {realm_id: 'mosip', username: '910007', role_name: 'REGISTRATION_SUPERVISOR'}
 
-    # For service account mappings client name must be prefixed with service-account-
+  - { realm_id: 'mosip', username: '910008', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '910008', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '910008', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '910008', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - {realm_id: 'mosip', username: '990001', role_name: 'GLOBAL_ADMIN'}
+  - {realm_id: 'mosip', username: '990001', role_name: 'REGISTRATION_ADMIN'}
+  - {realm_id: 'mosip', username: '990001', role_name: 'REGISTRATION_OFFICER'}
+  - {realm_id: 'mosip', username: '990001', role_name: 'REGISTRATION_SUPERVISOR'}
+
+  - { realm_id: 'mosip', username: '990002', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990002', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990002', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990002', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - { realm_id: 'mosip', username: '990003', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990003', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990003', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990003', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - { realm_id: 'mosip', username: '990004', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990004', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990004', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990004', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - { realm_id: 'mosip', username: '990005', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990005', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990005', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990005', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - { realm_id: 'mosip', username: '990006', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990006', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990006', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990006', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - { realm_id: 'mosip', username: '990007', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990007', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990007', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990007', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - { realm_id: 'mosip', username: '990008', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990008', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990008', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990008', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - { realm_id: 'mosip', username: '990009', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990009', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990009', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990009', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - { realm_id: 'mosip', username: '990010', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990010', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990010', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990010', role_name: 'REGISTRATION_SUPERVISOR' }
+
+  - { realm_id: 'mosip', username: '990011', role_name: 'GLOBAL_ADMIN' }
+  - { realm_id: 'mosip', username: '990011', role_name: 'REGISTRATION_ADMIN' }
+  - { realm_id: 'mosip', username: '990011', role_name: 'REGISTRATION_OFFICER' }
+  - { realm_id: 'mosip', username: '990011', role_name: 'REGISTRATION_SUPERVISOR' }
+
+
+  # For service account mappings client name must be prefixed with service-account-
   - {realm_id: 'mosip', username: 'service-account-mosip-prereg-client', role_name: 'INDIVIDUAL'}
   - {realm_id: 'mosip', username: 'service-account-mosip-prereg-client', role_name: 'PRE_REGISTRATION_ADMIN'}
   - {realm_id: 'mosip', username: 'service-account-mosip-prereg-client', role_name: 'PREREG'}
