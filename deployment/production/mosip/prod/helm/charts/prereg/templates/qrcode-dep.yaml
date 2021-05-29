@@ -24,6 +24,8 @@ spec:
         app: {{ .Values.services.qrcode.serviceName }} 
         component: {{ .Values.component }} 
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{ .Values.services.qrcode.serviceName }} 
         image: {{ .Values.services.qrcode.dockerImage }}

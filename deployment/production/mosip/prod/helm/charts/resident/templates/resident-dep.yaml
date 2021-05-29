@@ -24,6 +24,8 @@ spec:
         app: {{ .Values.services.resident.serviceName }} 
         component: {{ .Values.component }} 
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{ .Values.services.resident.serviceName }} 
         image: {{ .Values.services.resident.dockerImage }}

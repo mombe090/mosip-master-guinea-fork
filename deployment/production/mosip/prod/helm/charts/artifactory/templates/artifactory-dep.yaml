@@ -20,6 +20,8 @@ spec:
       labels:
         app: {{ .Values.docker.service }} 
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{  .Values.docker.service }}
         image: {{ .Values.docker.image }}
@@ -29,4 +31,3 @@ spec:
         readinessProbe:
           tcpSocket:
             port: {{  .Values.docker.containerPort }}
-

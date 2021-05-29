@@ -31,7 +31,7 @@ landing:   # Landing folder where packets land
     path:  {{ regproc.nfs.landing_folder }} 
   mountPath: /mnt/regproc/landing # Internal pod path
 
-imagePullPolicy: IfNotPresent    #imagePullPolicy: Always
+imagePullPolicy: Always    #imagePullPolicy: Always
 services:
   receiver:
     serviceName: {{ versions.services.dmzregproc.receiver.keys()[0] }} 

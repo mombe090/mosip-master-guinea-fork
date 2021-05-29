@@ -23,6 +23,8 @@ spec:
         app: {{ .Values.services.demo.serviceName }} 
         component: service-hazelcast-server
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{ .Values.services.demo.serviceName }} 
         image: {{ .Values.services.demo.dockerImage }}

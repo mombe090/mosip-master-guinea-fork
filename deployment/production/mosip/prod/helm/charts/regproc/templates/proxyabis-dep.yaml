@@ -21,6 +21,8 @@ spec:
       labels:
         app: {{ .Values.services.proxyabis.serviceName }} 
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{ .Values.services.proxyabis.serviceName }} 
         image: {{ .Values.services.proxyabis.dockerImage }}

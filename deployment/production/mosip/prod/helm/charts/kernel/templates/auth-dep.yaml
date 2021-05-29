@@ -25,7 +25,7 @@ spec:
         component: {{ .Values.component }} 
     spec:
       imagePullSecrets:
-      - name: guinea-docker-cred
+      - name: regcred
       containers:
       - name: {{ .Values.services.auth.serviceName }} 
         image: {{ .Values.services.auth.dockerImage }}
@@ -40,7 +40,7 @@ spec:
         - name: artifactory_url_env
           value: {{ .Values.artifactoryUrl }} 
         - name: is_glowroot_env
-          value: {{ .Values.isGlowroot }} 
+          value: {{ .Values.isGlowroot }}
         ports:
         - containerPort: {{ .Values.services.auth.containerPort }}
         readinessProbe:
@@ -48,10 +48,11 @@ spec:
             path: {{ .Values.services.auth.healthUrl }} 
             port: {{ .Values.services.auth.containerPort }} 
           initialDelaySeconds: {{ .Values.probe.initialDelay }} 
-          periodSeconds: {{ .Values.probe.period }} 
+          periodSeconds: {{ .Values.probe.period }}
   #      livenessProbe:
   #        httpGet:
   #          path: {{ .Values.services.auth.healthUrl }} 
   #          port: {{ .Values.services.auth.containerPort }} 
   #        initialDelaySeconds: {{ .Values.probe.initialDelay }} 
   #        periodSeconds: {{ .Values.probe.period }}
+

@@ -39,7 +39,9 @@ spec:
             port: {{ .Values.docker.containerPort }}  # All defaults used
         volumeMounts:
         - name: repo
-          mountPath: {{ .Values.gitrepo.mountPath }} 
+          mountPath: {{ .Values.gitrepo.mountPath }}
+#      imagePullSecrets:
+#        - name: {{ .Values.registrySecret }}
       volumes:
       - name: repo 
         persistentVolumeClaim:

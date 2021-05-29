@@ -105,19 +105,19 @@ postgres:
   server: '{{clusters.mz.nodeport_node}}'
   nodeport: 30090  # fixed for connecting from outside the cluster
   user: postgres
-  password: postgres
+  password: Wuri@2021
   max_connections: 1000
   node_affinity: 
     enabled: false # To run postgres on an exclusive node
     node: 'mzworker0.inu.gov.gn' # Hostname. Run only on this node, and nothing else should run on this node
     taint:
       key: "postgres" # Key for applying taint on node
-      value: "only"  
+      value: "only"
 
 # Keycloak
 keycloak:
   user: admin
-  password: admin
+  password: Wuri@2021
   url: '{{clusters.mz.ingress.base_url}}/keycloak'
 
 # minio
@@ -133,6 +133,7 @@ minio:
     taint:
       key: "minio" # Key for applying taint on node
       value: "only"
+
 
 softhsm:
   keymanager:  
@@ -244,3 +245,6 @@ coredns:
 
 
 #t5Plugin]# keytool -import -noprompt -trustcacerts -alias mosipAuth -file /opt/Tech5/t5Plugin/test.inu.gov.gn.cer -keystore /etc/pki/java/cacerts -storepass changeit
+
+docker:
+  private_regisry_keyName: '{{secrets.docker.registry.keyName}}'

@@ -23,6 +23,8 @@ spec:
         app: {{ .Values.services.abishandler.serviceName }} 
         component: service-hazelcast-server
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{ .Values.services.abishandler.serviceName }} 
         image: {{ .Values.services.abishandler.dockerImage }}

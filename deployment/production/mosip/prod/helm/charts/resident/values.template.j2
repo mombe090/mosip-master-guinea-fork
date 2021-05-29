@@ -7,7 +7,7 @@ configServerUrl: http://config-server/config
 ingress:
    namespace: default
 artifactoryUrl: {{ artifactory_url }} 
-imagePullPolicy: IfNotPresent    #imagePullPolicy: Always
+imagePullPolicy: Always    #imagePullPolicy: Always
 domainName: {{ sandbox_domain_name }}
 internalDomain: {{ clusters.mz.nodeport_node }} 
 isGlowroot: {{ is_glowroot }} 

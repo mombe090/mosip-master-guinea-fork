@@ -20,6 +20,8 @@ spec:
       labels:
         app: {{.Values.services.ui.serviceName}}
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: {{.Values.services.ui.serviceName}}
         image: {{ .Values.services.ui.dockerImage  }}

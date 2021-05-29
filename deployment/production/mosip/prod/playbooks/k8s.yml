@@ -1,0 +1,7 @@
+- hosts: console
+  gather_facts: no
+  tasks:
+    - name: Add secret key for private registry
+      shell: kc1 create secret generic regcred \
+        --from-file=.dockerconfigjson=/home/mosipuser/.docker/config.json \
+        --type=kubernetes.io/dockerconfigjson
