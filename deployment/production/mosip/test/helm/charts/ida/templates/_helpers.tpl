@@ -8,7 +8,7 @@ volumeMounts:
 {{/* Template for adding logging sidecar */}}
 {{- define "logger.sidecar" }}
 - name: logger-sidecar
-  image: busybox
+  image: registry.inu.gov.gn/wuriguinea/busybox:latest
   args: [/bin/sh, -c, 'tail -F /logs/id-auth.log']
   volumeMounts:
   - name: applogs

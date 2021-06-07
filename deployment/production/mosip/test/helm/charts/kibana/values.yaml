@@ -82,12 +82,12 @@ httpPort: 5601
 
 extraContainers: ""
 # - name: dummy-init
-#   image: busybox
+#   image: registry.inu.gov.gn/wuriguinea/busybox:latest
 #   command: ['echo', 'hey']
 
 extraInitContainers: ""
 # - name: dummy-init
-#   image: busybox
+#   image: registry.inu.gov.gn/wuriguinea/busybox:latest
 #   command: ['echo', 'hey']
 
 updateStrategy:

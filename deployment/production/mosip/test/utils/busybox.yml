@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
   - name: busybox
-    image: busybox:1.28 
+    image: registry.inu.gov.gn/wuriguinea/busybox:latest:1.28
     args:
     - sleep
     - "1000000"

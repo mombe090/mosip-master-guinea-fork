@@ -12,7 +12,7 @@ metadata:
 spec:
   containers:
   - name: wget
-    image: busybox
+    image: registry.inu.gov.gn/wuriguinea/busybox:latest
     command: ['/bin/sh']
     args:
     - -c

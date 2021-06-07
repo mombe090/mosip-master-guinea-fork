@@ -7,7 +7,7 @@
 {{/* Template for adding logging sidecar */}}
 {{- define "logger.sidecar" }}
 - name: logger-sidecar
-  image: busybox
+  image: registry.inu.gov.gn/wuriguinea/busybox:latest
   args: [/bin/sh, -c, 'tail -F /home/logs/registrationProcessor.log']
   volumeMounts:
   - name: applogs
