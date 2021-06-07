@@ -26,35 +26,36 @@ versions:
 
     prereg:
       login:
-        'prereg-login-service': 'mosipid/pre-registration-login-service:1.1.1'
+        'prereg-login-service': 'registry.inu.gov.gn/mosipid/pre-registration-login-service:1.1.1'
       batch:
-        'prereg-batchjob-service': 'wuriguinea/pre-registration-batchjob:dev'
+        'prereg-batchjob-service': 'registry.inu.gov.gn/wuriguinea/pre-registration-batchjob:dev'
       contactus:
-        'prereg-contactus-service': 'wuriguinea/pre-registration-contactus:dev'
+        'prereg-contactus-service': 'registry.inu.gov.gn/wuriguinea/pre-registration-contactus:dev'
       document:
-        'prereg-document-service':  'mosipid/pre-registration-document-service:1.1.1'
+        'prereg-document-service':  'registry.inu.gov.gn/mosipid/pre-registration-document-service:1.1.1'
       transliteration:
-        'prereg-transliteration-service': 'mosipid/pre-registration-transliteration-service:1.1.1'
+        'prereg-transliteration-service': 'registry.inu.gov.gn/mosipid/pre-registration-transliteration-service:1.1.1'
       booking:
-        'prereg-booking-service': 'mosipid/pre-registration-booking-service:1.1.1'
+        'prereg-booking-service': 'registry.inu.gov.gn/mosipid/pre-registration-booking-service:1.1.1'
       qrcode:
-        'prereg-qrcode-service': 'mosipid/pre-registration-generateqrcode-service:1.1.1'
+        'prereg-qrcode-service': 'registry.inu.gov.gn/mosipid/pre-registration-generateqrcode-service:1.1.1'
       datasync:
-        'prereg-datasync-service': 'mosipid/pre-registration-datasync-service:1.1.1'
+        'prereg-datasync-service': 'registry.inu.gov.gn/mosipid/pre-registration-datasync-service:1.1.1'
       demographic:
-        'prereg-demographic-service':  'wuriguinea/pre-registration-demographic-service:UNIR_1.0.0'
+        'prereg-demographic-service':  'registry.inu.gov.gn/wuriguinea/pre-registration-demographic-service:UNIR_1.0.0'
       notification:
-        'prereg-notification-service': 'wuriguinea/pre-registration-notification-service:dev'
+        'prereg-notification-service': 'registry.inu.gov.gn/wuriguinea/pre-registration-notification-service:dev'
       captcha:
-        'prereg-captcha-service': 'mosipid/pre-registration-captcha-service:1.1.1'
+        'prereg-captcha-service': 'registry.inu.gov.gn/mosipid/pre-registration-captcha-service:1.1.1'
       ui:
-        'prereg-ui': 'wuriguinea/pre-registration-ui:test'
+        'prereg-ui': 'registry.inu.gov.gn/wuriguinea/pre-registration-ui:prod'
 
       qa:
-        'prereg-qa': 'wuriguinea/pre-registration-ui:qa'
+        'prereg-qa': 'registry.inu.gov.gn/wuriguinea/pre-registration-ui:qa'
 
       uiredeployer:
-        'prereg-uiapp-redployer': 'wuriguinea/ui-redeployer:dev'
+        'prereg-uiapp-redployer': 'registry.inu.gov.gn/wuriguinea/ui-redeployer:dev'
+
 
     regproc:
       camel:
