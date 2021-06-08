@@ -38,7 +38,10 @@ spec:
         - containerPort: {{activemq.container_port}} 
         readinessProbe:
           tcpSocket:
-            port: {{activemq.container_port}}  # All defaults used
+            port: {{activemq.container_port}}
+        - containerPort: 8161
+
+        # All defaults used
 
 ---
 apiVersion: v1
@@ -55,3 +58,19 @@ spec:
     - port: 80 
       targetPort: {{activemq.container_port}} 
       nodePort: {{activemq.nodeport}}  # Defined in group_vars/all.yml
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: active-mq-web-console
+  namespace: default
+
+spec:
+  selector:
+    app: {{activemq.name}}
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 8161
+      nodePort: 32500  # Defined in group_vars/all.yml
