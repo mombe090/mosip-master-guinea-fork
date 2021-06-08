@@ -23,7 +23,6 @@ spec:
     spec:
       containers:
       - name: {{ activemq.name }}
-        #image: webcenter/activemq:5.14.3
         image: webcenter/activemq:latest
         env:
         - name: ACTIVEMQ_CONFIG_MINMEMORY
@@ -40,7 +39,6 @@ spec:
           tcpSocket:
             port: {{ activemq.container_port }}
         - containerPort: 8161
-# All defaults used
 
 ---
 apiVersion: v1
