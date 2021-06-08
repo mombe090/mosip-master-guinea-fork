@@ -40,8 +40,7 @@ spec:
           tcpSocket:
             port: {{activemq.container_port}}
         - containerPort: 8161
-
-        # All defaults used
+# All defaults used
 
 ---
 apiVersion: v1
@@ -73,4 +72,5 @@ spec:
   ports:
     - port: 80
       targetPort: 8161
-      nodePort: 32500  # Defined in group_vars/all.yml
+      nodePort: 32500
+# Defined in group_vars/all.yml
