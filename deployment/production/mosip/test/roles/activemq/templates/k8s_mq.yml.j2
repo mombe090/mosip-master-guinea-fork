@@ -35,10 +35,11 @@ spec:
           value: "1 gb"
         ports:
         - containerPort: {{ activemq.container_port }}
+        - containerPort: 8161
         readinessProbe:
           tcpSocket:
             port: {{ activemq.container_port }}
-        - containerPort: 8161
+
 
 ---
 apiVersion: v1
