@@ -3,13 +3,13 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: {{activemq.name}}
+  name: {{ activemq.name }}
   namespace: default
 spec:
   replicas: 1 
   selector:
     matchLabels:
-      app: {{activemq.name}}
+      app: {{ activemq.name }}
   minReadySeconds: 10
   strategy:
     type: RollingUpdate
@@ -22,7 +22,7 @@ spec:
         app: {{activemq.name}}
     spec:
       containers:
-      - name: {{activemq.name}}
+      - name: {{ activemq.name }}
         #image: webcenter/activemq:5.14.3
         image: webcenter/activemq:latest
         env:
@@ -35,10 +35,10 @@ spec:
         - name: ACTIVEMQ_CONFIG_TEMPUSAGE
           value: "1 gb"
         ports:
-        - containerPort: {{activemq.container_port}} 
+        - containerPort: {{ activemq.container_port }}
         readinessProbe:
           tcpSocket:
-            port: {{activemq.container_port}}
+            port: {{ activemq.container_port }}
         - containerPort: 8161
 # All defaults used
 
@@ -46,17 +46,17 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{activemq.name}}
+  name: {{ activemq.name }}
   namespace: default
 
 spec:
   selector:
-    app: {{activemq.name}}
+    app: {{ activemq.name }}
   type: NodePort
   ports:
     - port: 80 
       targetPort: {{activemq.container_port}} 
-      nodePort: {{activemq.nodeport}}  # Defined in group_vars/all.yml
+      nodePort: {{ activemq.nodeport }}  # Defined in group_vars/all.yml
 
 ---
 apiVersion: v1
@@ -67,7 +67,7 @@ metadata:
 
 spec:
   selector:
-    app: {{activemq.name}}
+    app: {{ activemq.name }}
   type: NodePort
   ports:
     - port: 80
