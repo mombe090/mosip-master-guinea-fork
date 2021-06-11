@@ -36,6 +36,7 @@ spec:
           value: "1 gb"
         ports:
         - containerPort: {{activemq.container_port}} 
+        - containerPort: {{activemq.webconsole_port}}
         readinessProbe:
           tcpSocket:
             port: {{activemq.container_port}}  # All defaults used
@@ -44,14 +45,32 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{activemq.name}}
+  name: {{ activemq.name }}
   namespace: default
 
 spec:
   selector:
-    app: {{activemq.name}}
+    app: {{ activemq.name }}
   type: NodePort
   ports:
     - port: 80 
       targetPort: {{activemq.container_port}} 
-      nodePort: {{activemq.nodeport}}  # Defined in group_vars/all.yml
+      nodePort: {{activemq.nodeport}}
+      # Defined in group_vars/all.yml
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ activemq.name_webconsole }}
+  namespace: default
+
+spec:
+  selector:
+    app: {{ activemq.name }}
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: {{ activemq.webconsole_port }}
+      nodePort: {{ activemq.webconsole_nodeport }}
+      # Defined in group_vars/all.yml
