@@ -8,7 +8,7 @@ metadata:
     component: {{ .Values.component }} 
     
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: {{ .Values.services.audit.serviceName }} 
@@ -30,6 +30,13 @@ spec:
       - name: {{ .Values.services.audit.serviceName }} 
         image: {{ .Values.services.audit.dockerImage }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        resources:
+          requests:
+            memory: "5120Mi"
+            cpu: "1024m"
+          limits:
+            memory: "5120Mi"
+            cpu: "2048Mi"
         env:
         - name: active_profile_env
           value: {{ .Values.activeProfileEnv }} 
@@ -40,7 +47,9 @@ spec:
         - name: artifactory_url_env
           value: {{ .Values.artifactoryUrl }} 
         - name: is_glowroot_env
-          value: {{ .Values.isGlowroot }} 
+          value: {{ .Values.isGlowroot }}
+        - name: JAVA_OPTS
+          value: -server {{.Values.kernelAuditXms}} {{.Values.kernelAuditXmx}} -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true
         ports:
         - containerPort: {{ .Values.services.audit.containerPort }}
         readinessProbe:
